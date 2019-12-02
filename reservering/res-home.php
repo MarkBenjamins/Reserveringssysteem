@@ -38,15 +38,14 @@
  End Kamer Keuze Menu-->
 <div>
     <form action="/action_page.php">
-        Aankomst: <input type="date" name="Aankomst"class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset">
-        Vertrek: <input type="date" name="Vertrek"class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset">
-    
-    <select name="kamerkeuze" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset">
-        <option value="Eenpersoonskamer">Eenpersoonskamer</option>
-        <option value="Tweepersoonskamer">Tweepersoonskamer</option>
-        <option value="Vierpersoonskamer">Vierpersoonskamer</option>
-    </select>
-    <button type="button" class="btn btn-outline-danger">Zoek</button>
+        Aankomst: <input type="date" name="Aankomst"class="btn btn-outline-danger">
+        Vertrek: <input type="date" name="Vertrek"class="btn btn-outline-danger">
+        <select name="kamerkeuze" class="btn btn-outline-danger">
+            <option value="Eenpersoonskamer">Eenpersoonskamer</option>
+            <option value="Tweepersoonskamer">Tweepersoonskamer</option>
+            <option value="Vierpersoonskamer">Vierpersoonskamer</option>
+        </select>
+        <button type="button" class="btn btn-outline-danger">Zoek</button>
     </form>
 </div>
 
