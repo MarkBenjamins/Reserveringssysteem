@@ -7,11 +7,9 @@ include('include/header.php');
 <div class="container-fluid">
     <div class="row">
         <div class="col-6">
-            x
             Voorbeeld van hoe rows werken
         </div>
         <div class="col-6">
-            x
             Voorbeeld van hoe rows werken
         </div>
     </div>
