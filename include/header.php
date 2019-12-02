@@ -9,10 +9,20 @@
 		?>
 		<meta name="description" content="Sollestijn">
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="author" content="Twan Bosma">
 	</head>
 	<body>
-		<div class="row">
+		<div class="container-fluid">
 			<div id="main" class="col-lg-8 col-12">
+				<div id="header" class="row">
+					<div class="col-4" id="logo">
+						<a href="index.php"><img src="img/logo.png" alt="logo"></a>
+					</div>
+					<nav>
+						
+					</nav>
+				</div>
+			
 				<!-- Dit is onze MAIN CONTENT !! -->
-			</div>
+				
