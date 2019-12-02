@@ -12,3 +12,7 @@
 		<meta name="author" content="Twan Bosma">
 	</head>
 	<body>
+		<div id="main" class="row">
+			<div class="col-lg-8">
+				asdfghjkl
+			</div>
