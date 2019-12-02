@@ -8,6 +8,3 @@
 		<meta name="author" content="Twan Bosma">
 	</head>
 	<body>
-		
-	</body>
-</html>

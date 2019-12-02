@@ -1,0 +1,7 @@
+/* Background */
+body{
+background-image: url(../img/bg.jpg);
+background-attachment: fixed;
+background-size: cover;
+background-color: grey;
+}
