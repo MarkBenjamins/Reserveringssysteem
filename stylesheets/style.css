@@ -5,3 +5,11 @@ background-attachment: fixed;
 background-size: cover;
 background-color: grey;
 }
+/* Main */
+#main{
+
+	height: 1000px;
+	background-color: black;
+	margin-left: auto;
+	margin-right: auto;
+}
