@@ -32,7 +32,13 @@ div > #header, div > #footer{
 	border: 4px solid black;
 	margin: 15px;
 }
+#nav{
+	float: right;
+}
 /* Text */
 h1{
-	
+	font-size: 72px;
+}
+li{
+	border: 4px solid black;
 }

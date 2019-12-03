@@ -25,11 +25,11 @@
 						</div>
 						<div id="nav" class="col-12">
 							<nav>
-								<ul>
-									<li>Home</li>
-									<li>Reserveren</li>
-									<li>Gallerij</li>
-									<li>Contact</li>
+								<ul class="nav nav-pills nav-justified">
+									<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+									<li class="nav-item"><a class="nav-link" href="#">Reserveren</a></li>
+									<li class="nav-item"><a class="nav-link" href="#">Gallerij</a></li>
+									<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
 								</ul>
 							</nav>
 						</div>
