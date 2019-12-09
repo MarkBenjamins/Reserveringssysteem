@@ -16,7 +16,13 @@ include('include/header.php');
                         <p>Voornaam</p>
                         <input class="form" type="text" name="fname"><br>
                         <p>Achternaam</p>
-                        <input class="form" type="password" name="lname"><br><br>
+                        <input class="form" type="text" name="lname"><br>
+                        <p>E-mailadres</p>
+                        <input class="form" type="email" name="email"><br>
+                        <p>Telefoonnummer</p>
+                        <input class="form" type="number" name="telnmr"><br>
+                        <p>Geboortedatum</p>
+                        <input class="form" type="date" name="gdate"><br><br>
                         <input type="submit" name="submit">
                     </form>
                     <?php
