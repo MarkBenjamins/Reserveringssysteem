@@ -9,15 +9,6 @@
     <title>Gallerij</title>
   </head>
   <body>
-  <?php
-  $stylesheet = "mycustomsheet";
-  include('include/header.php');
-?>
-
-<?php
-include('include/footer.php');
-?>
-
     <h1>Gallerij</h1>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
