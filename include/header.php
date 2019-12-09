@@ -38,6 +38,5 @@
 							</div>
 						</div>
 					</div>
-				
-				
-				<!-- Dit is onze MAIN CONTENT !! -->
+					<div id="content">
+					<!-- Dit is onze MAIN CONTENT !! -->

@@ -1,5 +1,5 @@
 <?php
-$stylesheet = "mycustomsheet.css";
+$stylesheet = "mycustomsheet";
 include('include/header.php');
 ?>
 
