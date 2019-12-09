@@ -3,9 +3,11 @@
     padding: 0;
 }
 .title{
-    font-size: 20px;
-    color:red;
+    font-size:30px;
 }
 .form{
     text-align: center;
+}
+.formbox{
+    height:400px;
 }
