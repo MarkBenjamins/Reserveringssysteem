@@ -39,4 +39,5 @@
 							</div>
 						</div>
 					</div>
+				</div>
 					<!-- Dit is onze MAIN CONTENT !! -->
