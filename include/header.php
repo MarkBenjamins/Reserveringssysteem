@@ -40,4 +40,5 @@
 						</div>
 					</div>
 				</div>
+				<div id="content">
 					<!-- Dit is onze MAIN CONTENT !! -->

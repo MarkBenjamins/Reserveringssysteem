@@ -34,7 +34,7 @@ min-width: 360px;
 ul{
 	list-style-type: none;
 }
-div > #header, div > #footer{
+div > #header, div > #footer, div > #content{
 	background-image: linear-gradient(to bottom, #6E2C2E, #884F4C);
 	border: 4px solid black;
 	margin: 15px;
