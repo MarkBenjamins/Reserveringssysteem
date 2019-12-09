@@ -2,6 +2,7 @@
 $stylesheet = "gallery";
 include('include/header.php');
 ?>
+<div>
 <div id="vb">
     <h1>Gallerij</h1>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -12,13 +13,13 @@ include('include/header.php');
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="img/kamer1.jpg" alt="First slide">
+      <img class="d-block w-70" src="img/kamer1.jpg" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="img/kamer2.jpg" alt="Second slide">
+      <img class="d-block w-70" src="img/kamer2.jpg" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="img/kamer3.jpg" alt="Third slide">
+      <img class="d-block w-70" src="img/kamer3.jpg" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -34,6 +35,7 @@ include('include/header.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </div>
+</div>
 <?php
 include('include/footer.php');
 ?>
