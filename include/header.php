@@ -8,7 +8,7 @@
 	<?php
 	echo "<link href='stylesheets/" . $stylesheet . ".css' type='text/css' rel='stylesheet'>";
 	?>
-	<meta name="description" content="Sollestijn">
+	<meta name="description" content="Landgoed Sollestijn">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="author" content="Twan Bosma">
