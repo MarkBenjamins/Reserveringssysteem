@@ -1,6 +1,6 @@
 <?php 
-$stylesheet = "betalen.css";
-include "../include/header.php"; 
+$stylesheet = "betalen";
+include "include/header.php"; 
 ?>
 
 <div class="container-fluid">
@@ -8,12 +8,13 @@ include "../include/header.php";
         <div class="col-3">
         </div>
         <div class="col-6">
-            <p>test</p>
-            <h1>dead</h1>
+            <form method="POST" action="res-bevestig.php">
+                
+            </form>
         </div>
         <div class="col-3">
         </div>
     </div>
 </div>
 
-<?php include "../include/footer.php"; ?>
+<?php include "include/footer.php"; ?>
