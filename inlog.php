@@ -3,7 +3,7 @@ $stylesheet = "inlog";
 include('include/header.php');
 ?>
 <div class="container-fluid">
-    <div class="row login">
+    <div class="row content">
         <div class="col-12 formbox">
             <div class="row form">
                 <div class="col-2">
