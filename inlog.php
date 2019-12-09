@@ -5,13 +5,11 @@ include('include/header.php');
 <div class="container-fluid">
     <div class="row login">
         <div class="col-12 formbox">
-            <div class="row title">
-            </div>
             <div class="row form">
                 <div class="col-2">
                 </div>
                 <div class="col-8">
-                    <h2>voer hier uw inloggegevens in</h2>
+                    <p class="title">voer hier uw inloggegevens in</p>
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                         <p>username:</p>
                         <input class="form" type="text" name="uname"><br>
