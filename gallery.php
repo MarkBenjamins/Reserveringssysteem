@@ -2,10 +2,9 @@
 $stylesheet = "gallery";
 include('include/header.php');
 ?>
-<div id="headertekst"><h1>Gallerij</h1>
-</div>
 <div id="gallerybox"> <!-- start gallerybox !-->
-
+  <div id="galleryheader"><center><h1>Gallerij</h1></center>
+  </div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
