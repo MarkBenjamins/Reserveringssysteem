@@ -12,9 +12,6 @@ include('include/header.php');
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -24,16 +21,10 @@ include('include/header.php');
       <img class="d-block w-100" src="img/kamer2.jpg" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="img/kamer3.jpg" alt="Third slide">
-    </div>
-    <div class="carousel-item">
       <img class="d-block w-100" src="img/kamer4.jpg" alt="Fourth slide">
     </div>
     <div class="carousel-item">
       <img class="d-block w-100" src="img/kamer5.jpg" alt="Fifth slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="img/kamer6.jpg" alt="Sixth slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
