@@ -2,44 +2,37 @@
 $stylesheet = "res-home";
 include('include/header.php');
 ?>
-
-
+	<!--Door Mark Benjamins-->
 <!--Start Kamer Keuze Menu-->
   <center><h1>Reservering</h1></center>
-  <div>
-    <div id="res-home"><center>
-		<form class="dd-mm-jjjj">
+		<form id="res-home"><center>
 			<div>
 				Aankomst: 
 			</div>
-			<div class="margin">
+			<div>	<!-- Datum keuze menu -->
 				<input type="date" name="Aankomst"class="btn btn-outline-danger">
 			</div>
 			<div>
 				Vertrek: 
 			</div>
-			<div class="margin">
+			<div>	<!-- Datum keuze menu -->
 				<input type="date" name="Aankomst"class="btn btn-outline-danger">
 			</div>
-			<div class="kamer">
-				<div>
-					Kamerkeuze: 
-				</div>			
+			<div>
+				Kamerkeuze: 
+			</div>	
+			<div>	<!-- Kamer keuze menu -->			
 				<select name="kamerkeuze" class="btn btn-outline-danger">
 					<option value="Eenpersoonskamer">Eenpersoonskamer</option>
 					<option value="Tweepersoonskamer">Tweepersoonskamer</option>
 					<option value="Vierpersoonskamer">Vierpersoonskamer</option>
-				</select>
+				</select> 
 			</div>
-				<div>
+			<div>	<!-- Zoek knop -->
 				<button type="button" class="btn btn-outline-danger">Zoek</button>
-				</div>
-		</form>
-	</div></center>
+			</div>
+		</form></center>
 <!--End Kamer Keuze Menu-->
-
-
-
 <?php
 include('include/footer.php');
 ?>

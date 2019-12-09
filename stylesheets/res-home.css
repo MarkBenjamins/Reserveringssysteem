@@ -1,16 +1,16 @@
+	/*Door Mark Benjamins */
+/*Start Reserveringssysteem home-page*/
+h1{
+	padding-bottom: 15px;
+}
 #res-home{
-	height: 450px;
+	color: white;	
+	height: 400px;
 	padding: 10px;
 }
-
-.btn-outline-danger, .btn{ 
+.btn-outline-danger,.btn{ 
 	color: white;
 	border: solid 4px black;
 	margin-bottom: 15px;
 }
-h1{
-	padding-bottom: 15px;
-}
-.dd-mm-jjjj{
-	color: white;
-}
+/*End Reserveringssysteem home-page*/
