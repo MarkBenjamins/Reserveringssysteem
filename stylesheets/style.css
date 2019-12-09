@@ -8,7 +8,7 @@ min-width: 360px;
 }
 /* Main */
 #main{
-	height: 800px;
+	height: 100%;
 	background: rgba(0, 0, 0, 0.75);
 	margin: 0 auto auto auto;
 	border-radius: 15px;

@@ -9,13 +9,13 @@ include('include/header.php');
                 <div class="col-2">
                 </div>
                 <div class="col-8">
-                    <p class="title">voer hier uw inloggegevens in</p>
+                    <p class="title">Voer hier uw inloggegevens in</p>
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                        <p>username:</p>
-                        <input class="form" type="text" name="uname"><br>
-                        <p>password:</p>
-                        <input class="form" type="password" name="pword"><br><br>
-                        <input type="submit" name="submit">
+                        <p>Gebruikersnaam:</p>
+                        <input class="form" type="text" name="uname" alt="test"placeholder="Gebruikersnaam"><br><br>
+                        <p>Wachtwoord:</p>
+                        <input class="form" type="password" name="pword" placeholder="Wachtwoord"><br><br>
+                        <input type="submit" name="submit" value="Log in">
                     </form>
                     <?php
                     if (empty($_POST["uname"])) {
@@ -25,16 +25,21 @@ include('include/header.php');
                     } else {
                         $uname = $_POST["uname"];
                         $pword = $_POST["pword"];
-                        if ($pword === "qwerty" && $uname === "qwerty") {
-                            function Redirect($url, $permanent = false)
-                            {
-                                if (headers_sent() === false) {
-                                    header('Location: ' . $url, true, ($permanent === true) ? 301 : 302);
-                                }
-
-                                exit();
+                        function Redirect($url, $permanent = false)
+                        {
+                            if (headers_sent() === false) {
+                                header('Location: ' . $url, true, ($permanent === true) ? 301 : 302);
                             }
-                            Redirect('http://www.google.com/', false);
+                            exit();
+                        }
+                        if ($pword === "admin" && $uname === "admin") {
+                            Redirect('https://santatracker.google.com/codeboogie.html', false);
+                        }
+                        elseif ($pword === "med" && $uname === "med") {
+                            Redirect('https://santatracker.google.com/codeboogie.html', false);
+                        }
+                        elseif($pword === "beh" && $uname === "beh") {
+                            Redirect('https://santatracker.google.com/codeboogie.html', false);
                         }
                         else{
                             echo "incorrect username or password";
