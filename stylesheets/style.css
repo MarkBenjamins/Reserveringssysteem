@@ -25,18 +25,16 @@ min-width: 360px;
     margin-right: auto;
     z-index: 1337;
 }
-
 #logo a {
 	
 }
-
 #logo a img {
 	/*width: 50%;*/
 }
 ul{
 	list-style-type: none;
 }
-div > #header, div > #footer{
+div > #header, div > #footer, div > #content{
 	background-image: linear-gradient(to bottom, #6E2C2E, #884F4C);
 	border: 4px solid black;
 	margin: 15px;
@@ -55,5 +53,4 @@ li{
 
 .header-text {
 	font-size: 50px;
-	
 }
