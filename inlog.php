@@ -12,9 +12,9 @@ include('include/header.php');
                     <p class="title">voer hier uw inloggegevens in</p>
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                         <p>username:</p>
-                        <input class="form" type="text" name="uname" alt="test"><br>
+                        <input class="form" type="text" name="uname" alt="test"placeholder="username"><br>
                         <p>password:</p>
-                        <input class="form" type="password" name="pword"><br><br>
+                        <input class="form" type="password" name="pword" placeholder="password"><br><br>
                         <input type="submit" name="submit" value="Log in">
                     </form>
                     <?php
