@@ -6,21 +6,15 @@ include('include/header.php');
 <!--Start Kamer Keuze Menu-->
   <center><h1>Reservering</h1></center>
 		<form id="res-home"><center>
-			<div>
 				Aankomst: 
-			</div>
 			<div>	<!-- Datum keuze menu -->
 				<input type="date" name="Aankomst"class="btn btn-outline-danger">
 			</div>
-			<div>
 				Vertrek: 
-			</div>
 			<div>	<!-- Datum keuze menu -->
 				<input type="date" name="Aankomst"class="btn btn-outline-danger">
 			</div>
-			<div>
 				Kamerkeuze: 
-			</div>	
 			<div>	<!-- Kamer keuze menu -->			
 				<select name="kamerkeuze" class="btn btn-outline-danger">
 					<option value="Eenpersoonskamer">Eenpersoonskamer</option>
@@ -29,7 +23,7 @@ include('include/header.php');
 				</select> 
 			</div>
 			<div>	<!-- Zoek knop -->
-				<button type="button" class="btn btn-outline-danger">Zoek</button>
+				<input type="submit" class="btn btn-outline-danger" value="Zoek">
 			</div>
 		</form></center>
 <!--End Kamer Keuze Menu-->
