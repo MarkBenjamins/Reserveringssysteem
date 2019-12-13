@@ -5,7 +5,7 @@ include('include/header.php');
 	<!--Door Mark Benjamins-->
 <!--Start Kamer Keuze Menu-->
   <center><h1>Reservering</h1></center>
-		<form id="res-home" action="inlog.php" method="POST"><center>
+		<form id="res-home" action="res-betaling.php" method="POST"><center>
 				Aankomst: 
 			<div>	<!-- Datum keuze menu -->
 				<input type="date" name="Aankomst" class="btn btn-outline-danger">

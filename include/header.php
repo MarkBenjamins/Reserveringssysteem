@@ -5,6 +5,7 @@
 	<title>Landgoed Sollestijn</title>
 	<link href="stylesheets/bootstrap.css" type="text/css" rel="stylesheet">
 	<link href="stylesheets/style.css" type="text/css" rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="img/SollestijnLogo.ico"/> <!-- Voor het plaatsen van de logo in het tablad-->
 	<?php
 	echo "<link href='stylesheets/" . $stylesheet . ".css' type='text/css' rel='stylesheet'>";
 	?>
@@ -24,14 +25,12 @@
 					</div>
 					<div id="span" class="col-9">
 						<div class="row">
-							
 								<div id="geel" class="h1">
 									Landgoed
 								</div>
 								<div class="h1">
-									&nbspSollestijn
+									&nbspSollestijn    <!--&nbsp is een spatie-->
 								</div>
-							
 							<div id="nav" class="col-12">
 								<nav class="navbar-expand-lg">
 									<ul class="nav nav-pills nav-justified">
