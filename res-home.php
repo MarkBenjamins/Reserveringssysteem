@@ -8,11 +8,11 @@ include('include/header.php');
 		<form id="res-home" action="inlog.php" method="POST"><center>
 				Aankomst: 
 			<div>	<!-- Datum keuze menu -->
-				<input type="date" name="Aankomst"class="btn btn-outline-danger">
+				<input type="date" name="Aankomst" class="btn btn-outline-danger">
 			</div>
 				Vertrek: 
 			<div>	<!-- Datum keuze menu -->
-				<input type="date" name="Aankomst"class="btn btn-outline-danger">
+				<input type="date" name="Aankomst" class="btn btn-outline-danger">
 			</div>
 				Kamerkeuze: 
 			<div>	<!-- Kamer keuze menu -->			

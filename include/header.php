@@ -2,7 +2,7 @@
 <html lang="nl">
 
 <head>
-	<title>Sollestijn</title>
+	<title>Landgoed Sollestijn</title>
 	<link href="stylesheets/bootstrap.css" type="text/css" rel="stylesheet">
 	<link href="stylesheets/style.css" type="text/css" rel="stylesheet">
 	<?php
@@ -11,7 +11,7 @@
 	<meta name="description" content="Landgoed Sollestijn">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="author" content="Twan Bosma">
+	<meta name="author" content="Twan Bosma, Mark Benjamins">
 </head>
 
 <body>
@@ -24,16 +24,21 @@
 					</div>
 					<div id="span" class="col-9">
 						<div class="row">
-							<div id="banner" class="col-12">
-								<p class="h1">Landgoed Sollestijn</p>
-							</div>
+							
+								<div id="geel" class="h1">
+									Landgoed
+								</div>
+								<div class="h1">
+									&nbspSollestijn
+								</div>
+							
 							<div id="nav" class="col-12">
 								<nav class="navbar-expand-lg">
 									<ul class="nav nav-pills nav-justified">
-										<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-										<li class="nav-item"><a class="nav-link" href="#">Reserveren</a></li>
-										<li class="nav-item"><a class="nav-link" href="#">Gallerij</a></li>
-										<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+										<li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+										<li class="nav-item"><a class="nav-link" href="res-home.php">Reserveren</a></li>
+										<li class="nav-item"><a class="nav-link" href="gallery.php">Gallerij</a></li>
+										<li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
 									</ul>
 								</nav>
 							</div>
