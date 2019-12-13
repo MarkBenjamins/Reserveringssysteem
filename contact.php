@@ -23,7 +23,7 @@ include('include/header.php');
 				<textarea name="textarea" placeholder="Type hier een bericht."></textarea>
 			</div>
 			<div> <!--Verzend-->
-				<a href="#"><input type="submit" name="Verzend"	value="Verzend"></a>
+				<a href="#"><input type="submit" class="verzendopmaak" name="Verzend"	value="Verzend"></a>
 			</div>
 		</form></center>
 <!--End Contact pagina-->
