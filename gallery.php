@@ -26,13 +26,16 @@ if(isset($_REQUEST['submit']))
     echo "invalid file.";
   }
 }
-else
-{
-?>
+
+if(isset($_SESSION["gebruiker"])) {
+  //var_dump($_SESSION["gebruiker"]);
+  ?>
+
 <form method="post" enctype="multipart/form-data">
-File name:<input type="file" name="imgfile">
-<input type="submit" name="submit" value="upload">
+  File name:<input type="file" name="imgfile">
+  <input type="submit" name="submit" value="upload">
 </form>
+
 <?php
 }
 ?>
