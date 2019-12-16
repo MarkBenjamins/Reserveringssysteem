@@ -5,6 +5,40 @@ include('include/header.php');
 <div id="gallerybox"> <!-- start gallerybox !-->
   <div id="galleryheader"><center><h1>Gallerij</h1></center>
   </div>
+<?php
+if(isset($_REQUEST['submit']))
+{
+  $filename=  $_FILES["imgfile"]["name"];
+  if ((($_FILES["imgfile"]["type"] == "image/gif")|| ($_FILES["imgfile"]["type"] == "image/jpeg") || ($_FILES["imgfile"]["type"] == "image/png")  || ($_FILES["imgfile"]["type"] == "image/pjpeg")) && ($_FILES["imgfile"]["size"] < 200000))
+  {
+    if(file_exists($_FILES["imgfile"]["name"]))
+    {
+      echo "File name exists.";
+    }
+    else
+    {
+      move_uploaded_file($_FILES["imgfile"]["tmp_name"],"img/$filename");
+      echo "Upload Successful . <a href='img/$filename'>Click here</a> to view the uploaded image";
+    }
+  }
+  else
+  {
+    echo "invalid file.";
+  }
+}
+
+if(isset($_SESSION["gebruiker"])) {
+  //var_dump($_SESSION["gebruiker"]);
+  ?>
+
+<form method="post" enctype="multipart/form-data">
+  File name:<input type="file" name="imgfile">
+  <input type="submit" name="submit" value="upload">
+</form>
+
+<?php
+}
+?>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
