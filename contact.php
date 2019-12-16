@@ -6,23 +6,23 @@ include('include/header.php');
 <!--Start Contact pagina-->
 	<center><h1>Contact</h1></center>
 		<form id="res-home" action="#" method="POST"><center>
-				*Naam:	<!--Gebruiker-->
+				*Naam:				<!--Gebruiker-->
 			<div class="formulier"> 
 				<input type="text" name="naam" Placeholder="Naam"> 
 			</div>
-				*E-mail:	<!--Email-->
+				*E-mail:			<!--Email-->
 			<div class="formulier"> 
 				<input type="text" name="email" Placeholder="E-mail" >
 			</div>
-				Mobiel number:	<!--Tel-->
+				Mobiel number:		<!--Tel-->
 			<div class="formulier"> 
 				<input type="text" name="mobielnummer" Placeholder="Mobiel number">
 			</div>
-				*Bericht:	<!--Bericht-->
+				*Bericht:			<!--Bericht-->
 			<div class="formulier">		
 				<textarea name="textarea" placeholder="Type hier een bericht."></textarea>
 			</div>
-			<div> <!--Verzend-->
+			<div> 					<!--Verzend-->
 				<a href="#"><input type="submit" class="verzendopmaak" name="Verzend"	value="Verzend"></a>
 			</div>
 		</form></center>

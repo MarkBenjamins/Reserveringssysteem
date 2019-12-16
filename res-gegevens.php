@@ -14,13 +14,13 @@ include('include/header.php');
                     <h2>Persoonsgegevens</h2>
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                         <p>Voornaam</p>
-                        <input class="form" type="text" name="fname"><br>
+                        <input class="form" type="text" placeholder="Uw voornaam" name="fname"><br>
                         <p>Achternaam</p>
-                        <input class="form" type="text" name="lname"><br>
+                        <input class="form" type="text" placeholder="Uw achternaam" name="lname"><br>
                         <p>E-mailadres</p>
-                        <input class="form" type="email" name="email"><br>
+                        <input class="form" type="email" placeholder="Uw e-mailadres" name="email"><br>
                         <p>Telefoonnummer</p>
-                        <input class="form" type="number" name="telnmr"><br>
+                        <input class="form" type="tel" placeholder="Uw telefoonnummer" name="telnmr"><br>
                         <p>Geboortedatum</p>
                         <input class="form" type="date" name="gdate"><br><br>
                         <input type="submit" name="submit">
