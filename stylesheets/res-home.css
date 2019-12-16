@@ -1,8 +1,6 @@
 	/*Door Mark Benjamins */
 /*Start Reserveringssysteem home-page*/
-h1{
-	padding-bottom: 15px;
-}
+
 #res-home{
 	color: white;	
 	height: 400x;
@@ -14,3 +12,17 @@ h1{
 	margin-bottom: 15px;
 }
 /*End Reserveringssysteem home-page*/
+
+	/*Door Mark Benjamins */
+/*Start contagt home-page*/
+textarea{
+	height: 200px;
+	width: 400px;
+}
+.formulier{
+	padding-bottom: 15px;
+}
+.verzendopmaak{
+	margin-bottom: 15px;
+}
+/*End contact home-page*/
