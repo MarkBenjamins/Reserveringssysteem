@@ -1,6 +1,7 @@
 <?php 
 $stylesheet = "betalen";
 include "include/header.php"; 
+//hier wordt de header code ingevoegd op de pagina
 ?>
 
 <div class="container-fluid">
@@ -11,13 +12,11 @@ include "include/header.php";
             <center>
                 <form method="POST" action="res-bevestig.php">
                     <h1>Betaling</h1>
-                    <p>selecteer uw bank</p>
-                    <select name="methode" class="btn btn-outline-danger">
-                        <option value="paypal">PayPal</option>
-                        <option value="iDeal">iDeal</option>
-                        <option value="creditcard">Creditcard</option>
-                    </select>
-                    <input type="submit" name="methode" value="betaal">
+                    <p>selecteer uw betaalmethode</p>
+                   <input type='radio' value='paypal' name='methode' checked>PayPal<br>
+                    <input type='radio' value='iDeal' name='methode'>iDeal<br>
+                    <input type='radio' value='creditcard' name='methode'>creditcard<br>
+                    <input type="submit" name="methodesubmit" value="betaal">
                 </form>
             </center>
         </div>
@@ -26,4 +25,6 @@ include "include/header.php";
     </div>
 </div>
 
-<?php include "include/footer.php"; ?>
+<?php include "include/footer.php"; 
+//hier wordt de footer code ingevoegd op de pagina
+?>

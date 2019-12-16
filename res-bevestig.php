@@ -9,15 +9,18 @@ include "include/header.php";
         </div>
         <div class="col-6">
             <?php
-                if (isset($_POST["methode"])){
-                    if ($_POST["btn btn-outline-danger"] = "paypal"){
+                if (isset($_POST["methodesubmit"])){
+                    if ($_POST["methode"] == "paypal"){
                         echo "Bedankt voor het betalen met PayPal.";
                     }
-                    elseif ($_POST["btn btn-outline-danger"] = "iDeal"){
+                    elseif ($_POST["methode"] == "iDeal"){
                         echo "Bedankt voor het betalen met iDeal.";
                     }
-                    elseif ($_POST["btn btn-outline-danger"] = "creditcard"){
+                    elseif ($_POST["methode"] == "creditcard"){
                         echo "Bedankt voor het betalen met creditcard.";
+                    }
+                    else {
+                        echo "wtf";
                     }
                 }
                 else {
