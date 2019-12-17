@@ -9,6 +9,12 @@ include('include/header.php');
                 <div class="col-2">
                 </div>
                 <div class="col-8">
+
+                    <?php
+                    if(ISSET($_SESSION["gebruiker"])) {
+                        echo "U BENT AL INGELOGD JOH!";
+                    }
+                    ?>
                     <p class="title">Voer hier uw inloggegevens in</p>
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                         <p>Gebruikersnaam:</p>
@@ -26,7 +32,6 @@ include('include/header.php');
 </div>
 <?php
 include('include/footer.php');
-
 
 if(ISSET($_POST["submit"])) {
     if(!empty($_POST["pword"]) || !empty($_POST["uname"])) {
