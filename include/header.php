@@ -34,12 +34,12 @@ if(isset($_SESSION["gebruiker"])) {
 					</div>
 					<div id="span" class="col-9">
 						<div class="row">
-								<div id="geel" class="h1">
-									Landgoed
-								</div>
-								<div class="h1">
-									&nbspSollestijn    <!--&nbsp is een spatie-->
-								</div>
+							<div id="geel" class="h1">
+								Landgoed
+							</div>
+							<div class="h1">
+								&nbspSollestijn    <!--&nbsp is een spatie-->
+							</div>	
 							<div id="nav" class="col-12">
 								<nav class="navbar-expand-lg">
 									<ul class="nav nav-pills nav-justified">
