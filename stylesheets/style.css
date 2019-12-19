@@ -50,6 +50,16 @@ li{
 .header-text {
 	font-size: 50px;
 }
+h2, .text{
+	padding: 20px;
+	text-align: center;
+}
+.text{
+	color: white;
+}
+h2{
+	color: #fcbd06;
+}
 
 /*Mark Benjamins*/
 /*Opmaak update*/
