@@ -65,6 +65,7 @@ if(ISSET($_POST["submit"])) {
                 $_SESSION["gebruiker"]["id"] = $id;
                 $_SESSION["gebruiker"]["rechten"] = $rechten;
                 $_SESSION["gebruiker"]["gebruikersnaam"] = $gebruikersnaam;
+                header("Location: index.php");
             }
         } else {
             die("could not prepare");
