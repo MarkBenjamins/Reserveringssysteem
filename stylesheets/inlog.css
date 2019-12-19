@@ -4,10 +4,14 @@
 }
 .title{
     font-size:30px;
+	color: white;
 }
 .form{
     text-align: center;
 }
 .formbox{
     height:400px;
+}
+p{
+	color: white;
 }
