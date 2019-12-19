@@ -9,7 +9,6 @@ include('include/header.php');
                 <div class="col-2">
                 </div>
                 <div class="col-8">
-
                     <?php
                     if(ISSET($_SESSION["gebruiker"])) {
                         echo "U BENT AL INGELOGD JOH!";
@@ -70,10 +69,6 @@ if(ISSET($_POST["submit"])) {
         } else {
             die("could not prepare");
         }
-
-
-
-
     } else {
         $_SESSION["messages"] = "Vul gelieve beide velden in !";
         echo "empty fields";
