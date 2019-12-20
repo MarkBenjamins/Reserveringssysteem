@@ -23,7 +23,7 @@ include('include/header.php');
 				</select> 
 			</div>
 			<div>	<!-- Zoek knop -->
-				<input required type="submit" class="btn btn-outline-danger" name="submit" value="Zoek">
+				<input required type="submit" class="btn mark-btn" name="submit" value="Zoek">
 			</div>
 		</form></center>
 <!--End Kamer Keuze Menu-->

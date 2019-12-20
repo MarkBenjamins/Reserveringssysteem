@@ -47,6 +47,10 @@ h1{
 li{
 	border: 4px solid black;
 }
+li:hover > a {
+	text-decoration: none;
+	color: #dc3545;
+}
 .header-text {
 	font-size: 50px;
 }
