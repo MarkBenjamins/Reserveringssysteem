@@ -5,11 +5,11 @@ include "include/header.php";
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-3">
+        <div class="col-4">
         </div>
-        <div class="col-6">
-			<h1>Betaald</h1>	<!--eddit by Mark Benjamins-->
-            <?php
+        <div class="col-4">
+			<center><h1>Betaald</h1>	<!--eddit by Mark Benjamins-->
+            <?php //Controle en melding van de betaalmethode
                 if (isset($_POST["methodesubmit"])){
                     if ($_POST["methode"] == "paypal"){
                         echo "<p class='tekstkleur'>Bedankt voor het betalen met IDeal.</p>";
@@ -21,7 +21,7 @@ include "include/header.php";
                         echo "<p class='tekstkleur'>Bedankt voor het betalen met creditcard.</p>";
                     }
                     else {
-                        echo "error";
+                        echo "Error onbekende betaalmethode.";
                     }
                 }
                 else {
@@ -30,9 +30,9 @@ include "include/header.php";
             ?>
 			<form method="POST" action="index.php">
                 <input type="submit" class="btn btn-outline-danger" value="Terug naar Home" name="methodesubmit">
-            </form>
+            </form></center>		
         </div>
-        <div class="col-3">
+        <div class="col-4">
         </div>
     </div>
 </div>
