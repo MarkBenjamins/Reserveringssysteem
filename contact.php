@@ -5,28 +5,40 @@ include('include/header.php');
 	<!--Door Mark Benjamins-->
 <!--Start Contact pagina-->
 	<center><h1>Contact</h1></center>
-		<form id="res-home" action="#" method="POST"><center>
-				*Naam:				<!--Gebruiker-->
-			<div class="formulier"> 
-				<input type="text" name="naam" Placeholder="Naam"> 
+
+		<form id="res-home" action="contact.php" method="POST"><center>
+			<?php //Als je verzend knop drukt echo verzonden
+				if (isset($_POST['Verzend']))
+				{
+					echo "<h2>Het bericht is verzonden</h2>";
+				}
+				else
+				{
+					//echo "<p>Het bericht is niet verzonden</p>";
+				}
+			?>
+			<label for="naam">*Naam:</label>					
+			<div> <!--Gebruiker-->
+				<input class="formulier" required type="text" name="naam" Placeholder="Naam"> 
 			</div>
-				*E-mail:			<!--Email-->
-			<div class="formulier"> 
-				<input type="text" name="email" Placeholder="E-mail" >
+			<label for="email">*E-mail:</label>					
+			<div> <!--Email-->
+				<input class="formulier" required type="text" name="email" Placeholder="E-mail" >
 			</div>
-				Mobiel number:		<!--Tel-->
-			<div class="formulier"> 
-				<input type="text" name="mobielnummer" Placeholder="Mobiel number">
+			<label for="telefoonNummer">Telefoonnummer:</label>	
+			<div> <!--Tel-->
+				<input class="formulier" type="number" name="telefoonnummer" Placeholder="Telefoonnummer">
 			</div>
-				*Bericht:			<!--Bericht-->
-			<div class="formulier">		
-				<textarea name="textarea" placeholder="Type hier een bericht."></textarea>
+			<label for="bericht">*Bericht:</label>				
+			<div> <!--Bericht-->	
+				<textarea class="formulier" required name="textarea" placeholder="Type hier een bericht."></textarea>
 			</div>
-			<div> 					<!--Verzend-->
-				<a href="#"><input type="submit" class="verzendopmaak" name="Verzend"	value="Verzend"></a>
+			<div> <!--Verzend-->										
+				<a href="#"><input required type="submit" class="btn mark-btn" name="Verzend" value="Verzend"></a>
 			</div>
 		</form></center>
+		
 <!--End Contact pagina-->
 <?php
 include('include/footer.php');
-?>
+?>	
