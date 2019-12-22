@@ -1,5 +1,5 @@
+	
 <?php
-
 
 if (isset($_POST["submit"])) {
     $aankomst = $_POST["aankomst"];
