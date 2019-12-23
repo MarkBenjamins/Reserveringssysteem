@@ -1,5 +1,5 @@
 <?php
-$stylesheet = "inlog";
+$stylesheet = "res-home";
 include('include/header.php');
 ?>
 <div class="container-fluid">
@@ -11,22 +11,37 @@ include('include/header.php');
                 <div class="col-2">
                 </div>
                 <div class="col-8">
-                    <h2>Persoonsgegevens</h2>
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                        <p>Voornaam</p>
-                        <input class="form" type="text" placeholder="Uw voornaam" name="fname"><br>
-                        <p>Achternaam</p>
-                        <input class="form" type="text" placeholder="Uw achternaam" name="lname"><br>
-                        <p>E-mailadres</p>
-                        <input class="form" type="email" placeholder="Uw e-mailadres" name="email"><br>
-                        <p>Telefoonnummer</p>
-                        <input class="form" type="tel" placeholder="Uw telefoonnummer" name="telnmr"><br>
-                        <p>Geboortedatum</p>
-                        <input class="form" type="date" name="gdate"><br><br>
-                        <input type="submit" name="submit">
-                    </form>
-                    <?php
-                    ?>
+                    <h1>Persoonsgegevens</h1>
+                    <center>
+                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                            <label for="fname">*Voornaam:</label>	 <!-- add by Mark-->				
+                            <div> <!--Voornaam-->
+                                <input required class="formulier" type="text" placeholder=" Uw voornaam" name="fname">
+                            </div>
+
+                            <label for="lname">*Achternaam:</label>					
+                            <div> <!--Achternaam-->
+                                <input required class="formulier" type="text" placeholder=" Uw achternaam" name="lname">
+                            </div>
+
+                            <label for="email">*E-mailadres:</label>					
+                            <div> <!--Email-->
+                                <input required class="formulier" type="email" placeholder=" Uw e-mailadres" name="email">
+                            </div>
+
+                            <label for="telnmr">*Telefoonnummer:</label>	
+                            <div> <!--Tel-->
+                                <input required class="formulier" type="number" placeholder=" Uw telefoonnummer" name="telnmr">
+                            </div>
+                            <label for="gdate">*Geboortedatum:</label>				
+                            <div> <!--geboortedatum / php maakt het onmogelijk om in de toekomst geboren te zijn.-->	
+                                <input required class="formulier" max="<?php echo date("Y-m-d"); ?>" type="date" name="gdate"><br><br>
+                            </div>
+                            <div> <!--Verzend-->	
+                                <input required class="btn mark-btn" type="submit" name="submit" value="Verzend">
+                            </div>
+                        </form>
+                    </center>
                 </div>
                 <div class="col-2">
                 </div>
@@ -34,6 +49,7 @@ include('include/header.php');
         </div>
     </div>
 </div>
+
 <?php
 include('include/footer.php');
 ?>

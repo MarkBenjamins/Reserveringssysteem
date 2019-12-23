@@ -1,18 +1,20 @@
 	/*Door Mark Benjamins */
 /*Start Reserveringssysteem home-page*/
 
-	#res-home {
+	#res-home 
+	{
 		color: white;
 		height: 400x;
 		padding: 10px;
 	}
 
-	.btn-outline-danger, .btn {
+	.btn-outline-danger, .btn 
+	{
 		color: white;
 		border: solid 4px black;
 		margin-bottom: 15px;
 	}
-	/*End Reserveringssysteem home-page*/
+/*End Reserveringssysteem home-page*/
 	
 	
 	/*Door Mark Benjamins */
@@ -23,10 +25,13 @@
 		height: 200px;
 		width: 400px;
 	}
+	
 	label
 	{
 		margin-bottom: 5px;
+		color: white;
 	}
+	
 	h2
 	{
 		color: white;
@@ -60,4 +65,10 @@
 		background-color: #dc3545;		/*Red*/
 		color: white;
 	}
-	/*End contact home-page*/
+/*End contact home-page*/
+	
+	
+	
+	
+	
+	

@@ -1,4 +1,3 @@
-	
 <?php
 
 if (isset($_POST["submit"])) {
@@ -52,9 +51,9 @@ if (isset($_POST["submit"])) {
 
                             $dagen = round($datediff / (60 * 60 * 24));
                             
-                            echo $dagen;
-                            echo "<br/>";
-                            echo $kamerkeuze;
+//                            echo $dagen;
+//                            echo "<br/>";
+//                            echo $kamerkeuze;
                             //Kamer keuze en datums kloppen vanaf hier.
                             //Doorsturen naar de kamers dmv kamerkeuze
                             
@@ -85,3 +84,13 @@ if (isset($_POST["submit"])) {
         die();
     }
 }
+?>
+
+<!-- add by mark / om de gegevens in te zien -->
+<a href="res-gegevens.php">naar gegevens</a>	
+<p>Aankomst: <?php echo $aankomst; ?> </p>
+<p>Vertrek: <?php echo $vertrek; ?> </p>
+<p>KamerKeuze: <?php echo $kamerkeuze; ?> </p>
+<p>Aantal dagen: <?php echo $dagen; ?> </p>
+<hr>
+<br>
