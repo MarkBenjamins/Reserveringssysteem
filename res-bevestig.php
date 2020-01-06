@@ -12,10 +12,10 @@ include "include/header.php";
             <?php //Controle en melding van de betaalmethode
                 if (isset($_POST["methodesubmit"])){
                     if ($_POST["methode"] == "paypal"){
-                        echo "<p class='tekstkleur'>Bedankt voor het betalen met IDeal.</p>";
+                        echo "<p class='tekstkleur'>Bedankt voor het betalen met PayPal.</p>";
                     }
                     elseif ($_POST["methode"] == "iDeal"){
-                        echo "<p class='tekstkleur'>Bedankt voor het betalen met PayPal.</p>";
+                        echo "<p class='tekstkleur'>Bedankt voor het betalen met IDeal.</p>";
                     }
                     elseif ($_POST["methode"] == "creditcard"){
                         echo "<p class='tekstkleur'>Bedankt voor het betalen met creditcard.</p>";
