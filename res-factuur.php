@@ -1,4 +1,7 @@
-<?php include "../include/header.php"; ?>
+<?php 
+$stylesheet = "";
+include "../include/header.php"; 
+?>
 
 <div class="container-fluid">
     <div class="row">
@@ -8,4 +11,6 @@
     </div>
 </div>
 
-<?php include "../include/footer.php"; ?>
+<?php 
+include "../include/footer.php"; 
+?>
