@@ -14,7 +14,7 @@ include('include/header.php');
                     <h1>Persoonsgegevens</h1>
                     <center>
                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                            <label for="fname">*Voornaam:</label>	 <!-- add by Mark-->				
+                            <label for="fname">*Voornaam:</label> <!-- add by Mark-->				
                             <div> <!--Voornaam-->
                                 <input required class="formulier" type="text" placeholder=" Uw voornaam" name="fname">
                             </div>
