@@ -29,7 +29,7 @@ include "include/header.php";
                 }
             ?>
 			<form method="POST" action="index.php">
-                <input type="submit" class="btn btn-outline-danger" value="Terug naar Home" name="methodesubmit">
+                <input type="submit" class="btn btn-outline-danger" value="print bevestiging" name="methodesubmit">
             </form></center>		
         </div>
         <div class="col-4">

@@ -36,7 +36,7 @@ if(isset($_SESSION["gebruiker"])) {
 							<div id="geel" class="h1">
 								Landgoed
 							</div>
-							<div class="h1">
+							<div id="zwart" class="h1">
 								&nbspSollestijn    <!--&nbsp is een spatie-->
 							</div>	
 							<div id="nav" class="col-12">

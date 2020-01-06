@@ -15,9 +15,6 @@ body{
 	padding: 1px;
 }
 /* header */
-#header{
-	
-}
 #logo{
 	text-align: center;
 	display: block;
@@ -34,9 +31,6 @@ div > #header, div > #footer, div > #content{
 	background-image: linear-gradient(to bottom, #6E2C2E, #884F4C);
 	border: 4px solid black;
 	margin: 15px;
-}
-#nav{
-	
 }
 
 /* Text */
@@ -79,5 +73,8 @@ a {
 }
 h1, #geel{
 	color: #fcbd06;
-	padding-left: 15px
+	padding-left: 15px;
+}
+h1, #zwart{
+        color: black;
 }

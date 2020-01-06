@@ -11,16 +11,16 @@ include('include/header.php');
                 <div class="col-8">
                     <?php
                     if(ISSET($_SESSION["gebruiker"])) {
-                        echo "U BENT AL INGELOGD JOH!";
+                        echo "u bent al ingelogd!";
                     }
                     ?>
                     <p class="title">Voer hier uw inloggegevens in</p>
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                         <p>Gebruikersnaam:</p>
-                        <input class="form" type="text" name="uname" placeholder="Gebruikersnaam"><br><br>
+                        <input class="form storm-btn" type="text" name="uname" placeholder="Gebruikersnaam"><br><br>
                         <p>Wachtwoord:</p>
-                        <input class="form" type="password" name="pword" placeholder="Wachtwoord"><br><br>
-                        <input type="submit" name="submit" value="Log in">
+                        <input class="form storm-btn" type="password" name="pword" placeholder="Wachtwoord"><br><br>
+                        <input class="btn mark-btn submit" type="submit" name="submit" value="Log in">
                     </form>
                 </div>
                 <div class="col-2">
