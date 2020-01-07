@@ -9,13 +9,13 @@ include('include/header.php');
                 <div class="col-2">
                 </div>
                 <div class="col-8">
-                    <?php
+                    <?php //check of ingelogd
                     if(ISSET($_SESSION["gebruiker"])) {
                         echo "u bent al ingelogd!";
                     }
                     ?>
                     <p class="title">Voer hier uw inloggegevens in</p>
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST"><!--de form-->
                         <p>Gebruikersnaam:</p>
                         <input class="form storm-btn" type="text" name="uname" placeholder="Gebruikersnaam"><br><br>
                         <p>Wachtwoord:</p>
@@ -40,7 +40,6 @@ if(ISSET($_POST["submit"])) {
         $pword = $_POST["pword"];
         $conn = mysqli_connect("localhost","root","","sollestijn");
 
-
         $sql = "SELECT * FROM gebruikers WHERE `gebruikersnaam` = ?";
 
         if($stmt = mysqli_prepare($conn, $sql)) {
@@ -61,7 +60,7 @@ if(ISSET($_POST["submit"])) {
             mysqli_stmt_close($stmt);
 
             if($wachtwoord == $pword) {
-                
+                //check of het klopt
                 $_SESSION["gebruiker"]["id"] = $id;
                 $_SESSION["gebruiker"]["rechten"] = $rechten;
                 $_SESSION["gebruiker"]["gebruikersnaam"] = $gebruikersnaam;
