@@ -1,5 +1,6 @@
 /* Background */
-body{
+body
+{
 	background-image: url(../img/bg.jpg);
 	background-attachment: fixed;
 	background-size: cover;
@@ -7,7 +8,8 @@ body{
 	min-width: 360px;
 }
 /* Main */
-#main{
+#main
+{
 	height: 100%;
 	background: rgba(0, 0, 0, 0.75);
 	margin: 0 auto auto auto;
@@ -15,7 +17,8 @@ body{
 	padding: 1px;
 }
 /* header */
-#logo{
+#logo
+{
 	text-align: center;
 	display: block;
     margin-left: auto;
@@ -23,58 +26,69 @@ body{
     z-index: 1337;
 	padding-top: 10px;
 }
-
-ul,li{
+ul,li
+{
 	list-style-type: none;
 }
-div > #header, div > #footer, div > #content{
+div > #header, div > #footer, div > #content
+{
 	background-image: linear-gradient(to bottom, #6E2C2E, #884F4C);
 	border: 4px solid black;
 	margin: 15px;
 }
 
 /* Text */
-h1{
+h1
+{
 	font-size: 72px;
 	padding-bottom: 15px;
 }
-li{
-	border: 4px solid black;
-}
-li:hover > a {
-	text-decoration: none;
-	color: #dc3545;
-}
-.header-text {
-	font-size: 50px;
-}
-h2, .text{
+h2, .text
+{
 	padding: 20px;
 	text-align: center;
 }
-.text{
-	color: white;
+h1, h2, #geel
+{
+	color: #fcbd06; /*Huisstyle geel*/
 }
-h2{
-	color: #fcbd06;
+li
+{
+	border: 4px solid black;
+}
+li:hover > a
+{
+	text-decoration: none;
+	color: #dc3545; /*kleur Rood*/
+}
+.header-text 
+{
+	font-size: 50px;
+}
+
+.text, a
+{
+	color: white;
 }
 
 /*Mark Benjamins*/
 /*Opmaak update*/
-.nav, .nav-pills, .nav-justified{
+.nav, .nav-pills, .nav-justified
+{
 	padding-top: 30px;
 	padding-bottom: 15px;
 }
-a {
-	color: white;
-}
-#footer{
+#footer
+{
 	padding-top: 10px;
 }
-h1, #geel{
-	color: #fcbd06;
-	padding-left: 15px;
-}
+
 #zwart{
-        color: #000000;
+    color: #000000;
 }
+
+@media only screen and (max-width: 991px) {
+	.h1 {
+		font-size: 32px;
+	}
+  }
