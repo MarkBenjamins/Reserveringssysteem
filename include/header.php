@@ -28,17 +28,20 @@ if(isset($_SESSION["gebruiker"])) {
 		<div class="row">
 			<div id="main" class="col-lg-8 col-12">
 				<div id="header" class="row">
-					<div id="logo" class="col-3">
+					<div id="logo" class="col-lg-3">
 						<a href="index.php"><img src="img/logo.png" alt="logo"></a>
 					</div>
-					<div id="span" class="col-9">
+					<div id="span" class="col-lg-9">
+
 						<div class="row">
-							<div id="geel" class="h1">
-								Landgoed
+							<div class="d-none w-100 d-sm-block">
+								<div id="geel" class="h1">
+									Landgoed
+								</div>
+								<div id="zwart" class="h1">
+									&nbspSollestijn    <!--&nbsp is een spatie-->
+								</div>	
 							</div>
-							<div id="zwart" class="h1">
-								&nbspSollestijn    <!--&nbsp is een spatie-->
-							</div>	
 							<div id="nav" class="col-12">
 								<nav class="navbar-expand-lg">
 									<ul class="nav nav-pills nav-justified">

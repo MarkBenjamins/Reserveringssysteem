@@ -71,9 +71,10 @@ a {
 #footer{
 	padding-top: 10px;
 }
-h1, #geel{
+#geel{
 	color: #fcbd06;
 	padding-left: 15px;
+	float: left;
 }
 #zwart{
         color: #000000;
