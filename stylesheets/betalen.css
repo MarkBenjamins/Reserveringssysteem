@@ -1,17 +1,21 @@
-.btn-outline-danger,.btn{ 
+.btn-outline-danger,.btn
+{ 
 	color: white;
 	border: solid 4px black;
 	margin-bottom: 15px;
 }
-.centre{
+.centre
+{
     margin: 0, auto;
 }
 
 /*Mark Benjamins*/
-.tekstkleur{
+.tekstkleur
+{
 	color: white;
 }
-.btn-outline-danger,.btn{ 
+.btn-outline-danger,.btn
+{ 
 	color: white;
 	border: solid 4px black;
 	margin-bottom: 15px;
