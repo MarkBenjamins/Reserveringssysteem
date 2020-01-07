@@ -51,9 +51,9 @@ if (isset($_POST["submit"])) {
 
                             $dagen = round($datediff / (60 * 60 * 24));
                             
-//                            echo $dagen;
-//                            echo "<br/>";
-//                            echo $kamerkeuze;
+                            //echo $dagen;
+                            //echo "<br/>";
+                            //echo $kamerkeuze;
                             //Kamer keuze en datums kloppen vanaf hier.
                             //Doorsturen naar de kamers dmv kamerkeuze
                             
