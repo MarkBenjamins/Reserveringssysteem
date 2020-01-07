@@ -73,9 +73,15 @@ a {
 }
 #geel{
 	color: #fcbd06;
-	padding-left: 15px;
-	float: left;
+
 }
 #zwart{
         color: #000000;
 }
+
+
+@media only screen and (max-width: 991px) {
+	.h1 {
+		font-size: 32px;
+	}
+  }
