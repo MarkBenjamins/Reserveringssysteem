@@ -16,7 +16,7 @@ $dagen = 2;
             echo "Kan de database niet selecteren";
         }
         
-$stylesheet = "res-home";
+$stylesheet = "kamers";
 include('include/header.php');
 ?>
     <div class="container">
@@ -58,10 +58,13 @@ include('include/header.php');
                                     }
                             }
                         }
-                        
+                        echo "<div id='DivKamers'>";
                             foreach ($arr as $value){
+                                echo "<div id='DivForeachKamers'>";
                                 echo "Kamer " . $value . "<br>";
-                            }                        
+                                echo "</div>";
+                            }                 
+                        echo "</div";
                         
                     } else {
                         echo "Bind failed";
