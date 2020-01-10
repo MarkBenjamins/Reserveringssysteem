@@ -10,3 +10,12 @@
 .1persP {
     
 }
+#DivKamers {
+    width:95%;
+    height:100%;
+    border: 1px solid black;
+}
+#DivForeachKamers {
+    width:25%;
+    height:20px;
+}

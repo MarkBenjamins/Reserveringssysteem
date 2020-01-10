@@ -39,7 +39,7 @@ include('include/header.php');
                     if ($stmt->bind_result($kamerid,$begindatum, $einddatum)){
                         
                         $ArrayGereserveerd = array(); // Alle kamers in een array
-                        for ($y = 1;$y <= 35;$y++){ //  35 kamers
+                        for ($y = 1;$y <= 41;$y++){ //  35 kamers
                             array_push($ArrayGereserveerd,$y); // Zet alle kamers in een array
                         }
                         
@@ -59,10 +59,23 @@ include('include/header.php');
                         }
                         echo "<div id='DivKamers'>";
                             foreach ($arr as $value){
+                               if ($value <= 5){
                                 echo "<div id='DivForeachKamers'>";
-                                echo "Kamer " . $value . "<br>";
+                                echo "<a href='res-kamer1pers.php'>Kamer " . $value . ", 1 persoonskamer</a><br>";
                                 echo "</div>";
-                            }                 
+                               }
+                               if ($value > 5 && $value <= 35) {
+                                echo "<div id='DivForeachKamers'>";
+                                echo "<a href='res-kamer2pers.php'>Kamer " . $value . ", 2 persoonskamer</a><br>";
+                                echo "</div>";                                   
+                               }
+                               if($value > 35 && $value <= 41) {
+                                echo "<div id='DivForeachKamers'>";
+                                echo "<a href='res-kamer4pers.php'>Kamer " . $value . ", 4 persoonskamer</a><br>";
+                                echo "</div>";                                   
+                               }
+                               }                 
+                            
                         echo "</div";
                         
                     } else {
