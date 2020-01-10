@@ -9,7 +9,7 @@ include'include\header.php';
     </head>
     <body>
         <div id="container">
-            <h3 class="1persh3" style="text-align:center;color:white">2 persoons kamer</h3>
+            <h2  style="text-align:center;">2-persoonskamer</h2>
             <img src="img/standaard2persoonskamerjpg.jpg" class="Image1pers">
             <p class="1persP" style="margin:0 auto;width: 75%;color:white;">De 2 persoonskamer bestaat uit een slaapkamer en een badkamer. De slaapkamer is voorzien van een 2 persoonsbed,
                                                                              een nachtkastje met accessoires, en een televisie. De badkamer heeft een douche en een bad.</p>
