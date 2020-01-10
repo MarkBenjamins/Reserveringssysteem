@@ -50,6 +50,8 @@ include('include/header.php');
                                 echo "Alles werkt";
                             }
 							// mederijziges = nummeric bespreek met docent of dit misschien niet hoeft?
+							// tel = if aantal caracter
+							// tel = geen letters
                         }
                         ?>
                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
