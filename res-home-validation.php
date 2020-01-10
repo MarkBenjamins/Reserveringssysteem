@@ -5,7 +5,6 @@ if (isset($_POST["submit"])) {
     $vertrek = $_POST["vertrek"];
     $kamerkeuze = $_POST["kamerkeuze"];
 
-
     //Check if aankomst en vertrek is een valide datum.
 
     if (strtotime($aankomst) != false && strtotime($vertrek) != false) {
@@ -76,7 +75,6 @@ if (isset($_POST["submit"])) {
                 }
             }
         }
-
         //Jaar is gevalideert, nu kunnen we de datums apart gebruiken.
     } else {
         //Invalide datum
@@ -87,7 +85,7 @@ if (isset($_POST["submit"])) {
 ?>
 
 <!-- add by mark / om de gegevens in te zien -->
-<a href="res-gegevens.php">naar gegevens</a>	
+<a href="res-kameroverzicht.php">Naar kameroverzicht</a>
 <p>Aankomst: <?php echo $aankomst; ?> </p>
 <p>Vertrek: <?php echo $vertrek; ?> </p>
 <p>KamerKeuze: <?php echo $kamerkeuze; ?> </p>
