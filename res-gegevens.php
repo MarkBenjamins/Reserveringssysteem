@@ -31,15 +31,12 @@ include('include/header.php');
 
                             <label for="telnmr">*Telefoonnummer:</label>	
                             <div> <!--Tel-->
-                                <input required class="formulier" type="tel" placeholder=" Uw telefoonnummer" name="telnmr">
+                                <input required class="formulier" type="tel" placeholder=" Uw telefoonnummer" name="tel">
                             </div>
+							
                             <label for="adres">*Adres:</label>
-                            <div> <!---->
-                                <input required class="formulier" type="text" placeholder=" Uw woonplaats" name="adres">
-                            </div>
-                            <div>
-                                <input required class="formulier" type="text" placeholder=" Uw straatnaam" name="adres">
-                                <input required class="formulier" type="number" placeholder=" Uw huisnummer" name="adres">
+                            <div> <!--Adres-->
+                                <input required class="formulier" type="text" placeholder=" Uw huisnummer" name="adres">
                             </div>
                             <div>
                                 <input required class="formulier" type="text" placeholder=" Uw postcode" name="adres">
@@ -85,7 +82,6 @@ include('include/header.php');
                             <div> <!--Verzend-->	
                                 <input required class="btn mark-btn" type="submit" name="submit" value="Verzend">
                             </div>
-                            <label for="sterretje">* is verplicht in the vullen</label>
                         </form>
                     </center>
                 </div>
@@ -97,5 +93,20 @@ include('include/header.php');
 </div>
 
 <?php
+ if (isset($_POST['submit'])) {
+            $fname = $_POST['fname'];
+            $lname = $_POST["lname"];
+            $email = $_POST["email"];
+            $tel = $_POST["telnmr"];
+            $adres = $_POST["adres"];
+            $gdate = $_POST["gdate"];
+            $adres = $_POST["adres"];
+            $adres = $_POST["adres"];
+            $adres = $_POST["adres"];
+            $adres = $_POST["adres"];
+			
+if (empty ($fname or $lname or 
+echo "Niet alle verplichte velden zijn ingevuld"
+
 include('include/footer.php');
 ?>
