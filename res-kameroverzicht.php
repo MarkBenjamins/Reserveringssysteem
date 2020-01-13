@@ -15,6 +15,9 @@ $vertrek = "2019-12-21"; //
         
 $stylesheet = "kamers";
 include('include/header.php');
+
+//Alle vorige data staat nu in res-home
+var_dump($_SESSION["res-home"]);
 ?>
     <div class="container">
         <?php  
@@ -47,7 +50,7 @@ include('include/header.php');
                         
                         echo "Deze kamers zijn vrij<br>";
                         while ($row = $stmt->fetch()) { // Fetched alle data
-                            $arraykamer = (createDateRange($begindatum,$einddatum)); // Creëert alle datums waarin een kamer gereserveerd is.
+                            $arraykamer = (createDateRange($begindatum,$einddatum)); // Creï¿½ert alle datums waarin een kamer gereserveerd is.
                             
                             $looptimes = 0; // Bekijkt hoe vaak de foreach al geloopt is.
                             foreach ($arraykamer as $var){

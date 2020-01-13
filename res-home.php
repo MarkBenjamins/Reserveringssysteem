@@ -64,8 +64,10 @@ include('include/functions.php');
 
                                 $dagen = round($datediff / (60 * 60 * 24));
                                 //Kamer keuze en datums kloppen vanaf hier.
-
-                                //header("location: res-kameroverzicht.php");
+                                $_SESSION["res-home"]["kamerkeuze"] = $kamerkeuze;
+                                $_SESSION["res-home"]["aankomst"] = $aankomst;
+                                $_SESSION["res-home"]["vertrek"] = $vertrek;
+                                header("Location: res-kameroverzicht.php");
                                 //Doorsturen naar de kamers dmv kamerkeuze
 
                                 /* 
