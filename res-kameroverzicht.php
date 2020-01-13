@@ -23,7 +23,7 @@ include('include/header.php');
             $begin = new DateTime($startDate);
             $end = new DateTime($endDate);
 
-            $interval = new DateInterval('P1D'); // 1 Day
+            $interval = new DateInterval('P1D'); // 1 dag is de interval
             $dateRange = new DatePeriod($begin, $interval, $end);
 
             $range = [];
