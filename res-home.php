@@ -3,11 +3,12 @@
 $stylesheet = "res-home";
 include('include/header.php');
 ?>
-<!--Start Kamer Keuze Menu-->
+<!--Start Kamer Keuze Menu -->
 <center>
     <h1>Reservering</h1>
     <form id="res-home" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
-	<?php// php door Wesley & Mark
+	
+	<?php // php door Wesley & Mark
 if (isset($_POST["submit"])) {
     $aankomst = $_POST["aankomst"];
     $vertrek = $_POST["vertrek"];
@@ -43,7 +44,7 @@ if (isset($_POST["submit"])) {
                     } else {
                         if($kamerkeuze == "1" || $kamerkeuze == "2"|| $kamerkeuze == "3") { //validatie of kamerkeuze een keuze is
                             //Eind vd validation, vanaf hier kunnen we andere dingen doen.
-                            
+                           echo 1; 
                             $datediff = strtotime($vertrek) - strtotime($aankomst);
                             //Hoeveel dagen de klant gereserveerd heeft
 
@@ -74,20 +75,20 @@ if (isset($_POST["submit"])) {
         //Jaar is gevalideert, nu kunnen we de datums apart gebruiken.
     } else {
         //Invalide datum
-        echo "Datum is invalid.. stuur gebruiker een melding";
+        echo "Datum is invalid, probeer het nog een keer of kies een geldige datum";
         die();
     }
 }
 ?>
 <br><br>
         <label for="Aankomst">Aankomst:</label>
-        <div> <!-- Datum keuze menu -->
-            <input required type="date" min="<?php echo date("Y-m-d");//huidige datum ?>" name="aankomst" class="btn mark-btn">
+        <div> <!-- Aankomst datum keuze menu -->
+            <input required type="date" min="<?php echo date("Y-m-d");//huidige datum //nu kun je niet aankomen in het verleden ?>" name="aankomst" class="btn mark-btn">
         </div>
 
         <label for="Vertrek">Vertrek:</label>
-        <div> <!-- Datum keuze menu -->
-            <input required type="date" min="<?php echo date("Y-m-d");//huidige datum  ?>" name="vertrek" class="btn mark-btn">
+        <div> <!-- Vertrek datum keuze menu -->
+            <input required type="date" min="<?php echo date("Y-m-d");//huidige datum //nu kun je niet vertrekken in het verleden ?>" name="vertrek" class="btn mark-btn">
         </div>
 
         <label for="Kamerkeuze">Kamerkeuze:</label>
@@ -105,17 +106,6 @@ if (isset($_POST["submit"])) {
     </form>
 </center>
 <!--End Kamer Keuze Menu-->
-
-
-<!-- add by mark / om de gegevens in te zien
-<a href="res-kameroverzicht.php">Naar kameroverzicht</a>
-<p>Aankomst: <?php// echo $aankomst; ?> </p>
-<p>Vertrek: <?php// echo $vertrek; ?> </p>
-<p>KamerKeuze: <?php// echo $kamerkeuze; ?> </p>
-<p>Aantal dagen: <?php// echo $dagen; ?> </p>
-<hr>
-<br>
--->
 
 <?php
 include('include/footer.php');

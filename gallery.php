@@ -9,38 +9,27 @@ include('include/header.php');
             <h1>Gallerij</h1>
         </center>
     </div>
-    <?php
-    if (isset($_REQUEST['submit'])) {
-        $filename = $_FILES["imgfile"]["name"];
-        if ((($_FILES["imgfile"]["type"] == "image/gif") || ($_FILES["imgfile"]["type"] == "image/jpeg") || ($_FILES["imgfile"]["type"] == "image/png") || ($_FILES["imgfile"]["type"] == "image/pjpeg")) && ($_FILES["imgfile"]["size"] < 200000)) {
-            if (file_exists($_FILES["imgfile"]["name"])) {
-                echo "File name exists.";
-            } else {
-                move_uploaded_file($_FILES["imgfile"]["tmp_name"], "img/$filename");
-                echo "Upload Successful . <a href='img/$filename'>Click here</a> to view the uploaded image";
-            }
-        } else {
-            echo "invalid file.";
-        }
-    }
-    ?>
     <div class="row">
         <div id="carouselExampleIndicators" class="carousel slide col-12" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-            </ol>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="img/kamer1.jpg" alt="first">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/kamer2.jpg" alt="second">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/kamer3.jpg" alt="third">
-                </div>
+                <?php
+                $dir = "gallery/*.jpg";
+                $img = glob($dir);
+                $x = 1;
+
+                foreach ($img as $image) {
+                    if ($x == 1) {
+                        echo '<div class="carousel-item active">
+                        <img src="' . $image . '" alt="foto kamer">
+                        </div>';
+                    } else {
+                        echo '<div class="carousel-item">
+                        <img src="' . $image . '" alt="volgende">
+                        </div>';
+                    }
+                    $x++;
+                }
+                ?>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -61,9 +50,26 @@ if (isset($_SESSION["gebruiker"])) {
     //var_dump($_SESSION["gebruiker"]);
 
     echo '<form method="post" enctype="multipart/form-data">
-  File name:<input type="file" name="imgfile">
-  <input type="submit" name="submit" value="upload">
-</form>';
+        File name:<input type="file" name="image">
+        <input type="submit" name="submit" value="upload">
+        </form>';
+    if (isset($_POST['submit'])) {
+        if (isset($_POST['image'])) {
+            echo "enter all fields";
+        } else {
+            $allow = array("jpg");
+            $todir = "gallery/";
+
+            if (!!$_FILES['image']['tmp_name']) {
+                $info = explode('.', strtolower($_FILES['image']['name']));
+                if (in_array(end($info), $allow)) {
+                    if (move_uploaded_file($_FILES['image']['tmp_name'], $todir . basename($_FILES['image']['name']))) {
+                    }
+                }
+            }
+            $location = basename($_FILES['image']['name']);
+        }
+    }
 }
 include('include/footer.php');
 ?>

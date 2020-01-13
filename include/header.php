@@ -3,7 +3,7 @@ session_start();
 if(isset($_SESSION["gebruiker"])) {
 
 	echo "<p style='margin: 0 auto; background-color: white; color: black; text-align: center;'>
-	U BENT INGELOGD ALS : ".$_SESSION['gebruiker']['gebruikersnaam']."</p>";
+	U bent ingelogd als: ".$_SESSION['gebruiker']['gebruikersnaam']."</p>";
 }
 ?>
 <!DOCTYPE html>
