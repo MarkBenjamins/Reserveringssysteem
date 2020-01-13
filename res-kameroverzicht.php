@@ -64,21 +64,21 @@ include('include/header.php');
                                 if($kamerkeuze == "Eenpersoonskamer"){ // Voert uit als eenpersoonskamer aangevinkt is
                                     if ($value <= 5){
                                      echo "<div id='DivForeachKamers'>";
-                                     echo "<a href='res-kamer1pers.php'>Kamer " . $value . "</a><br>";
+                                     echo "<a href='res-kamer1pers.php?action= $value'>Kamer " . $value . "</a><br>";
                                      echo "</div>";
                                     }
                                 }
                                 if ($kamerkeuze == "Tweepersoonskamer"){ // Voert uit als tweepersoonskamer aangevinkt is
                                     if ($value > 5 && $value <= 35) {
                                      echo "<div id='DivForeachKamers'>";
-                                     echo "<a href='res-kamer2pers.php'>Kamer " . $value . "</a><br>";
+                                     echo "<a href='res-kamer2pers.php?action= $value'>Kamer " . $value . "</a><br>";
                                      echo "</div>";                                   
                                     }
                                 }
                                 if ($kamerkeuze == "Vierpersoonskamer"){ // Voert uit als vierpersoonskamer aangevinkt is
                                     if($value > 35 && $value <= 41) { 
                                      echo "<div id='DivForeachKamers'>";
-                                     echo "<a href='res-kamer4pers.php'>Kamer " . $value . "</a><br>";
+                                     echo "<a href='res-kamer4pers.php?action= $value'>Kamer " . $value . "</a><br>";
                                      echo "</div>";                                   
                                     }
                                 }
