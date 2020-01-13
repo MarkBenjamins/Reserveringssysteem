@@ -8,9 +8,9 @@
 }
 .form{
     text-align: center;
-}
-.formbox{
-    height:400px;
+    display:block;
+    margin-right: auto;
+    margin-left: auto;
 }
 p{
     color: white;
@@ -37,4 +37,8 @@ p{
 .mark-btn:hover 
 {
     background-color: #dc3545;		/*Red*/
+}
+.hoog{
+    height:500px;
+    text-align: center;
 }
