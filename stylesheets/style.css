@@ -42,6 +42,7 @@ h1
 {
 	font-size: 72px;
 	padding-bottom: 15px;
+	text-align: center;
 }
 h2, .text
 {
@@ -92,7 +93,7 @@ li:hover > a
 		font-size: 32px;
 	}
   }
-form{
+form, .form{
 	text-align: center;
 }
 /*Mark Benjamins*/
