@@ -10,7 +10,7 @@ include('include/header.php');
             <div class="row form">
                 <div class="col-2">
                 </div>
-                <div class="col-8">
+                <div class="col-8" id='melding'>
                     <h1>Persoonsgegevens</h1>
                     <center>
                         <?php
@@ -20,9 +20,9 @@ include('include/header.php');
                             $lname = $_POST["lname"];
                             $email = $_POST["email"];
                             $tel = $_POST["tel"];
-//                            $post = $_POST["post"];
-//                            $hnummer = $_POST["hnummer"];
-//                            $gdate = $_POST["gdate"];
+                            $post = $_POST["post"];
+                            $hnummer = $_POST["hnummer"];
+                            $gdate = $_POST["gdate"];
 //                            $ltijd = $_POST["ltijd"];
 //                            $ontbijt = $_POST["ontbijt"];
 //                            $lunch = $_POST["lunch"];
@@ -31,62 +31,129 @@ include('include/header.php');
 //                            $epaal = $_POST["epaal"];
 //                            $korting = $_POST["korting"];
 //                            $opmerk = $_POST["opmerk"];
-            
-                            if (empty($fname or $lname or $email or $tel or $post or $hnummer or $gdate)) {
-                                echo "Niet alle verplichte velden zijn ingevuld";
-                                // Iets niet ingevuld error
+
+                            //Html tags filter
+                            $fname = filter_var($fname, FILTER_SANITIZE_STRING);
+                            $lname = filter_var($lname, FILTER_SANITIZE_STRING);
+                            $email = filter_var($email, FILTER_SANITIZE_STRING);
+                            $tel = filter_var($tel, FILTER_SANITIZE_STRING);
+                            $post = filter_var($post, FILTER_SANITIZE_STRING);
+                            $hnummer = filter_var($hnummer, FILTER_SANITIZE_STRING);
+                            $gdate = filter_var($gdate, FILTER_SANITIZE_STRING);
+                            //$ltijd=filter_var($ltijd, FILTER_SANITIZE_STRING);
+                            //$ontbijt=filter_var($ontbijt, FILTER_SANITIZE_STRING);
+                            //$lunch=filter_var($luch, FILTER_SANITIZE_STRING);
+                            //$diner=filter_var($diner, FILTER_SANITIZE_STRING);
+                            //$efiets =filter_var($efiets, FILTER_SANITIZE_STRING);
+                            //$epaal =filter_var($epaal, FILTER_SANITIZE_STRING);
+                            //$korting =filter_var($korting, FILTER_SANITIZE_STRING);
+                            //$opmerk =filter_var($opmerk, FILTER_SANITIZE_STRING);
+                            //$letter = preg_match('/a-z 0-9/i');//i is cas-insensitive 
+							
+							// postcode en huisnummer omzetten naar een bruikbare waarde (spaties weg)
+							$post = str_replace(' ', '', $post);
+                            $hnummer = str_replace(' ', '', $hnummer);
+                            $post = strtoupper($post);
+
+                            if (empty($fname) ) { //or (empty($gdate)or ( empty($lname) or ( empty($email) or ( empty($tel) or ( empty($post) or ( empty($hnummer)))))))
+                                echo "<p>Niet alle verplichte velden zijn ingevuld.<br></p>";
+                                // Iets niet ingevuld error						
+							} else if (!preg_match('/^[a-z]*$/i', $fname)) { 
+									/*(!preg_match('/^[a-z]*$/i = filter af het een letter is (i)= cas-insensitive
+									* ^ = begin van de string
+									* [a-z] = een letter
+									* * = dat het er minstens 0 of meer x in voorkomt
+									* $ = eide van de sting
+									*/ 
+									echo "<p>Je voornaam is niet ingevuld of bestaan niet compleet uit letters.<br></p>";
+									// Voornaam mag alleen letters en hoofdletter bevatten
+									// Mag niet bestaan uit getallen en speciale tekens
+									
+							} else if (!preg_match('/^[a-z]*$/i', $lname)) {
+									/*(!preg_match('/^[a-z]*$/i = filter af het een letter is 
+									* ^ = begin van de string
+									* [a-z] = een letter
+									* * = dat het er minstens 0 of meer x in voorkomt
+									* $ = eide van de sting
+									* i = case-insensitive
+									*/ 
+									echo "<p>Je achternaam is niet ingevuld of bestaan niet compleet uit letters.<br></p>";
+									// Achternaam mag alleen letters en hoofdletter bevatten
+									// Mag niet bestaan uit getallen en speciale tekens						
+								
+                            } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                                // filter of het een e-mail is
+                                echo "<p>Het opgegeven mailadres is niet ingevuld of niet toegestaan.<br></p>";
+                                // Als mailadres niet goed is echo foutmelding 
+								
+							} else if (!preg_match('/^[0-9]*$/' , $tel)){
+								// filter of het een nummer tussen 0 en 9 is
+								echo "<p>Het opgegeven telefoonnummer is niet toegestaan, alleen getallen zijn toegestaan. <br></p>";
+							
+                            } else if (!preg_match("/^[1-9]{1}[0-9]{3}[A-Z]{2}$/i", $post)) {
+								// filter of het een postcode is
+									/*(!preg_match('/^[1-9]{1}[0-9]{3}[A-Z]{2}$/"
+									* ^ = begin van de string
+									* [1-9]{1} = eerst letter is hoger dan 0 
+									* [0-9]{3} = de 3 er achter zijn tussen 0 en 9
+									* [A-Z]{2} = 2 letters er achter
+									* $ = eide van de sting
+									* i = case-insensitive
+									*/ 
+								echo "<p> De postcode is onjuist een postcode bevat 4 cijfers en 2 letters.<br></p>";
+									
+							} else if (!preg_match("/^[0-9]*$/", $hnummer)) {
+								// filter huisnummer tussen 0 en 9
+								echo "<p> Het huisnummer is onjuist een bestaat niet alleen uit cijfers.<br></p>";
+							
+							}else if ($gdate >= date("Y-m-d")) {
+								// filter of de gekozen geboortedatum niet in de toekomst is
+								echo "<p> De gekozen geboortedatum is niet mogelijk.<br></p>";
+							}
+						else {
+                                echo "Alles werkt"; //test
+                                //go to db 
+                                //header("location: res-betaling.php"); // naar volgende pagina
                             }
-                            if (!preg_match('/[-_ a-zA-Z0-9]/i', $fname or $lname or $tel or $post)) {
-                                // E-mail staat er niet bij, die bevat namelijk speciale karakters
-                                // preg_match geeft een true or false waarde
-                                // Karakters anders dan a-z, A-Z, 0-9, spartie, _ en - zijn niet toegestaan 
-                                echo "Het formulier bevat een karakter dat niet is toegestaan.<br>";
-                                echo "Alleen Alfabetiese karakters, getallen, spaties, _ en - zijn toegestaan.<br><br>";
-                            }
-                            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                                echo $email . " is geen valide email adres";
-                                // Als mailadres niet goed is echo foutmelding
-                            } else {
-                                echo "Alles werkt";
-                            }
-							// mederijziges = nummeric bespreek met docent of dit misschien niet hoeft?
-							// tel = if aantal caracter
-							// tel = geen letters
+                            // mederijziges = nummeric bespreek met docent of dit misschien niet hoeft?
+                            // tel = if aantal caracter
+                            // tel = geen letters
                         }
                         ?>
+
                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                             <label for="fname">*Voornaam:</label> <!-- add by Mark-->				
                             <div> <!--Voornaam-->
-                                <input required class="formulier" type="text" placeholder=" Uw voornaam" name="fname">
+                                <input  class="formulier" type="text" placeholder=" Uw voornaam" name="fname">
                             </div>
 
                             <label for="lname">*Achternaam:</label>					
                             <div> <!--Achternaam-->
-                                <input required class="formulier" type="text" placeholder=" Uw achternaam" name="lname">
+                                <input  class="formulier" type="text" placeholder=" Uw achternaam" name="lname">
                             </div>
 
                             <label for="email">*E-mailadres:</label>					
                             <div> <!--Email-->
-                                <input required class="formulier" type="email" placeholder=" Uw e-mailadres" name="email">
+                                <input  class="formulier" type="email" placeholder=" Uw e-mailadres" name="email">
                             </div>
 
                             <label for="telnmr">*Telefoonnummer:</label>	
                             <div> <!--Tel-->
-                                <input required class="formulier" type="tel" placeholder=" Uw telefoonnummer" name="tel">
+                                <input  class="formulier" type="tel" placeholder=" Uw telefoonnummer" name="tel">
                             </div>
 
                             <label for="adres">*Postcode:</label>
                             <div> <!--Postcode-->
-                                <input required class="formulier" type="text" placeholder=" Uw postcode" name="post">
+                                <input  class="formulier" type="text" placeholder=" Uw postcode" name="post">
                             </div>
 
                             <label for="adres">*Huisnummer:</label>
                             <div> <!--Huisnummer-->
-                                <input required class="formulier" type="text" placeholder=" Uw huisnummer" name="hnummer">
+                                <input  class="formulier" type="text" placeholder=" Uw huisnummer" name="hnummer">
                             </div>
                             <label for="gdate">*Geboortedatum:</label>				
                             <div> <!--Geboortedatum-->	
-                                <input required class="formulier" max="<?php echo date("Y-m-d"); //Onmogelijk om in de toekomst geboren te zijn.  ?>" type="date" name="gdate"><br><br>
+                                <input  class="formulier" max="<?php echo date("Y-m-d"); //Onmogelijk om in de toekomst geboren te zijn.   ?>" type="date" name="gdate"><br><br>
                             </div>
                             <label for="leeftijd">Leeftijd van uw medereizigers:</label>
                             <div>
@@ -107,15 +174,15 @@ include('include/header.php');
                             </div>
                             <div>
                                 <input class="formulier" type="checkbox" name="diner"><label>Diner</label>
-								<br><br>
+                                <br><br>
                             </div>
-							<label for="e-res">Extra reserverings opties:</label>
+                            <label for="e-res">Extra reserverings opties:</label>
                             <div>
                                 <input class="formulier" type="checkbox" name="efiets"><label>Elektrische fiets</label>
                             </div>
                             <div>
                                 <input class="formulier" type="checkbox" name="epaal"><label>Elektrische laadpaal</label>
-								<br><br>
+                                <br><br>
                             </div>
                             <label for="korting">Kortingscode:</label>
                             <div>
@@ -128,6 +195,7 @@ include('include/header.php');
                             <div> <!--Verzend-->	
                                 <input required class="btn mark-btn" type="submit" name="submit" value="Submit">
                             </div>
+                            <!--<a href="res-gegevens.php" id="reset-padding" class="btn mark-btn">Reset</a>--> <!--Toevoeging knop voor reset (gebruisvriendelijkheid)-->
                         </form>
                     </center>
                 </div>
@@ -138,7 +206,7 @@ include('include/header.php');
     </div>
 </div>
 
-<?php 
+<?php
 include('include/footer.php');
 ?>
 
