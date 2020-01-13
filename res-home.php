@@ -16,10 +16,9 @@ include('include/functions.php');
         viewMessage();
 
         if (isset($_POST["submit"])) {
-
             
             if (empty($_POST["aankomst"]) || empty($_POST["vertrek"]) || empty($_POST["kamerkeuze"])) {
-                sendMessage("Voer aub alle velden in", "res-home.php");
+                sendMessage("Voer aub alle velden in", $_SERVER["PHP_SELF"]);
             }
             $aankomst = $_POST["aankomst"];
             $vertrek = $_POST["vertrek"];
@@ -44,10 +43,15 @@ include('include/functions.php');
             if ($aankomst < $vandaag) {
                 echo "<p>Je mag alleen vandaag of later aankomen.<br></p>";
             }
-            if (!preg_match('/^[2]{1}[0-9]{3}/', $aankomstJaar) or (!preg_match('/^[2]{1}[0-9]{3}/', $vertrekJaar) or (strlen($aankomstJaar) > 4) or (strlen($vertrekJaar) > 4))) {
-                echo "<p>De aankoms of vertrekdatum is niet toegestaan.<br></p>";
-            } else {
-                if ($vertrek < $vandaag) {
+if (!preg_match('/^[2]{1}[0-9]{3}/', $aankomstJaar)  or (!preg_match('/^[2]{1}[0-9]{3}/', $vertrekJaar) )) {
+				sendMessage("De aankoms of vertrekdatum is niet toegestaan.", $_SERVER["PHP_SELF"]);
+            } 
+			// valideert of geen schrikkeldatum is en of het dan wel een valide datum is
+			if (($aankomstDag || $vertrekDag == 29) && ($aankomstMaand == 02 || $vertrekMaand == 02) && ($aankomstMaand == 2 || $vertrekMaand == 2) && ($aankomstJaar || $vertrekJaar % 4 != 0)){ 
+				echo "<p>Heey Hackerman dat mag niet, het is geen schrikkeljaar.</p>";
+			
+				}else {
+                if ($vertrek < $vandaag) {{
                     echo "<p>Je kunt niet in het verleden vertrekken.<br></p>";
                 } else {
                     if ($vertrek < $aankomst) {
