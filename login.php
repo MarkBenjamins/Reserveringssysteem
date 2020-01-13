@@ -9,18 +9,22 @@ include('include/header.php');
         <div class="col-6 hoog">
             <?php //check of ingelogd
             if (isset($_SESSION["gebruiker"])) {
-                echo "u bent al ingelogd!";
+                echo "U bent al ingelogd!";
             }
             ?>
             <p class="title">Voer hier uw inloggegevens in</p>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <!--de form-->
                 <p>Gebruikersnaam:</p>
-                <input class="form storm-btn" type="text" name="uname" placeholder="Gebruikersnaam"><br><br>
+                <input class="form storm-btn" type="text" name="uname" placeholder="Gebruikersnaam"><br>
                 <p>Wachtwoord:</p>
-                <input class="form storm-btn" type="password" name="pword" placeholder="Wachtwoord"><br><br>
+                <input class="form storm-btn" type="password" name="pword" placeholder="Wachtwoord"><br>
                 <input class="btn mark-btn submit" type="submit" name="submit" value="Log in"><br><br>
-                <a class="btn mark-btn submit" href="logout.php">Log uit</a>
+                <?php
+                if(isset($_SESSION['gebruiker'])){
+                echo'<a class="btn mark-btn submit" href="logout.php">Log uit</a>';
+                }
+                ?>
             </form><br>
             
         </div>
