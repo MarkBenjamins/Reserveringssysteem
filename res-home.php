@@ -29,22 +29,25 @@ if (isset($_POST["submit"])) {
         $vertrekJaar = $splitVertrek[0];
         $vertrekMaand = $splitVertrek[1];
         $vertrekDag = $splitVertrek[2];
-
+	}
         if ($aankomst < $vandaag) { 
-            echo "Je mag alleen vandaag of later aankomen.";
-        } else {
+            echo "<p>Je mag alleen vandaag of later aankomen.<br></p>";
+		}
+		if (!preg_match('/^[2]{1}[0-9]{3}/' , $aankomstJaar) or (!preg_match('/^[2]{1}[0-9]{3}/' , $vertrekJaar) or (strlen ($aankomstJaar )> 4) or (strlen ($vertrekJaar )> 4))){
+            echo "<p>De aankoms of vertrekdatum is niet toegestaan.<br></p>";
+		} else {
             if ($vertrek < $vandaag) {
-                echo "Je kunt niet in het verleden vertrekken.";
+                echo "<p>Je kunt niet in het verleden vertrekken.<br></p>";
             } else {
                 if ($vertrek < $aankomst) {
-                    echo "Je kunt niet vertrekken voordat je aangekomen bent!";
+                    echo "<p>Je kunt niet vertrekken voordat je aangekomen bent!<br></p>";
                 } else {
                     if ($vertrek === $aankomst) {
-                        echo "Je kunt niet aankomen en vertrekken op dezelfde dag.";
+                        echo "<p>Je kunt niet aankomen en vertrekken op dezelfde dag.<br><p>";
                     } else {
                         if($kamerkeuze == "1" || $kamerkeuze == "2"|| $kamerkeuze == "3") { //validatie of kamerkeuze een keuze is
                             //Eind vd validation, vanaf hier kunnen we andere dingen doen.
-                           echo 1; 
+                           echo "<p>Kamer keuze niet herkent, probeer het nog is.<br></p>"; 
                             $datediff = strtotime($vertrek) - strtotime($aankomst);
                             //Hoeveel dagen de klant gereserveerd heeft
 
@@ -66,7 +69,7 @@ if (isset($_POST["submit"])) {
                             */ 
 
                         } else {
-                            echo "Kamer keuze is niet valid";
+                            echo "<p>Kamer keuze is niet valid<br></p>";
                         }
                     }
                 }
@@ -75,12 +78,10 @@ if (isset($_POST["submit"])) {
         //Jaar is gevalideert, nu kunnen we de datums apart gebruiken.
     } else {
         //Invalide datum
-        echo "Datum is invalid, probeer het nog een keer of kies een geldige datum";
-        die();
+        echo "<p>Datum is invalid, probeer het nog een keer of kies een geldige datum.<br></p>";
     }
 }
 ?>
-<br><br>
         <label for="Aankomst">Aankomst:</label>
         <div> <!-- Aankomst datum keuze menu -->
             <input required type="date" min="<?php echo date("Y-m-d");//huidige datum //nu kun je niet aankomen in het verleden ?>" name="aankomst" class="btn mark-btn">
