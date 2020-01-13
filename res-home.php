@@ -2,6 +2,7 @@
 <?php
 $stylesheet = "res-home";
 include('include/header.php');
+include('include/functions.php');
 
 ?>
 <!--Start Kamer Keuze Menu -->
@@ -12,16 +13,13 @@ include('include/header.php');
 
         <?php // php door Wesley & Mark
 
-        if (isset($_SESSION["message"]) && $_SESSION["message"] != NULL) {
-            echo "<div class='alert alert-danger'><p>".$_SESSION["message"]."</p></div>";
-            $_SESSION["message"] = NULL;
-        }
+        viewMessage();
 
         if (isset($_POST["submit"])) {
 
+            
             if (empty($_POST["aankomst"]) || empty($_POST["vertrek"]) || empty($_POST["kamerkeuze"])) {
-                $_SESSION["message"] = "Voer aub alle velden in";
-                header("Location: res-home.php");
+                sendMessage("Voer aub alle velden in", "res-home.php");
             }
             $aankomst = $_POST["aankomst"];
             $vertrek = $_POST["vertrek"];

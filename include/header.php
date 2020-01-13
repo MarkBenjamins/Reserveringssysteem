@@ -20,7 +20,7 @@ if(isset($_SESSION["gebruiker"])) {
 	<meta name="description" content="Landgoed Sollestijn">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="author" content="Twan Bosma, Mark Benjamins">
+	<meta name="author" content="Twan Bosma, Mark Benjamins, Storm Visser, Yanniek Wielage, Wesley Schoonbeek">
 </head>
 
 <body>
