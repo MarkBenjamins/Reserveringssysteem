@@ -95,3 +95,9 @@ li:hover > a
 form{
 	text-align: center;
 }
+/*Mark Benjamins*/
+/*kleur voor de error melding*/	
+	#melding
+	{
+		color: white;
+	}
