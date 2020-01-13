@@ -1,7 +1,7 @@
 <?php    
-$kamerkeuze = "Vierpersoonskamer";
-$aankomst = "2019-12-18"; // Dit wordt de session, temporary waarde
-$vertrek = "2019-12-21";
+$kamerkeuze = "Vierpersoonskamer"; // Dit wordt de keuze welke in voorgaande pagina is aangegeven
+$aankomst = "2019-12-18"; // Deze 3 waarden zijn sessions
+$vertrek = "2019-12-21"; // 
 
     $conn = mysqli_connect("127.0.0.1","root","");
 
@@ -34,7 +34,7 @@ include('include/header.php');
         return $range;
         }
         
-            $arrayAlleDagen = createDateRange($aankomst, $vertrek);
+            $arrayAlleDagen = createDateRange($aankomst, $vertrek); // Weergeeft alledagen waarin de klant wil blijven
         
             if ($stmt = $conn->prepare("SELECT kamernummer, begindatum, einddatum FROM reservering")){ // Haalt alle reserveringen uit de db
                 if ($stmt->execute()){
@@ -47,9 +47,9 @@ include('include/header.php');
                         
                         echo "Deze kamers zijn vrij<br>";
                         while ($row = $stmt->fetch()) { // Fetched alle data
-                            $arraykamer = (createDateRange($begindatum,$einddatum));
+                            $arraykamer = (createDateRange($begindatum,$einddatum)); // Creëert alle datums waarin een kamer gereserveerd is.
                             
-                            $looptimes = 0;
+                            $looptimes = 0; // Bekijkt hoe vaak de foreach al geloopt is.
                             foreach ($arraykamer as $var){
                                 if ($var === $arrayAlleDagen[$looptimes]){
                                     $locationkamer = array_search($kamerid,$ArrayGereserveerd);
@@ -61,29 +61,28 @@ include('include/header.php');
                         }
                         echo "<div id='DivKamers'>";
                             foreach ($arr as $value){
-                                if($kamerkeuze == "Eenpersoonskamer"){ 
+                                if($kamerkeuze == "Eenpersoonskamer"){ // Voert uit als eenpersoonskamer aangevinkt is
                                     if ($value <= 5){
                                      echo "<div id='DivForeachKamers'>";
                                      echo "<a href='res-kamer1pers.php'>Kamer " . $value . "</a><br>";
                                      echo "</div>";
                                     }
                                 }
-                                if ($kamerkeuze == "Tweepersoonskamer"){
+                                if ($kamerkeuze == "Tweepersoonskamer"){ // Voert uit als tweepersoonskamer aangevinkt is
                                     if ($value > 5 && $value <= 35) {
                                      echo "<div id='DivForeachKamers'>";
                                      echo "<a href='res-kamer2pers.php'>Kamer " . $value . "</a><br>";
                                      echo "</div>";                                   
                                     }
                                 }
-                                if ($kamerkeuze == "Vierpersoonskamer"){
-                                    if($value > 35 && $value <= 41) {
+                                if ($kamerkeuze == "Vierpersoonskamer"){ // Voert uit als vierpersoonskamer aangevinkt is
+                                    if($value > 35 && $value <= 41) { 
                                      echo "<div id='DivForeachKamers'>";
                                      echo "<a href='res-kamer4pers.php'>Kamer " . $value . "</a><br>";
                                      echo "</div>";                                   
                                     }
                                 }
-                               }                 
-                            
+                               }
                         echo "</div";
                         
                     } else {
