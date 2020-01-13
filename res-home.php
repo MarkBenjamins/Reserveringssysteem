@@ -56,14 +56,15 @@ include('include/functions.php');
                         if ($vertrek === $aankomst) {
                             echo "<p>Je kunt niet aankomen en vertrekken op dezelfde dag.<br><p>";
                         } else {
-                            if ($kamerkeuze == "1" || $kamerkeuze == "2" || $kamerkeuze == "3") { //validatie of kamerkeuze een keuze is
+                            if ($kamerkeuze == "Eenpersoonskamer" || $kamerkeuze == "Tweepersoonskamer" || $kamerkeuze == "Vierpersoonskamer") { //validatie of kamerkeuze een keuze is
                                 //Eind vd validation, vanaf hier kunnen we andere dingen doen.
                                 echo "<p>Kamer keuze niet herkent, probeer het nog is.<br></p>";
                                 $datediff = strtotime($vertrek) - strtotime($aankomst);
                                 //Hoeveel dagen de klant gereserveerd heeft
 
                                 $dagen = round($datediff / (60 * 60 * 24));
-                                //Kamer keuze en datums kloppen vanaf hier.
+                                //Kamer keuze en datums kloppen vanaf hier
+                                
                                 $_SESSION["res-home"]["kamerkeuze"] = $kamerkeuze;
                                 $_SESSION["res-home"]["aankomst"] = $aankomst;
                                 $_SESSION["res-home"]["vertrek"] = $vertrek;
@@ -113,9 +114,9 @@ include('include/functions.php');
         <div>
             <!-- Kamer keuze menu -->
             <select name="kamerkeuze" class="btn mark-btn">
-                <option value="1">Eenpersoonskamer</option>
-                <option value="2">Tweepersoonskamer</option>
-                <option value="3">Vierpersoonskamer</option>
+                <option value="Eenpersoonskamer">Eenpersoonskamer</option>
+                <option value="Tweepersoonskamer">Tweepersoonskamer</option>
+                <option value="Vierpersoonskamer">Vierpersoonskamer</option>
             </select>
         </div>
 
