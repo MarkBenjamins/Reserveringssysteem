@@ -80,7 +80,7 @@ if (isset($_POST["submit"])) {
         //Invalide datum
         echo "<p>Datum is invalid, probeer het nog een keer of kies een geldige datum.<br></p>";
     }
-}
+
 ?>
         <label for="Aankomst">Aankomst:</label>
         <div> <!-- Aankomst datum keuze menu -->
