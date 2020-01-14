@@ -49,7 +49,7 @@ include('include/functions.php');
                 sendMessage("De aankoms of vertrekdatum is niet toegestaan.", $_SERVER["PHP_SELF"]);
             }
             // valideert of geen schrikkeldatum is en of het dan wel een valide datum is
-            if (($aankomstDag || $vertrekDag == 29) && ($aankomstMaand == 02 || $vertrekMaand == 02) && ($aankomstMaand == 2 || $vertrekMaand == 2) && ($aankomstJaar || $vertrekJaar % 4 != 0)) {
+            if (($aankomstDag || $vertrekDag == 29) && ($aankomstMaand == 02 || $vertrekMaand == 02) && ($aankomstMaand == 2 || $vertrekMaand == 2) && ($aankomstJaar || $vertrekJaar % 4 != 0)) {// als extra had ook if jaar deelbaar door 400 && deelbaar door 100 error // i.v.m. het jaar 2100 
                 sendMessage("Heey Hackerman dat mag niet, het is geen schrikkeljaar.", $_SERVER["PHP_SELF"]);				
             } else {// valideer of je niet vertrekt in het verleden
                 if ($vertrek < $vandaag) {
