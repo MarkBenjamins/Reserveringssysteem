@@ -1,4 +1,5 @@
 <?php
+$_SESSION['kamernummer'];
 $stylesheet = "res-home";
 include('include/header.php');
 ?>
