@@ -49,37 +49,42 @@ include('include/functions.php');
                 sendMessage("De aankoms of vertrekdatum is niet toegestaan.", $_SERVER["PHP_SELF"]);
             }
             // valideert of geen schrikkeldatum is en of het dan wel een valide datum is
-            if (($aankomstDag || $vertrekDag == 29) && ($aankomstMaand == 02 || $vertrekMaand == 02) && ($aankomstMaand == 2 || $vertrekMaand == 2) && ($aankomstJaar || $vertrekJaar % 4 == 0)) { // als extra had ook if jaar deelbaar door 400 && deelbaar door 100 error // i.v.m. het jaar 2100 
+
+
+
+            if (($aankomstDag || $vertrekDag == 29) && ($aankomstMaand == 02 || $vertrekMaand == 02) && ($aankomstMaand == 2 || $vertrekMaand == 2) && ($aankomstJaar || $vertrekJaar % 4 != 0)) { // als extra had ook if jaar deelbaar door 400 && deelbaar door 100 error // i.v.m. het jaar 2100 
                 if ($aankomstJaar % 100 == 0 || $vertrekJaar % 100 == 0) {
                     if ($aankomstJaar % 400 == 0 || $vertrekJaar % 400 == 0) {
-                        //een schrikkeljaar
+                        echo 'test1'; //een schrikkeljaar
                     } else {
                         sendMessage("Heey Hackerman dat mag niet, het is geen schrikkeljaar.", $_SERVER["PHP_SELF"]);
                         die();
                     }
                 } else {
-                    //een schrikkeljaar
+                    sendMessage("Heey Hackerman dat mag niet, het is geen schrikkeljaar.", $_SERVER["PHP_SELF"]);
+                    die(); //een schrikkeljaar
                 }
-            } else { // valideer of je niet vertrekt in het verleden
-                if ($vertrek < $vandaag) {
-                    sendMessage("Je kunt niet in het verleden vertrekken.", $_SERVER["PHP_SELF"]);
-                } else { // valideert of je niet vertrekt voordat je aankomt
-                    if ($vertrek < $aankomst) {
-                        sendMessage("Je kunt niet vertrekken voordat je aangekomen bent!", $_SERVER["PHP_SELF"]);
-                    } else { // valideert of je niet vertrekt en aankomt op dezelfde dag
-                        if ($vertrek === $aankomst) {
-                            sendMessage("Je kunt niet aankomen en vertrekken op dezelfde dag.", $_SERVER["PHP_SELF"]);
-                        } else { //valideer kamerkeuze
-                            if ($kamerkeuze == "Eenpersoonskamer" || $kamerkeuze == "Tweepersoonskamer" || $kamerkeuze == "Vierpersoonskamer") {
-                                // als bovenstaande validatie is gelukt gaat de code verder, zo niet (else)foutmelding
-                                //test//sendMessage("Kamer keuze niet herkent, probeer het nog is.", $_SERVER["PHP_SELF"]); 
+            }
+            // valideer of je niet vertrekt in het verleden
+            if ($vertrek < $vandaag) {
+                sendMessage("Je kunt niet in het verleden vertrekken.", $_SERVER["PHP_SELF"]);
+            } else { // valideert of je niet vertrekt voordat je aankomt
+                if ($vertrek < $aankomst) {
+                    sendMessage("Je kunt niet vertrekken voordat je aangekomen bent!", $_SERVER["PHP_SELF"]);
+                } else { // valideert of je niet vertrekt en aankomt op dezelfde dag
+                    if ($vertrek === $aankomst) {
+                        sendMessage("Je kunt niet aankomen en vertrekken op dezelfde dag.", $_SERVER["PHP_SELF"]);
+                    } else { //valideer kamerkeuze
+                        if ($kamerkeuze == "Eenpersoonskamer" || $kamerkeuze == "Tweepersoonskamer" || $kamerkeuze == "Vierpersoonskamer") {
+                            // als bovenstaande validatie is gelukt gaat de code verder, zo niet (else)foutmelding
+                            //test//sendMessage("Kamer keuze niet herkent, probeer het nog is.", $_SERVER["PHP_SELF"]); 
 
-                                //Hoeveel dagen de klant gereserveerd heeft
-                                $datediff = strtotime($vertrek) - strtotime($aankomst);
-                                //dag calculator
-                                $dagen = round($datediff / (60 * 60 * 24));
+                            //Hoeveel dagen de klant gereserveerd heeft
+                            $datediff = strtotime($vertrek) - strtotime($aankomst);
+                            //dag calculator
+                            $dagen = round($datediff / (60 * 60 * 24));
 
-                                /*
+                            /*
                                  * Als de gebruiker een twee persoons kamer wil, ook de 4 persoons kamer laten zien
                                  * Als de gebruiker een eenpersoons kamer wil, alle kamers laten zien
                                  * Als de gebruiker een 4 persoons kamer wil, alleen 4 persoons laten zien.
@@ -88,14 +93,13 @@ include('include/functions.php');
                                  * Dit kun je opvangen doormiddel van de session te gebruiken in de pagina
                                  * Vanaf hier haal je de mysql data op
                                  */
-                                $_SESSION["res-home"]["kamerkeuze"] = $kamerkeuze;
-                                $_SESSION["res-home"]["aankomst"] = $aankomst;
-                                $_SESSION["res-home"]["vertrek"] = $vertrek;
-                                //Doorsturen naar de kamersoverzicht d.m.v. kamerkeuze
-                                header("Location: res-kameroverzicht.php");
-                            } else { // Als je een ander input hebt dan een geldige kamer, deze error
-                                sendMessage("Kamer keuze is niet valid, probeer het nog is.", $_SERVER["PHP_SELF"]);
-                            }
+                            $_SESSION["res-home"]["kamerkeuze"] = $kamerkeuze;
+                            $_SESSION["res-home"]["aankomst"] = $aankomst;
+                            $_SESSION["res-home"]["vertrek"] = $vertrek;
+                            //Doorsturen naar de kamersoverzicht d.m.v. kamerkeuze
+                            header("Location: res-kameroverzicht.php");
+                        } else { // Als je een ander input hebt dan een geldige kamer, deze error
+                            sendMessage("Kamer keuze is niet valid, probeer het nog is.", $_SERVER["PHP_SELF"]);
                         }
                     }
                 }
