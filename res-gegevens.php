@@ -19,8 +19,8 @@ $_SESSION['kamer'];
                                 echo "<p>Niet alle verplichte velden zijn ingevuld.<br></p>";
                                 // Iets niet ingevuld error	
                             } else
-                            //alle inpute naar var en filter speciale karakters
-                            $fname = htmlspecialchars($_POST['fname']);
+                                //alle inpute naar var en filter speciale karakters
+                                $fname = htmlspecialchars($_POST['fname']);
                             $lname = htmlspecialchars($_POST["lname"]);
                             $email = htmlspecialchars($_POST["email"]);
                             $tel = htmlspecialchars($_POST["tel"]);
@@ -91,7 +91,6 @@ $_SESSION['kamer'];
                             } else if ($gdate >= date("Y-m-d") && (!preg_match("/^([0-9])*$/", $gdate))) {
                                 // filter of de gekozen geboortedatum niet in de toekomst is
                                 echo "<p> De gekozen geboortedatum is niet mogelijk.<br></p>";
-								
                             } else if (isset($_POST['ltijd1']) && (!preg_match("/^([0-9])*$/", $_POST['ltijd1']) && ($_POST['ltijd1'] > 125))) {
                                 echo "<p> Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.<br></p>";
                             } else if (isset($_POST['ltijd2']) && (!preg_match("/^[0-9]*$/", $_POST['ltijd2']) && ($_POST['ltijd2'] > 125))) {
@@ -99,11 +98,11 @@ $_SESSION['kamer'];
                             } else if (isset($_POST['ltijd3']) && (!preg_match("/^[0-9]*$/", $_POST['ltijd3']) && ($_POST['ltijd3'] > 125))) {
                                 echo "<p> Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.<br></p>";
                             } else {
-                               // echo "Alles werkt"; //test
-								// if geen getal error/
+                                // echo "Alles werkt"; //test
+                                // if geen getal error/
                                 // if groterdan 3 error/
                                 // if groter dan 3 en eerste getal is groter dan 1 error
-								
+
                             }
                             //go to db 
                             //header("location: res-betaling.php"); // naar volgende pagina
@@ -161,16 +160,28 @@ $_SESSION['kamer'];
                                 <input class="formulier" max="<?php echo date("Y-m-d"); //Onmogelijk om in de toekomst geboren te zijn. 
                                                                 ?>" type="date" name="gdate"><br><br>
                             </div>
-                            <label for="leeftijd">Optioneel: leeftijd van uw medereizigers:</label>
-                            <div>
-                                <input class="formulier" type="number" placeholder=" Medereiziger 1" name="ltijd1">
-                            </div>
-                            <div>
-                                <input class="formulier" type="number" placeholder=" Medereiziger 2" name="ltijd2">
-                            </div>
-                            <div>
-                                <input class="formulier" type="number" placeholder=" Medereiziger 3" name="ltijd3">
-                            </div>
+                            <?php
+                            if ($_SESSION['res-home']['kamerkeuze'] == "Eenpersoonskamer") {
+                            } elseif ($_SESSION['res-home']['kamerkeuze'] = "Tweepersoonskamer") {
+                                echo '<label for="leeftijd">Optioneel: leeftijd van uw medereizigers:</label>
+                                    <div>
+                                        <input class="formulier" type="number" placeholder=" Medereiziger 1" name="ltijd1">
+                                    </div>';
+                            } elseif ($_SESSION['res-home']['kamerkeuze'] = "Vierpersoonskamer") {
+                                echo '<label for="leeftijd">Optioneel: leeftijd van uw medereizigers:</label>
+                                    <div>
+                                        <input class="formulier" type="number" placeholder=" Medereiziger 1" name="ltijd1">
+                                    </div>
+                                    <div>
+                                        <input class="formulier" type="number" placeholder=" Medereiziger 2" name="ltijd2">
+                                    </div>
+                                    <div>
+                                        <input class="formulier" type="number" placeholder=" Medereiziger 3" name="ltijd3">
+                                    </div>';
+                            } else {
+                                echo 'fout met de kamerkeuze';
+                            }
+                            ?>
                             <label for="extra">Extra opties:</label>
                             <div>
                                 <input class="formulier" type="checkbox" name="eten[]" value="ontbijt">
