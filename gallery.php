@@ -3,7 +3,7 @@ $stylesheet = "gallery";
 include('include/header.php');
 ?>
 <div id="gallerybox">
-    <!-- start gallerybox !-->
+    <!-- gemaakt door Yurrien en Storm-->
     <div id="galleryheader">
         <center>
             <h1>Gallerij</h1>
@@ -17,7 +17,7 @@ include('include/header.php');
                 $img = glob($dir);
                 $x = 1;
 
-                foreach ($img as $image) {
+                foreach ($img as $image) {//echo alle images apart
                     if ($x == 1) {
                         echo '<div class="carousel-item active">
                         <img src="' . $image . '" alt="foto kamer">

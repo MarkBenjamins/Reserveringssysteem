@@ -1,6 +1,7 @@
 <?php
 $stylesheet = "inlog";
 include('include/header.php');
+//gemaakt door Wesley en Storm
 ?>
 <div class="container-fluid">
     <div class="row">

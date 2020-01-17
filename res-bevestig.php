@@ -1,6 +1,7 @@
 <?php 
 $stylesheet = "betalen";
 include "include/header.php"; 
+//gemaakt door iedereen
 ?>
 
 <div class="container-fluid">
@@ -8,7 +9,7 @@ include "include/header.php";
         <div class="col-4">
         </div>
         <div class="col-4">
-			<center><h1>Betaald</h1>	<!--edit by Mark Benjamins-->
+			<center><h1>Betaald</h1>	
             <?php //Controle en melding van de betaalmethode
                 if (isset($_POST["methodesubmit"])){
                     if ($_POST["methode"] == "paypal"){

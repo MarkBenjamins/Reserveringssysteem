@@ -1,7 +1,8 @@
 <?php
 $stylesheet = "mycustomsheet";
 include('include/header.php');
-?>
+// gemaakt door Twan
+?> 
 <div class="row">
 	<div class="col-12 col-lg-6">
 		<h2>Lorem Ipsum</h2>

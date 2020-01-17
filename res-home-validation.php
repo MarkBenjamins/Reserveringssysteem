@@ -1,5 +1,5 @@
 <?php
-
+// gemaakt door Mark, Wesley en Storm
 if (isset($_POST["submit"])) {
     $aankomst = $_POST["aankomst"];
     $vertrek = $_POST["vertrek"];

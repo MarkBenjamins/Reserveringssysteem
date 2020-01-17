@@ -10,7 +10,7 @@ include('include/functions.php');
     <form id="res-home" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
 
         <?php
-        // php door Wesley & Mark
+        // php door Wesley, Mark en Storm
 
         viewMessage();
 
