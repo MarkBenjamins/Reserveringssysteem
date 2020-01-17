@@ -1,0 +1,48 @@
+Geen SCRUM maar waterfall methode toepassen.
+Urenverantwoording bijhouden.
+Wekelijkse meeting opdrachtgever.
+
+ERD:
+Admins: Alles aanpassen en veranderen.
+Eigenaar: Prijzen aanpassen afhankelijk van datum en seizoen.
+Werknemers: Handmatig reservering toevoegen.
+Klant/Schoonmakers: De gegevens bekijken.
+Entiteit toevoegen om prijzen aan te passen afhankelijk van datum etc.
+Kortingscode toepassen bij de reservering.
+In kamers staat een type als foreign key, waar komt dat vandaan?
+Relatie beschikbare kamers en kamers aanpassen.
+Iemand van de receptie moet de reserveringen goedkeuren, ipv de admin.
+Alle prijzen in 1 keer aan kunnen passen, aparte entiteit in het erd, waar je prijzen kunt aanpassen.
+
+Mock-up van de uitvoer H4.
+Als de klant reservering maakt wil hij ook maandoverzicht met beschikbare datums (moet bij de uitvoer!).
+Data van klanten bijhouden voor bijvoorbeeld schoonmaak en ander personeel.
+Aanhang --> Medereizigers
+
+Menustructuur:
+In de tabel wie waarbij de inzage en rechten worden laten zien.
+?Iets met een document How to make a functional design?
+
+H7:
+Samen met de opdrachtgever het systeem doorlopen als 'test'.
+Hoe wordt het systeem overgedragen? Uitleg etc nodig
+Hoe wordt het nieuwe systeem geintroduceerd/geimplementeerd?
+Stap voor stap of in een keer patsboem?
+
+H8:
+Eerste gedeelte kan weg, want niet nodig.
+Internet is nodig voor het werken van het systeem.
+Stel dat het systeem uitvalt of gehackt, dan werkt het niet meer.
+Daarom moeten er regelmatig Back-ups gemaakt worden door de admins/provider, niet door ons!
+Een plaatje bij het configuratieplan om aan te geven dat klanten via het internet(clients) bij de webserver(database) kunnen.
+(afbeelding to remote sql server)
+
+Logo en mock-up in orde, sfeer goed en logo klopt.
+Pagina's mogen statisch zijn, maar allemaal vrij simpel.
+Behalve natuurlijk het reserveringssysteem.
+
+HOU ALLES BIJ, CONTACT MET DE OPDRACHTGEVER OVER UPDATES, TALEN?!?!
+
+
+
+
