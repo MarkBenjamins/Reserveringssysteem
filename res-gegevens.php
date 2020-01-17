@@ -1,7 +1,7 @@
 <?php
 $stylesheet = "res-home";
 include('include/header.php');
-$_SESSION['kamer'];
+//$_SESSION['kamer'];
 ?>
 <div class="container-fluid">
     <div class="row login">
