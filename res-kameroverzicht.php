@@ -89,15 +89,23 @@ function showKamer($id, $type, $omschrijving, $beschikbaar) {
         
         if($type == 1) {
             $kamer = "Eenpersoons kamer";
+            $url = "res-kamer1pers.php";
         } else if($type == 2) {
             $kamer = "Tweepersoons kamer";
+            $url = "res-kamer2pers.php";
         } else {
             $kamer = "Vierpersoons kamer";
+            $url = "res-kamer4pers.php";
         }
         echo "<div class='kamer'>";
         echo "<p>".$kamer."</p>";
         echo "<p>".$omschrijving."</p>";
-        echo    "<a href='res-kamer4pers.php?action=$id'>Ga naar kamer</a><br>";
-        echo "</div>";
+        echo "
+        <form method='POST' action='".$url."'>
+            <input type='hidden' name='id' value='".$id."'>
+            <input type='submit' name='kamersubmit' value='Ga naar kamer'>
+        </form>
+       ";
+       echo "</div>";
 }
 ?>
