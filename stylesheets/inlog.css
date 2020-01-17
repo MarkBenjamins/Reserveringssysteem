@@ -12,9 +12,6 @@
     margin-right: auto;
     margin-left: auto;
 }
-p{
-    color: white;
-}
 .storm-btn{
     padding-bottom: 15px;
     border: solid 4px black;
@@ -41,4 +38,7 @@ p{
 .hoog{
     height:500px;
     text-align: center;
+}
+label{
+    color:white;
 }
