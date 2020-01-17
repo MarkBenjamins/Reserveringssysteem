@@ -1,6 +1,7 @@
 <?php
 $stylesheet = "kamers";
 include'include\header.php';
+//gemaakt door Yanniek
 ?>
 <!DOCTYPE HTML>
 <html>
