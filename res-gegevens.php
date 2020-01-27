@@ -17,6 +17,7 @@ include('include/header.php');
 
                         /* Wesley */
                         //Vorige pagina ( kamer keuze)
+                        /*
                         if(isset($_POST["id"])) {
                             echo "ID IS SET";
                             echo "<br/>";
@@ -25,9 +26,22 @@ include('include/header.php');
                         } else {
                             echo "ID IS NOT SET";
                         }
+                        */
 
                         if(!isset($_SESSION["res-home"])) {
                             die("Session bestaat niet");
+                        } else {
+                            echo "Session bestaat! <br/>";
+                            var_dump($_SESSION["res-home"]);
+                            echo "<br/>";
+                        }
+
+                        if(!isset($_SESSION["gegevens"])) {
+                            echo "Session gegevens bestaat niet! <br/><br/>"; 
+                        } else {
+                            echo "<br/><br/><br/>";
+                            var_dump($_SESSION["gegevens"]);
+                            echo "<br/><br/><br/>";
                         }
                         /* End wesley */
 
@@ -45,13 +59,46 @@ include('include/header.php');
                             $postc = htmlspecialchars($_POST["postc"]);
                             $hnummer = htmlspecialchars($_POST["hnummer"]);
                             $gdate = htmlspecialchars($_POST["gdate"]);
-                            $ltijd1 = htmlspecialchars($_POST["ltijd1"]);
-                            $ltijd2 = htmlspecialchars($_POST["ltijd2"]);
-                            $ltijd3 = htmlspecialchars($_POST["ltijd3"]);
-                            $lunch = htmlspecialchars($_POST["lunch"]);
-                            $efiets = htmlspecialchars($_POST["efiets"]);
-                            $epaal = htmlspecialchars($_POST["epaal"]);
+
+                            if(isset($_POST["ltijd1"])) {
+                                $ltijd1 = htmlspecialchars($_POST["ltijd1"]);
+                            } else {
+                                $ltijd1 = null;
+                            }
+                            
+                            if(isset($_POST["ltijd2"])) {
+                                $ltijd2 = htmlspecialchars($_POST["ltijd2"]);
+                            } else {
+                                $ltijd2 = null;
+                            }
+
+                            if(isset($_POST["ltijd3"])) {
+                                $ltijd3 = htmlspecialchars($_POST["ltijd3"]);
+                            } else {
+                                $ltijd3 = null;
+                            }
+                            
+                            if(isset($_POST["lunch"])) {
+                                $lunch = htmlspecialchars($_POST["lunch"]);
+                            } else {
+                                $lunch = null;
+                            }
+                            
+
+                            if(isset($_POST["efiets"])) {
+                                $efiets = htmlspecialchars($_POST["efiets"]);
+                            } else {
+                                $efiets = null;
+                            }
+                            
+                            if(isset($_POST["epaal"])) {
+                                $epaal = htmlspecialchars($_POST["epaal"]);
+                            } else {
+                                $epaal = null;
+                            }
+                            
                             $korting = htmlspecialchars($_POST["korting"]);
+                            
                             $opmerk = htmlspecialchars($_POST["opmerk"]);
 
 
@@ -117,16 +164,19 @@ include('include/header.php');
                             } else if (isset($_POST['ltijd3']) && (!preg_match("/^[0-9]*$/", $_POST['ltijd3']) && ($_POST['ltijd3'] > 125))) {
                                 echo "<p> Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.<br></p>";
                             } else {
+                                /*
                                 $ltijd1 = htmlspecialchars($_POST["ltijd1"]);
                                 $ltijd2 = htmlspecialchars($_POST["ltijd2"]);
                                 $ltijd3 = htmlspecialchars($_POST["ltijd3"]);
+                                */
                                 // echo "Alles werkt"; //test
                                 // if geen getal error/
                                 // if groterdan 3 error/
                                 // if groter dan 3 en eerste getal is groter dan 1 error
 
                                 /* Wesley */
-                                var_dump($_SESSION["res-home"]);
+                                //var_dump($_SESSION["res-home"]);
+                                
                                 $_SESSION["gegevens"]["fname"] = $fname;
                                 $_SESSION["gegevens"]["lname"] = $lname;
                                 $_SESSION["gegevens"]["email"] = $email;
@@ -143,6 +193,7 @@ include('include/header.php');
                                 $_SESSION["gegevens"]["korting"] = $korting;
                                 $_SESSION["gegevens"]["opmerk"] = $opmerk;
 
+                                header("Location: res-betaling.php");
                                 /* End wesley */
 
                             }

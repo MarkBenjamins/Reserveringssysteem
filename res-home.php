@@ -3,6 +3,10 @@
 $stylesheet = "res-home";
 include('include/header.php');
 include('include/functions.php');
+
+if(isset($_SESSION["gegevens"])) {
+    unset($_SESSION["gegevens"]);
+}
 ?>
 <!--Start Kamer Keuze Menu -->
 <center>
