@@ -1,10 +1,12 @@
 <?php
 $stylesheet = "betalen";
 include "include/header.php";
-//gemaakt door Ramon en Mark
 
 var_dump($_SESSION["gegevens"]);
-?>
+
+if (empty($_SESSION["res-home"]["kamerkeuze"])){
+    echo "<a href='res-gegevens.php'>Vul alstublieft eerst de gegevens in</a>";
+}
 
 
 
@@ -29,5 +31,6 @@ var_dump($_SESSION["gegevens"]);
     </div>
 </div>
 
-<?php include "include/footer.php";
+<?php
+include "include/footer.php";
 ?>
