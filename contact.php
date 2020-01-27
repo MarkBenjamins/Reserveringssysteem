@@ -11,7 +11,7 @@ include('include/header.php');
     if (isset($_POST['Verzend'])) {
         echo "<h2>Het bericht is verzonden</h2>";
     } else {
-        //        echo "<p>Het bericht is niet verzonden</p>";
+        //echo "<p>Het bericht is niet verzonden</p>";
     }
     ?>
     <form id="contact" action="#" method="POST">
@@ -41,7 +41,6 @@ include('include/header.php');
         </div>
     </form>
 </center>
-
 <!--End Contact pagina-->
 <?php
 include('include/footer.php');
