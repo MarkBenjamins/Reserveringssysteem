@@ -2,9 +2,9 @@
 <?php
 $stylesheet = "res-home";
 include('include/header.php');
-include('include/functions.php');
+include('include/functions.php');// error melding functie
 
-if(isset($_SESSION["gegevens"])) {
+if (isset($_SESSION["gegevens"])) {
     unset($_SESSION["gegevens"]);
 }
 ?>
@@ -86,7 +86,7 @@ if(isset($_SESSION["gegevens"])) {
                             //dag calculator
                             $dagen = round($datediff / (60 * 60 * 24));
 
-                                 /*
+                            /*
                                  * Als de gebruiker een twee persoons kamer wil, ook de 4 persoons kamer laten zien
                                  * Als de gebruiker een eenpersoons kamer wil, alle kamers laten zien
                                  * Als de gebruiker een 4 persoons kamer wil, alleen 4 persoons laten zien.
@@ -94,8 +94,8 @@ if(isset($_SESSION["gegevens"])) {
                                  * Vanaf hier word een nummer opgestuurd bijvoorbeeld $_SESSION["kamerkeuze"]
                                  * Dit kun je opvangen doormiddel van de session te gebruiken in de pagina
                                  * Vanaf hier haal je de mysql data op
-                                 */
-                                
+                            */
+
                             $_SESSION["res-home"]["kamerkeuze"] = $kamerkeuze;
                             $_SESSION["res-home"]["aankomst"] = $aankomst;
                             $_SESSION["res-home"]["vertrek"] = $vertrek;
@@ -108,7 +108,6 @@ if(isset($_SESSION["gegevens"])) {
                 }
             }
         } else { // deze melding mag NIET te zien zijn voor een gebruiker
-
             //Invalide datum
             //echo "<p>Datum is invalid, probeer het nog een keer of kies een geldige datum.<br></p>";
         }
@@ -117,16 +116,14 @@ if(isset($_SESSION["gegevens"])) {
         <div>
             <!-- Aankomst datum keuze menu -->
             <input type="date" min="<?php echo date("Y-m-d"); //huidige datum //nu kun je niet aankomen in het verleden 
-                                    ?>" name="aankomst" class="btn mark-btn">
+                                    ?>" name="aankomst" class="btn mark-btn" placeholder="<?php echo date("d-m-Y"); ?>">
         </div>
-
         <label for="Vertrek">Vertrek:</label>
         <div>
             <!-- Vertrek datum keuze menu -->
             <input type="date" min="<?php echo date("Y-m-d"); //huidige datum //nu kun je niet vertrekken in het verleden 
                                     ?>" name="vertrek" class="btn mark-btn">
         </div>
-
         <label for="Kamerkeuze">Kamerkeuze:</label>
         <div>
             <!-- Kamer keuze menu -->
@@ -136,7 +133,6 @@ if(isset($_SESSION["gegevens"])) {
                 <option value="Vierpersoonskamer">Vierpersoonskamer</option>
             </select>
         </div>
-
         <div>
             <!-- Zoek knop -->
             <input type="submit" class="btn mark-btn" name="submit" value="Zoek">
