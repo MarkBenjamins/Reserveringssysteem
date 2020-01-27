@@ -18,18 +18,16 @@ include('include/header.php');
                             if (empty($_POST['fname']) || empty($_POST['lname']) || empty($_POST['gdate']) || empty($_POST['email']) || empty($_POST['tel']) || empty($_POST['postc']) || empty($_POST['hnummer'])) {
                                 echo "<p>Niet alle verplichte velden zijn ingevuld.<br></p>";
                                 // Iets niet ingevuld error	
-                            } else
+                            } else {
                                 //alle inpute naar var en filter speciale karakters
-                                $fname = htmlspecialchars($_POST['fname']);
+                            $fname = htmlspecialchars($_POST['fname']);
                             $lname = htmlspecialchars($_POST["lname"]);
                             $email = htmlspecialchars($_POST["email"]);
                             $tel = htmlspecialchars($_POST["tel"]);
                             $postc = htmlspecialchars($_POST["postc"]);
                             $hnummer = htmlspecialchars($_POST["hnummer"]);
-                            $gdate = htmlspecialchars($_POST["gdate"]);
-                            $ltijd1 = htmlspecialchars($_POST["ltijd1"]);
-                            $ltijd2 = htmlspecialchars($_POST["ltijd2"]);
-                            $ltijd3 = htmlspecialchars($_POST["ltijd3"]);
+                            $gdate = htmlspecialchars($_POST["gdate"]);   
+       
                             //$lunch = $_POST["lunch"];
                             //$efiets = $_POST["efiets"];
                             //$epaal = $_POST["epaal"];
@@ -46,7 +44,8 @@ include('include/header.php');
                             $tel = str_replace('-', '', $tel);
                             $tel = str_replace('+', '', $tel);
                             $tel = str_replace(' ', '', $tel);
-
+                            
+                            
                             if (!preg_match('/^[a-z]*$/i', $fname)) {
                                 /* (!preg_match('/^[a-z]*$/i = filter af het een letter is (i)= cas-insensitive
                                  * ^ = begin van de string
@@ -98,11 +97,15 @@ include('include/header.php');
                             } else if (isset($_POST['ltijd3']) && (!preg_match("/^[0-9]*$/", $_POST['ltijd3']) && ($_POST['ltijd3'] > 125))) {
                                 echo "<p> Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.<br></p>";
                             } else {
+                                $ltijd1 = htmlspecialchars($_POST["ltijd1"]);
+                                $ltijd2 = htmlspecialchars($_POST["ltijd2"]);
+                                $ltijd3 = htmlspecialchars($_POST["ltijd3"]);
                                 // echo "Alles werkt"; //test
                                 // if geen getal error/
                                 // if groterdan 3 error/
                                 // if groter dan 3 en eerste getal is groter dan 1 error
 
+                            }
                             }
                             //go to db 
                             //header("location: res-betaling.php"); // naar volgende pagina
