@@ -14,6 +14,24 @@ include('include/header.php');
                     <center>
                         <?php
                         //Door Mark Benjamins
+
+                        /* Wesley */
+                        //Vorige pagina ( kamer keuze)
+                        if(isset($_POST["id"])) {
+                            echo "ID IS SET";
+                            echo "<br/>";
+                            var_dump($_SESSION["res-home"]);
+                            $_SESSION["res-home"]["id"] = $_POST["id"];
+                        } else {
+                            echo "ID IS NOT SET";
+                        }
+
+                        if(!isset($_SESSION["res-home"])) {
+                            die("Session bestaat niet");
+                        }
+                        /* End wesley */
+                        
+                        //Zelf paginas
                         if (isset($_POST['submit'])) {
                             if (empty($_POST['fname']) || empty($_POST['lname']) || empty($_POST['gdate']) || empty($_POST['email']) || empty($_POST['tel']) || empty($_POST['postc']) || empty($_POST['hnummer'])) {
                                 echo "<p>Niet alle verplichte velden zijn ingevuld.<br></p>";
@@ -30,11 +48,11 @@ include('include/header.php');
                             $ltijd1 = htmlspecialchars($_POST["ltijd1"]);
                             $ltijd2 = htmlspecialchars($_POST["ltijd2"]);
                             $ltijd3 = htmlspecialchars($_POST["ltijd3"]);
-                            //$lunch = $_POST["lunch"];
-                            //$efiets = $_POST["efiets"];
-                            //$epaal = $_POST["epaal"];
-                            //$korting = $_POST["korting"];
-                            //$opmerk = $_POST["opmerk"];
+                            $lunch = htmlspecialchars($_POST["lunch"]);
+                            $efiets = htmlspecialchars($_POST["efiets"]);
+                            $epaal = htmlspecialchars($_POST["epaal"]);
+                            $korting = htmlspecialchars($_POST["korting"]);
+                            $opmerk = htmlspecialchars($_POST["opmerk"]);
 
 
                             // postcode en huisnummer omzetten naar een bruikbare waarde (spaties weg)
@@ -102,6 +120,26 @@ include('include/header.php');
                                 // if geen getal error/
                                 // if groterdan 3 error/
                                 // if groter dan 3 en eerste getal is groter dan 1 error
+                                
+                                /* Wesley */
+                                var_dump($_SESSION["res-home"]);
+                                $_SESSION["gegevens"]["fname"] = $fname;
+                                $_SESSION["gegevens"]["lname"] = $lname;
+                                $_SESSION["gegevens"]["email"] = $email;
+                                $_SESSION["gegevens"]["tel"] = $tel;
+                                $_SESSION["gegevens"]["postc"] = $postc;
+                                $_SESSION["gegevens"]["hnummer"] = $hnummer;
+                                $_SESSION["gegevens"]["gdate"] = $gdate;
+                                $_SESSION["gegevens"]["ltijd1"] = $ltijd1;
+                                $_SESSION["gegevens"]["ltijd2"] = $ltijd2;
+                                $_SESSION["gegevens"]["ltijd3"] = $ltijd3;
+                                $_SESSION["gegevens"]["lunch"] = $lunch;
+                                $_SESSION["gegevens"]["efiets"] = $efiets;
+                                $_SESSION["gegevens"]["epaal"] = $epaal;
+                                $_SESSION["gegevens"]["korting"] = $korting;
+                                $_SESSION["gegevens"]["opmerk"] = $opmerk;
+                                
+                                /* End wesley */
 
                             }
                             //go to db 
@@ -118,6 +156,10 @@ include('include/header.php');
                         // tel = geen letters
                         ?>
 
+                        <?php
+                          
+                            
+                        ?>
                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                             <label for="fname">*Voornaam:</label> <!-- add by Mark-->
                             <div>

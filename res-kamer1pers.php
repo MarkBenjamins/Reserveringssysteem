@@ -25,7 +25,7 @@ include 'include/header.php';
         <p class="1persP" style="margin:0 auto;width: 75%;color:white;">Deze 1 persoonskamer bestaat uit een slaapkamer en een badkamer. De slaapkamer is voorzien van een 1 persoons bed, een nachtkastje met accessoires, en een televisie.
             De badkamer is voorzien van een douche en een bad<br><br>
             <form method='POST' action='res-gegevens.php'>
-                <input type='hidden' value='<?php echo $id; ?>'>
+                <input type='hidden' name='id' value='<?php echo $id; ?>'>
                 <input type='submit' value='Reserveer deze kamer'>
             </form>
 
