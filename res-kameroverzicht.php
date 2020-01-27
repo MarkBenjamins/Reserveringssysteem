@@ -1,6 +1,4 @@
 <?php
-
-
 $stylesheet = "kamers";
 include('include/header.php');
 
