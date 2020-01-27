@@ -2,6 +2,10 @@
 $stylesheet = "betalen";
 include "include/header.php";
 //gemaakt door Ramon en Mark
+if (empty($_SESSION["res-home"]["kamerkeuze"])){
+    echo "Vul alstublieft eerst de gegevens in";
+}
+else {
 ?>
 
 <div class="container-fluid">
@@ -25,5 +29,7 @@ include "include/header.php";
     </div>
 </div>
 
-<?php include "include/footer.php";
+<?php 
+}
+include "include/footer.php";
 ?>
