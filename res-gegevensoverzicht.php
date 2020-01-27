@@ -6,17 +6,17 @@ include 'include/header.php';
     <div class="row">
         <?php
         if (!empty($_SESSION['fname']) || !empty($_SESSION['lname']) || !empty($_SESSION['email']) || !empty($_SESSION['postc']) || !empty($_SESSION['gdate']) || !empty($_SESSION['ltijd1'])){
-            echo $_SESSION['fname'] . "<br>";
-            echo $_SESSION['lname'] . "<br>";
-            echo $_SESSION['email'] . "<br>";
-            echo $_SESSION['postc'] . "<br>";
-            echo $_SESSION['gdate'] . "<br>";
-            echo $_SESSION['ltijd1'] . "<br>";
+            echo "Dit zijn uw gegevens:<br>";
+            echo "Naam: " . $_SESSION['fname'] . " " . $_SESSION['lname'] . "<br>";
+            echo "Email: " . $_SESSION['email'] . "<br>";
+            echo "Postcode: " . $_SESSION['postc'] . "<br>";
+            echo "Geboortedatum: " . $_SESSION['gdate'] . "<br>";
+            echo "Leeftijd: " . $_SESSION['ltijd1'] . "<br>";
             if (!empty($_SESSION['ltijd2'])){
-                echo $_SESSION['ltijd2'] . "<br>";
+                echo "Leeftijd Gast 2 :" . $_SESSION['ltijd2'] . "<br>";
             }
             if (!empty($_SESSION['ltijd3'])){
-                echo $_SESSION['ltijd3'] . "<br>";
+                echo "Leeftijd Gast 3: " . $_SESSION['ltijd3'] . "<br>";
             }
         }
         else {
