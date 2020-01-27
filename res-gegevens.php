@@ -1,6 +1,7 @@
 <?php
 $stylesheet = "res-home";
 include('include/header.php');
+include('include/functions.php'); // error melding functie
 //$_SESSION['kamer'];
 ?>
 <div class="container-fluid">
@@ -14,6 +15,7 @@ include('include/header.php');
                     <center>
                         <?php
                         //Door Mark Benjamins
+                        viewMessage();//error melding basis 
 
                         /* Wesley */
                         //Vorige pagina ( kamer keuze)
@@ -26,9 +28,8 @@ include('include/header.php');
                         } else {
                             echo "ID IS NOT SET";
                         }
-                        */
 
-                        if(!isset($_SESSION["res-home"])) {
+                        if (!isset($_SESSION["res-home"])) {
                             die("Session bestaat niet");
                         } else {
                             echo "Session bestaat! <br/>";
@@ -36,117 +37,114 @@ include('include/header.php');
                             echo "<br/>";
                         }
 
-                        if(!isset($_SESSION["gegevens"])) {
-                            echo "Session gegevens bestaat niet! <br/><br/>"; 
+                        if (!isset($_SESSION["gegevens"])) {
+                            echo "Session gegevens bestaat niet! <br/><br/>";
                         } else {
                             echo "<br/><br/><br/>";
                             var_dump($_SESSION["gegevens"]);
                             echo "<br/><br/><br/>";
                         }
+                         */
                         /* End wesley */
 
                         //Zelf paginas
                         if (isset($_POST['submit'])) {
                             if (empty($_POST['fname']) || empty($_POST['lname']) || empty($_POST['gdate']) || empty($_POST['email']) || empty($_POST['tel']) || empty($_POST['postc']) || empty($_POST['hnummer'])) {
-                                echo "<p>Niet alle verplichte velden zijn ingevuld.<br></p>";
+                                sendMessage("Niet alle verplichte velden zijn ingevuld.", $_SERVER["PHP_SELF"]);
                                 // Iets niet ingevuld error
                             } else {
                                 //alle inpute naar var en filter speciale karakters
-                            $fname = htmlspecialchars($_POST['fname']);
-                            $lname = htmlspecialchars($_POST["lname"]);
-                            $email = htmlspecialchars($_POST["email"]);
-                            $tel = htmlspecialchars($_POST["tel"]);
-                            $postc = htmlspecialchars($_POST["postc"]);
-                            $hnummer = htmlspecialchars($_POST["hnummer"]);
-                            $gdate = htmlspecialchars($_POST["gdate"]);
+                                $fname = htmlspecialchars($_POST['fname']);
+                                $lname = htmlspecialchars($_POST["lname"]);
+                                $email = htmlspecialchars($_POST["email"]);
+                                $tel = htmlspecialchars($_POST["tel"]);
+                                $postc = htmlspecialchars($_POST["postc"]);
+                                $hnummer = htmlspecialchars($_POST["hnummer"]);
+                                $gdate = htmlspecialchars($_POST["gdate"]);
 
-                            if(isset($_POST["ltijd1"])) {
-                                $ltijd1 = htmlspecialchars($_POST["ltijd1"]);
-                            } else {
-                                $ltijd1 = null;
-                            }
-                            
-                            if(isset($_POST["ltijd2"])) {
-                                $ltijd2 = htmlspecialchars($_POST["ltijd2"]);
-                            } else {
-                                $ltijd2 = null;
-                            }
+                                if (isset($_POST["ltijd1"])) {
+                                    $ltijd1 = htmlspecialchars($_POST["ltijd1"]);
+                                } else {
+                                    $ltijd1 = null;
+                                }
 
-                            if(isset($_POST["ltijd3"])) {
-                                $ltijd3 = htmlspecialchars($_POST["ltijd3"]);
-                            } else {
-                                $ltijd3 = null;
-                            }
-                            
-                            if(isset($_POST["lunch"])) {
-                                $lunch = htmlspecialchars($_POST["lunch"]);
-                            } else {
-                                $lunch = null;
-                            }
-                            
+                                if (isset($_POST["ltijd2"])) {
+                                    $ltijd2 = htmlspecialchars($_POST["ltijd2"]);
+                                } else {
+                                    $ltijd2 = null;
+                                }
 
-                            if(isset($_POST["efiets"])) {
-                                $efiets = htmlspecialchars($_POST["efiets"]);
-                            } else {
-                                $efiets = null;
-                            }
-                            
-                            if(isset($_POST["epaal"])) {
-                                $epaal = htmlspecialchars($_POST["epaal"]);
-                            } else {
-                                $epaal = null;
-                            }
-                            
-                            $korting = htmlspecialchars($_POST["korting"]);
-                            
-                            $opmerk = htmlspecialchars($_POST["opmerk"]);
+                                if (isset($_POST["ltijd3"])) {
+                                    $ltijd3 = htmlspecialchars($_POST["ltijd3"]);
+                                } else {
+                                    $ltijd3 = null;
+                                }
 
+                                if (isset($_POST["lunch"])) {
+                                    $lunch = htmlspecialchars($_POST["lunch"]);
+                                } else {
+                                    $lunch = null;
+                                }
 
-                            // postcode en huisnummer omzetten naar een bruikbare waarde (spaties weg)
-                            $postc = str_replace(' ', '', $postc);
-                            $hnummer = str_replace(' ', '', $hnummer);
-                            $postc = strtoupper($postc);
+                                if (isset($_POST["efiets"])) {
+                                    $efiets = htmlspecialchars($_POST["efiets"]);
+                                } else {
+                                    $efiets = null;
+                                }
 
-                            //filter tel
-                            $tel = str_replace('-', '', $tel);
-                            $tel = str_replace('+', '', $tel);
-                            $tel = str_replace(' ', '', $tel);
+                                if (isset($_POST["epaal"])) {
+                                    $epaal = htmlspecialchars($_POST["epaal"]);
+                                } else {
+                                    $epaal = null;
+                                }
 
+                                $korting = htmlspecialchars($_POST["korting"]);
+                                $opmerk = htmlspecialchars($_POST["opmerk"]);
 
-                            if (!preg_match('/^[a-z]*$/i', $fname)) {
-                                /* (!preg_match('/^[a-z]*$/i = filter af het een letter is (i)= cas-insensitive
-                                 * ^ = begin van de string
-                                 * [a-z] = een letter
-                                 * * = dat het er minstens 0 of meer x in voorkomt
-                                 * $ = eide van de sting
-                                 */
-                                echo "<p>Je voornaam is niet ingevuld of bestaan niet compleet uit letters.<br></p>";
-                                // Voornaam mag alleen letters en hoofdletter bevatten
-                                // Mag niet bestaan uit getallen en speciale tekens
-                            } else if (!preg_match('/^[a-z]*$/i', $lname)) {
-                                /* (!preg_match('/^[a-z]*$/i = filter af het een letter is
-                                 * ^ = begin van de string
-                                 * [a-z] = een letter
-                                 * * = dat het er minstens 0 of meer x in voorkomt
-                                 * $ = eide van de sting
-                                 * i = case-insensitive
-                                 */
-                                echo "<p>Je achternaam is niet ingevuld of bestaan niet compleet uit letters.<br></p>";
-                                // Achternaam mag alleen letters en hoofdletter bevatten
-                                // Mag niet bestaan uit getallen en speciale tekens
+                                // postcode en huisnummer omzetten naar een bruikbare waarde (spaties weg)
+                                $postc = str_replace(' ', '', $postc);
+                                $hnummer = str_replace(' ', '', $hnummer);
+                                $postc = strtoupper($postc);
 
-                            } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                                // filter of het een e-mail is
-                                echo "<p>Het opgegeven mailadres is niet ingevuld of niet toegestaan.<br></p>";
-                                // Als mailadres niet goed is echo foutmelding
+                                //filter tel
+                                $tel = str_replace('-', '', $tel);
+                                $tel = str_replace('+', '', $tel);
+                                $tel = str_replace(' ', '', $tel);
 
-                            } else if (!preg_match('/^[0-9]{3}/', $tel)) {
-                                // filter of het een nummer tussen 0 en 9 is
-                                // {3} = minstens 3 x in voorkomen // een tel heeft minstens 3 nummers
-                                echo "<p>Het opgegeven telefoonnummer is niet toegestaan.<br></p>";
-                            } else if (!preg_match("/^[1-9]{1}[0-9]{3}[A-Z]{2}$/i", $postc)) {
-                                // filter of het een postcode is
-                                /* (!preg_match('/^[1-9]{1}[0-9]{3}[A-Z]{2}$/"
+                                if (!preg_match('/^[a-z]*$/i', $fname)) {
+                                    /* (!preg_match('/^[a-z]*$/i = filter af het een letter is (i)= cas-insensitive
+                                    * ^ = begin van de string
+                                    * [a-z] = een letter
+                                    * * = dat het er minstens 0 of meer x in voorkomt
+                                    * $ = eide van de sting
+                                    */
+                                    sendMessage("Je voornaam is niet ingevuld of bestaan niet compleet uit letters.", $_SERVER["PHP_SELF"]);
+                                    // Voornaam mag alleen letters en hoofdletter bevatten
+                                    // Mag niet bestaan uit getallen en speciale tekens
+                                } else if (!preg_match('/^[a-z]*$/i', $lname)) {
+                                    /* (!preg_match('/^[a-z]*$/i = filter af het een letter is
+                                    * ^ = begin van de string
+                                    * [a-z] = een letter
+                                    * * = dat het er minstens 0 of meer x in voorkomt
+                                    * $ = eide van de sting
+                                    * i = case-insensitive
+                                    */
+                                    sendMessage("Je achternaam is niet ingevuld of bestaan niet compleet uit letters.", $_SERVER["PHP_SELF"]);
+                                    // Achternaam mag alleen letters en hoofdletter bevatten
+                                    // Mag niet bestaan uit getallen en speciale tekens
+
+                                } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                                    // filter of het een e-mail is
+                                    sendMessage('Het opgegeven mailadres is niet ingevuld of niet toegestaan.');
+                                    // Als mailadres niet goed is echo foutmelding
+
+                                } else if (!preg_match('/^[0-9]{3}/', $tel)) {
+                                    // filter of het een nummer tussen 0 en 9 is
+                                    // {3} = minstens 3 x in voorkomen // een tel heeft minstens 3 nummers
+                                    sendMessage('Het opgegeven telefoonnummer is niet toegestaan.');
+                                } else if (!preg_match("/^[1-9]{1}[0-9]{3}[A-Z]{2}$/i", $postc)) {
+                                    // filter of het een postcode is
+                                    /* (!preg_match('/^[1-9]{1}[0-9]{3}[A-Z]{2}$/"
                                  * ^ = begin van de string
                                  * [1-9]{1} = eerst letter is hoger dan 0
                                  * [0-9]{3} = de 3 er achter zijn tussen 0 en 9
@@ -154,99 +152,69 @@ include('include/header.php');
                                  * $ = eide van de sting
                                  * i = case-insensitive
                                  */
-                            } else if ($gdate >= date("Y-m-d") && (!preg_match("/^([0-9])*$/", $gdate))) {
-                                // filter of de gekozen geboortedatum niet in de toekomst is
-                                echo "<p> De gekozen geboortedatum is niet mogelijk.<br></p>";
-                            } else if (isset($_POST['ltijd1']) && (!preg_match("/^([0-9])*$/", $_POST['ltijd1']) && ($_POST['ltijd1'] > 125))) {
-                                echo "<p> Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.<br></p>";
-                            } else if (isset($_POST['ltijd2']) && (!preg_match("/^[0-9]*$/", $_POST['ltijd2']) && ($_POST['ltijd2'] > 125))) {
-                                echo "<p> Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.<br></p>";
-                            } else if (isset($_POST['ltijd3']) && (!preg_match("/^[0-9]*$/", $_POST['ltijd3']) && ($_POST['ltijd3'] > 125))) {
-                                echo "<p> Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.<br></p>";
-                            } else {
-                                /*
-                                $ltijd1 = htmlspecialchars($_POST["ltijd1"]);
-                                $ltijd2 = htmlspecialchars($_POST["ltijd2"]);
-                                $ltijd3 = htmlspecialchars($_POST["ltijd3"]);
-                                */
-                                // echo "Alles werkt"; //test
-                                // if geen getal error/
-                                // if groterdan 3 error/
-                                // if groter dan 3 en eerste getal is groter dan 1 error
+                                } else if ($gdate >= date("Y-m-d") && (!preg_match("/^([0-9])*$/", $gdate))) {
+                                    // filter of de gekozen geboortedatum niet in de toekomst is
+                                    sendMessage("De gekozen geboortedatum is niet mogelijk.");
+                                    // filter of het een getal is en kleiner dan 125
+                                } else if (isset($_POST['ltijd1']) && (!preg_match("/^([0-9])*$/", $_POST['ltijd1']) && ($_POST['ltijd1'] > 125))) {
+                                    sendMessage("Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.");
+                                } else if (isset($_POST['ltijd2']) && (!preg_match("/^[0-9]*$/", $_POST['ltijd2']) && ($_POST['ltijd2'] > 125))) {
+                                    sendMessage("Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.");
+                                } else if (isset($_POST['ltijd3']) && (!preg_match("/^[0-9]*$/", $_POST['ltijd3']) && ($_POST['ltijd3'] > 125))) {
+                                    sendMessage("Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.");
+                                } else {
+                                    /* Wesley */
+                                    //var_dump($_SESSION["res-home"]);
 
-                                /* Wesley */
-                                //var_dump($_SESSION["res-home"]);
-                                
-                                $_SESSION["gegevens"]["fname"] = $fname;
-                                $_SESSION["gegevens"]["lname"] = $lname;
-                                $_SESSION["gegevens"]["email"] = $email;
-                                $_SESSION["gegevens"]["tel"] = $tel;
-                                $_SESSION["gegevens"]["postc"] = $postc;
-                                $_SESSION["gegevens"]["hnummer"] = $hnummer;
-                                $_SESSION["gegevens"]["gdate"] = $gdate;
-                                $_SESSION["gegevens"]["ltijd1"] = $ltijd1;
-                                $_SESSION["gegevens"]["ltijd2"] = $ltijd2;
-                                $_SESSION["gegevens"]["ltijd3"] = $ltijd3;
-                                $_SESSION["gegevens"]["lunch"] = $lunch;
-                                $_SESSION["gegevens"]["efiets"] = $efiets;
-                                $_SESSION["gegevens"]["epaal"] = $epaal;
-                                $_SESSION["gegevens"]["korting"] = $korting;
-                                $_SESSION["gegevens"]["opmerk"] = $opmerk;
+                                    $_SESSION["gegevens"]["fname"] = $fname;
+                                    $_SESSION["gegevens"]["lname"] = $lname;
+                                    $_SESSION["gegevens"]["email"] = $email;
+                                    $_SESSION["gegevens"]["tel"] = $tel;
+                                    $_SESSION["gegevens"]["postc"] = $postc;
+                                    $_SESSION["gegevens"]["hnummer"] = $hnummer;
+                                    $_SESSION["gegevens"]["gdate"] = $gdate;
+                                    $_SESSION["gegevens"]["ltijd1"] = $ltijd1;
+                                    $_SESSION["gegevens"]["ltijd2"] = $ltijd2;
+                                    $_SESSION["gegevens"]["ltijd3"] = $ltijd3;
+                                    $_SESSION["gegevens"]["lunch"] = $lunch;
+                                    $_SESSION["gegevens"]["efiets"] = $efiets;
+                                    $_SESSION["gegevens"]["epaal"] = $epaal;
+                                    $_SESSION["gegevens"]["korting"] = $korting;
+                                    $_SESSION["gegevens"]["opmerk"] = $opmerk;
 
-                                header("Location: res-betaling.php");
-                                /* End wesley */
-
+                                    header("Location: res-betaling.php");
+                                    /* End wesley */
+                                }
                             }
-                            }
-                            //go to db
-                            //header("location: res-betaling.php"); // naar volgende pagina
                         }
-
-
-                        //var_dump ($eten);
-                        //foreach ($eten as $food){
-                        //		echo $food;
-                        //}
-                        // mederijziges = nummeric bespreek met docent of dit misschien niet hoeft?
-                        // tel = if aantal caracter
-                        // tel = geen letters
                         ?>
-
-                        <?php
-
-
-                        ?>
+                        <!-- add by Mark-->
                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                            <label for="fname">*Voornaam:</label> <!-- add by Mark-->
+                            <label for="fname">*Voornaam:</label>
                             <div>
                                 <!--Voornaam-->
                                 <input class="formulier" type="text" placeholder=" Uw voornaam" name="fname">
                             </div>
-
                             <label for="lname">*Achternaam:</label>
                             <div>
                                 <!--Achternaam-->
                                 <input class="formulier" type="text" placeholder=" Uw achternaam" name="lname">
                             </div>
-
                             <label for="email">*E-mailadres:</label>
                             <div>
                                 <!--Email-->
                                 <input class="formulier" type="email" placeholder=" Uw e-mailadres" name="email">
                             </div>
-
                             <label for="telnmr">*Telefoonnummer:</label>
                             <div>
                                 <!--Tel-->
                                 <input class="formulier" type="tel" placeholder=" Uw telefoonnummer" name="tel">
                             </div>
-
                             <label for="adres">*Postcode:</label>
                             <div>
                                 <!--Postcode-->
                                 <input class="formulier" type="text" placeholder=" Uw postcode" name="postc">
                             </div>
-
                             <label for="adres">*Huisnummer:</label>
                             <div>
                                 <!--Huisnummer-->
@@ -258,7 +226,7 @@ include('include/header.php');
                                 <input class="formulier" max="<?php echo date("Y-m-d"); //Onmogelijk om in de toekomst geboren te zijn.
                                                                 ?>" type="date" name="gdate"><br><br>
                             </div>
-                            <?php
+                            <?php //if kamer is groter dan 1 dan komt er een extra leetijd veld bij
                             if ($_SESSION['res-home']['kamerkeuze'] == "Eenpersoonskamer") {
                             } elseif ($_SESSION['res-home']['kamerkeuze'] = "Tweepersoonskamer") {
                                 echo '<label for="leeftijd">Optioneel: leeftijd van uw medereizigers:</label>
@@ -282,32 +250,41 @@ include('include/header.php');
                             ?>
                             <label for="extra">Extra opties:</label>
                             <div>
-                                <input class="formulier" type="checkbox" name="eten[]" value="ontbijt">
+                                <!--Ontbijt-->
+                                <input class="formulier" type="checkbox" name="eten[]" value="ontbijt" checked>
                                 <label>Ontbijt</label>
                             </div>
                             <div>
+                                <!--Lunch-->
                                 <input class="formulier" type="checkbox" name="eten[]" value="lunch">
                                 <label>Lunch</label>
                             </div>
                             <div>
+                                <!--Diner-->
                                 <input class="formulier" type="checkbox" name="eten[]" value="diner">
                                 <label>Diner</label>
                                 <br><br>
                             </div>
-                            <label for="e-res">Extra reserverings opties:</label>
+                            <label>Extra reserverings opties:</label>
                             <div>
-                                <input class="formulier" type="checkbox" name="efiets"><label>Elektrische fiets</label>
+                                <!--Elektrische fiets-->
+                                <input class="formulier" type="checkbox" name="efiets">
+                                <label>Elektrische fiets</label>
                             </div>
                             <div>
-                                <input class="formulier" type="checkbox" name="epaal"><label>Elektrische laadpaal</label>
+                                <!--Elektrische laadpaal-->
+                                <input class="formulier" type="checkbox" name="epaal">
+                                <label>Elektrische laadpaal</label>
                                 <br><br>
                             </div>
                             <label for="korting">Kortingscode:</label>
                             <div>
+                                <!--Kortingscode-->
                                 <input class="formulier" type="text" placeholder=" Bijv. A12345" name="korting">
                             </div>
                             <label for="opmerking">Opmerkingen:</label>
                             <div>
+                                <!--Opmerkingen-->
                                 <textarea class="formulier" rows="5" cols="20" placeholder="Opmerkingen" name="opmerk"></textarea>
                             </div>
                             <div>
@@ -319,7 +296,6 @@ include('include/header.php');
                         </form>
                     </center>
                 </div>
-
             </div>
         </div>
     </div>
