@@ -30,15 +30,15 @@ include('include/header.php');
                             die("Session bestaat niet");
                         }
                         /* End wesley */
-                        
+
                         //Zelf paginas
                         if (isset($_POST['submit'])) {
                             if (empty($_POST['fname']) || empty($_POST['lname']) || empty($_POST['gdate']) || empty($_POST['email']) || empty($_POST['tel']) || empty($_POST['postc']) || empty($_POST['hnummer'])) {
                                 echo "<p>Niet alle verplichte velden zijn ingevuld.<br></p>";
-                                // Iets niet ingevuld error	
-                            } else
+                                // Iets niet ingevuld error
+                            } else {
                                 //alle inpute naar var en filter speciale karakters
-                                $fname = htmlspecialchars($_POST['fname']);
+                            $fname = htmlspecialchars($_POST['fname']);
                             $lname = htmlspecialchars($_POST["lname"]);
                             $email = htmlspecialchars($_POST["email"]);
                             $tel = htmlspecialchars($_POST["tel"]);
@@ -60,10 +60,11 @@ include('include/header.php');
                             $hnummer = str_replace(' ', '', $hnummer);
                             $postc = strtoupper($postc);
 
-                            //filter tel 
+                            //filter tel
                             $tel = str_replace('-', '', $tel);
                             $tel = str_replace('+', '', $tel);
                             $tel = str_replace(' ', '', $tel);
+
 
                             if (!preg_match('/^[a-z]*$/i', $fname)) {
                                 /* (!preg_match('/^[a-z]*$/i = filter af het een letter is (i)= cas-insensitive
@@ -76,7 +77,7 @@ include('include/header.php');
                                 // Voornaam mag alleen letters en hoofdletter bevatten
                                 // Mag niet bestaan uit getallen en speciale tekens
                             } else if (!preg_match('/^[a-z]*$/i', $lname)) {
-                                /* (!preg_match('/^[a-z]*$/i = filter af het een letter is 
+                                /* (!preg_match('/^[a-z]*$/i = filter af het een letter is
                                  * ^ = begin van de string
                                  * [a-z] = een letter
                                  * * = dat het er minstens 0 of meer x in voorkomt
@@ -85,12 +86,12 @@ include('include/header.php');
                                  */
                                 echo "<p>Je achternaam is niet ingevuld of bestaan niet compleet uit letters.<br></p>";
                                 // Achternaam mag alleen letters en hoofdletter bevatten
-                                // Mag niet bestaan uit getallen en speciale tekens						
+                                // Mag niet bestaan uit getallen en speciale tekens
 
                             } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                                 // filter of het een e-mail is
                                 echo "<p>Het opgegeven mailadres is niet ingevuld of niet toegestaan.<br></p>";
-                                // Als mailadres niet goed is echo foutmelding 
+                                // Als mailadres niet goed is echo foutmelding
 
                             } else if (!preg_match('/^[0-9]{3}/', $tel)) {
                                 // filter of het een nummer tussen 0 en 9 is
@@ -100,7 +101,7 @@ include('include/header.php');
                                 // filter of het een postcode is
                                 /* (!preg_match('/^[1-9]{1}[0-9]{3}[A-Z]{2}$/"
                                  * ^ = begin van de string
-                                 * [1-9]{1} = eerst letter is hoger dan 0 
+                                 * [1-9]{1} = eerst letter is hoger dan 0
                                  * [0-9]{3} = de 3 er achter zijn tussen 0 en 9
                                  * [A-Z]{2} = 2 letters er achter
                                  * $ = eide van de sting
@@ -116,11 +117,14 @@ include('include/header.php');
                             } else if (isset($_POST['ltijd3']) && (!preg_match("/^[0-9]*$/", $_POST['ltijd3']) && ($_POST['ltijd3'] > 125))) {
                                 echo "<p> Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.<br></p>";
                             } else {
+                                $ltijd1 = htmlspecialchars($_POST["ltijd1"]);
+                                $ltijd2 = htmlspecialchars($_POST["ltijd2"]);
+                                $ltijd3 = htmlspecialchars($_POST["ltijd3"]);
                                 // echo "Alles werkt"; //test
                                 // if geen getal error/
                                 // if groterdan 3 error/
                                 // if groter dan 3 en eerste getal is groter dan 1 error
-                                
+
                                 /* Wesley */
                                 var_dump($_SESSION["res-home"]);
                                 $_SESSION["gegevens"]["fname"] = $fname;
@@ -138,18 +142,19 @@ include('include/header.php');
                                 $_SESSION["gegevens"]["epaal"] = $epaal;
                                 $_SESSION["gegevens"]["korting"] = $korting;
                                 $_SESSION["gegevens"]["opmerk"] = $opmerk;
-                                
+
                                 /* End wesley */
 
                             }
-                            //go to db 
+                            }
+                            //go to db
                             //header("location: res-betaling.php"); // naar volgende pagina
                         }
 
 
                         //var_dump ($eten);
                         //foreach ($eten as $food){
-                        //		echo $food;							
+                        //		echo $food;
                         //}
                         // mederijziges = nummeric bespreek met docent of dit misschien niet hoeft?
                         // tel = if aantal caracter
@@ -157,8 +162,8 @@ include('include/header.php');
                         ?>
 
                         <?php
-                          
-                            
+
+
                         ?>
                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                             <label for="fname">*Voornaam:</label> <!-- add by Mark-->
@@ -199,7 +204,7 @@ include('include/header.php');
                             <label for="gdate">*Geboortedatum:</label>
                             <div>
                                 <!--Geboortedatum-->
-                                <input class="formulier" max="<?php echo date("Y-m-d"); //Onmogelijk om in de toekomst geboren te zijn. 
+                                <input class="formulier" max="<?php echo date("Y-m-d"); //Onmogelijk om in de toekomst geboren te zijn.
                                                                 ?>" type="date" name="gdate"><br><br>
                             </div>
                             <?php
