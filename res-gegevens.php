@@ -56,7 +56,12 @@ include('include/header.php');
                                 echo "<p>Je voornaam is niet ingevuld of bestaan niet compleet uit letters.<br></p>";
                                 // Voornaam mag alleen letters en hoofdletter bevatten
                                 // Mag niet bestaan uit getallen en speciale tekens
-                            } else if (!preg_match('/^[a-z]*$/i', $lname)) {
+                                
+                            } 
+                            else {
+                                $_SESSION['fname'] = $fname;
+                            }
+                            if (!preg_match('/^[a-z]*$/i', $lname)) {
                                 /* (!preg_match('/^[a-z]*$/i = filter af het een letter is 
                                  * ^ = begin van de string
                                  * [a-z] = een letter
@@ -68,16 +73,25 @@ include('include/header.php');
                                 // Achternaam mag alleen letters en hoofdletter bevatten
                                 // Mag niet bestaan uit getallen en speciale tekens						
 
-                            } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                            } else {
+                                $_SESSION['lname'] = $lname;
+                            }
+                            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                                 // filter of het een e-mail is
                                 echo "<p>Het opgegeven mailadres is niet ingevuld of niet toegestaan.<br></p>";
                                 // Als mailadres niet goed is echo foutmelding 
-
-                            } else if (!preg_match('/^[0-9]{3}/', $tel)) {
+                            }
+                            else {
+                                $_SESSION['email'] = $email;
+                            }
+                            if (!preg_match('/^[0-9]{3}/', $tel)) {
                                 // filter of het een nummer tussen 0 en 9 is
                                 // {3} = minstens 3 x in voorkomen // een tel heeft minstens 3 nummers
                                 echo "<p>Het opgegeven telefoonnummer is niet toegestaan.<br></p>";
-                            } else if (!preg_match("/^[1-9]{1}[0-9]{3}[A-Z]{2}$/i", $postc)) {
+                            } else {
+                                $_SESSION['tel'] = $tel;
+                            }
+                            if (!preg_match("/^[1-9]{1}[0-9]{3}[A-Z]{2}$/i", $postc)) {
                                 // filter of het een postcode is
                                 /* (!preg_match('/^[1-9]{1}[0-9]{3}[A-Z]{2}$/"
                                  * ^ = begin van de string
@@ -87,31 +101,43 @@ include('include/header.php');
                                  * $ = eide van de sting
                                  * i = case-insensitive
                                  */
-                            } else if ($gdate >= date("Y-m-d") && (!preg_match("/^([0-9])*$/", $gdate))) {
+                            } else {
+                                $_SESSION['postc'] = $postc;
+                            }
+                            if ($gdate >= date("Y-m-d") && (!preg_match("/^([0-9])*$/", $gdate))) {
                                 // filter of de gekozen geboortedatum niet in de toekomst is
                                 echo "<p> De gekozen geboortedatum is niet mogelijk.<br></p>";
-                            } else if (isset($_POST['ltijd1']) && (!preg_match("/^([0-9])*$/", $_POST['ltijd1']) && ($_POST['ltijd1'] > 125))) {
+                            } else {
+                                $_SESSION['gdate'] = $gdate;
+                            }
+                            if (isset($_POST['ltijd1']) && (!preg_match("/^([0-9])*$/", $_POST['ltijd1']) && ($_POST['ltijd1'] > 125))) {
                                 echo "<p> Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.<br></p>";
-                            } else if (isset($_POST['ltijd2']) && (!preg_match("/^[0-9]*$/", $_POST['ltijd2']) && ($_POST['ltijd2'] > 125))) {
+                            } 
+                            if (isset($_POST['ltijd2']) && (!preg_match("/^[0-9]*$/", $_POST['ltijd2']) && ($_POST['ltijd2'] > 125))) {
                                 echo "<p> Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.<br></p>";
-                            } else if (isset($_POST['ltijd3']) && (!preg_match("/^[0-9]*$/", $_POST['ltijd3']) && ($_POST['ltijd3'] > 125))) {
+                            }  
+                            if (isset($_POST['ltijd3']) && (!preg_match("/^[0-9]*$/", $_POST['ltijd3']) && ($_POST['ltijd3'] > 125))) {
                                 echo "<p> Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.<br></p>";
                             } else {
+                                if (!empty($_POST['ltijd1'])){
                                 $ltijd1 = htmlspecialchars($_POST["ltijd1"]);
+                                $_SESSION['ltijd1'] = $ltijd1;
+                                }
+                                if (!empty($_POST['ltijd2'])){
                                 $ltijd2 = htmlspecialchars($_POST["ltijd2"]);
+                                $_SESSION['ltijd2'] = $ltijd2;
+                                }
+                                if (!empty($_POST['ltijd3'])){
                                 $ltijd3 = htmlspecialchars($_POST["ltijd3"]);
-                                // echo "Alles werkt"; //test
-                                // if geen getal error/
-                                // if groterdan 3 error/
-                                // if groter dan 3 en eerste getal is groter dan 1 error
+                                $_SESSION['ltijd3'] = $ltijd3;
+                                }
 
                             }
                             }
                             //go to db 
+
                             //header("location: res-betaling.php"); // naar volgende pagina
                         }
-
-
                         //var_dump ($eten);
                         //foreach ($eten as $food){
                         //		echo $food;							
