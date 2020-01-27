@@ -3,7 +3,7 @@ $stylesheet = "betalen";
 include "include/header.php";
 //gemaakt door Ramon en Mark
 if (empty($_SESSION["res-home"]["kamerkeuze"])){
-    echo "Vul alstublieft eerst de gegevens in";
+    echo "<a href='res-gegevens.php'>Vul alstublieft eerst de gegevens in</a>";
 }
 else {
 ?>
