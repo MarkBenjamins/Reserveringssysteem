@@ -2,14 +2,12 @@
 $stylesheet = "betalen";
 include "include/header.php";
 
-var_dump($_SESSION["gegevens"]);
+//var_dump($_SESSION["gegevens"]);
 
 if (empty($_SESSION["res-home"]["kamerkeuze"])){
     echo "<a href='res-gegevens.php'>Vul alstublieft eerst de gegevens in</a>";
 }
-
-
-
+?>
 <div class="container-fluid">
     <div class="row">
         <div class="col-3">
