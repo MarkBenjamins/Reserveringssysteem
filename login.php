@@ -10,7 +10,7 @@ include('include/header.php');
         <div class="col-6 hoog">
             <?php //check of ingelogd
             if (isset($_SESSION["gebruiker"])) {
-                echo "U bent al ingelogd!";
+                sendMessage("u bent al ingelogd", $_SERVER["PHP_SELF"]);
             }
             ?>
             <p class="title">Voer hier uw inloggegevens in</p>
@@ -71,11 +71,11 @@ if (isset($_POST["submit"])) {
                 header("Location: index.php");
             }
         } else {
-            die("could not prepare");
+            sendMessage("fout tijdens het preparen.", $_SERVER["PHP_SELF"]);
+            die();
         }
     } else {
-        $_SESSION["messages"] = "Vul gelieve beide velden in !";
-        echo "empty fields";
+        sendMessage("vul alle velden in.", $_SERVER["PHP_SELF"]);
     }
 }
 ?>

@@ -55,7 +55,7 @@ if (isset($_SESSION["gebruiker"])) {
         </form>';
     if (isset($_POST['submit'])) {
         if (isset($_POST['image'])) {
-            echo "enter all fields";
+            sendMessage("selecteer eerst een bestand.", $_SERVER["PHP_SELF"]);
         } else {
             $allow = array("jpg");
             $todir = "gallery/";

@@ -20,7 +20,7 @@ include 'include/header.php';
             }
         }
         else {
-            echo "Vul eerst alle gegevens in";
+            sendMessage('vul alle gegevens in.', $_SERVER["PHP_SELF"]);
         }
         ?>
     </div>

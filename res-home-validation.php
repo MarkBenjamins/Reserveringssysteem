@@ -29,56 +29,48 @@ if (isset($_POST["submit"])) {
         $vertrekDag = $splitVertrek[2];
 
         if ($aankomst < $vandaag) {
-            echo "Je moet een datum gelijk aan of later dan vandaag invullen";
+            sendMessage('Je moet een datum gelijk aan of later dan vandaag invullen', $_SERVER["PHP_SELF"]);
+        } elseif ($vertrek < $vandaag) {
+            sendMessage('je kunt niet in het verleden vertrekken', $_SERVER["PHP_SELF"]);
+        } elseif ($vertrek < $aankomst) {
+            sendMessage('Je kunt niet vertrekken voordat je bent aangekomen', $_SERVER["PHP_SELF"]);
+        } elseif ($vertrek === $aankomst) {
+            sendMessage('je kunt niet vertrekken op de dag van aankomst', $_SERVER["PHP_SELF"]);
+        } elseif ($kamerkeuze == "1" || $kamerkeuze == "2" || $kamerkeuze == "3") {
+            //Eind vd validation, vanaf hier kunnen we andere dingen doen.
+            //Hoeveel dagen er zijn geselecteerd
+            //Welke kamer
+
+            $datediff = strtotime($vertrek) - strtotime($aankomst);
+            //Hoeveel dagen de klant gereserveerd wilt hebben
+
+            $dagen = round($datediff / (60 * 60 * 24));
+
+            //echo $dagen;
+            //echo "<br/>";
+            //echo $kamerkeuze;
+            //Kamer keuze en datums kloppen vanaf hier.
+            //Doorsturen naar de kamers dmv kamerkeuze
+
+            /* 
+            * Wat te doen voor kamer pagina ? 
+            * Aan de hand van een nummer ( 1,2 of 3) kamers ophalen
+            * Als de gebruiker een twee persoons kamer wil, ook de 4 persoons kamer laten zien
+            * Als de gebruiker een eenpersoons kamer wil, alle kamers laten zien
+            * Als de gebruiker een 4 persoons kamer wil, alleen 4 persoons laten zien.
+            * 
+            * Vanaf hier word een nummer opgestuurd bijvoorbeeld $_SESSION["kamerkeuze"]
+            * Dit kun je opvangen doormiddel van de session te gebruiken in de pagina
+            * Vanaf hier haal je de mysql data op
+            */
         } else {
-            if ($vertrek < $vandaag) {
-                echo "Je kunt niet gisteren vertrekken";
-            } else {
-                if ($vertrek < $aankomst) {
-                    echo "Je kunt niet vertrekken voordat je aangekomen bent!";
-                } else {
-                    if ($vertrek === $aankomst) {
-                        echo "Je kunt niet vertrekken op de tijd van aankomst";
-                    } else {
-                        if($kamerkeuze == "1" || $kamerkeuze == "2"|| $kamerkeuze == "3") {
-                            //Eind vd validation, vanaf hier kunnen we andere dingen doen.
-                            //Hoeveel dagen er zijn geselecteerd
-                            //Welke kamer
-                            
-                            $datediff = strtotime($vertrek) - strtotime($aankomst);
-                            //Hoeveel dagen de klant gereserveerd wilt hebben
-
-                            $dagen = round($datediff / (60 * 60 * 24));
-                            
-                            //echo $dagen;
-                            //echo "<br/>";
-                            //echo $kamerkeuze;
-                            //Kamer keuze en datums kloppen vanaf hier.
-                            //Doorsturen naar de kamers dmv kamerkeuze
-                            
-                            /* 
-                            * Wat te doen voor kamer pagina ? 
-                            * Aan de hand van een nummer ( 1,2 of 3) kamers ophalen
-                            * Als de gebruiker een twee persoons kamer wil, ook de 4 persoons kamer laten zien
-                            * Als de gebruiker een eenpersoons kamer wil, alle kamers laten zien
-                            * Als de gebruiker een 4 persoons kamer wil, alleen 4 persoons laten zien.
-                            * 
-                            * Vanaf hier word een nummer opgestuurd bijvoorbeeld $_SESSION["kamerkeuze"]
-                            * Dit kun je opvangen doormiddel van de session te gebruiken in de pagina
-                            * Vanaf hier haal je de mysql data op
-                            */ 
-
-                        } else {
-                            echo "Kamer keuze is niet valid";
-                        }
-                    }
-                }
-            }
+            sendMessage('fout met de kamerkeuze', $_SERVER["PHP_SELF"]);
         }
+
         //Jaar is gevalideert, nu kunnen we de datums apart gebruiken.
     } else {
         //Invalide datum
-        echo "Datum is invalid.. stuur gebruiker een melding";
+        sendMessage('Je moet een datum gelijk aan of later dan vandaag invullen', $_SERVER["PHP_SELF"]);
         die();
     }
 }

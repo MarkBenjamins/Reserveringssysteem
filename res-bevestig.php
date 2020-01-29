@@ -20,7 +20,7 @@ include "include/header.php";
                 } elseif ($_POST["methode"] == "creditcard") {
                     echo "<p class='tekstkleur'>Bedankt voor het betalen met creditcard.</p>";
                 } else {
-                    echo "Error onbekende betaalmethode.";
+                    sendMessage("onbekende betaalmethode.", $_SERVER["PHP_SELF"]);
                 }
             } else {
                 header("Location: res-betaling.php");

@@ -2,7 +2,7 @@
 <?php
 $stylesheet = "res-home";
 include('include/header.php');
-include('include/functions.php');// error melding functie
+include('include/functions.php'); // error melding functie
 
 if (isset($_SESSION["gegevens"])) {
     unset($_SESSION["gegevens"]);
@@ -54,17 +54,16 @@ if (isset($_SESSION["gegevens"])) {
             }
             // valideert of geen schrikkeldatum is en of het dan wel een valide datum is
 
-            if (($aankomstDag || $vertrekDag == 29) && ($aankomstMaand == 02 || $vertrekMaand == 02) && ($aankomstMaand == 2 || $vertrekMaand == 2) && ($aankomstJaar || $vertrekJaar % 4 != 0)) { // als extra had ook if jaar deelbaar door 400 && deelbaar door 100 error // i.v.m. het jaar 2100 
+            if (($aankomstDag || $vertrekDag == 29) && ($aankomstMaand == 02 || $vertrekMaand == 02) && ($aankomstMaand == 2 || $vertrekMaand == 2) && ($aankomstJaar || $vertrekJaar % 4 == 0)) { // als extra had ook if jaar deelbaar door 400 && deelbaar door 100 error // i.v.m. het jaar 2100 
                 if ($aankomstJaar % 100 == 0 || $vertrekJaar % 100 == 0) {
                     if ($aankomstJaar % 400 == 0 || $vertrekJaar % 400 == 0) {
-                        echo 'test1'; //een schrikkeljaar
+                        //een schrikkeljaar
                     } else {
                         sendMessage("Heey Hackerman dat mag niet, het is geen schrikkeljaar.", $_SERVER["PHP_SELF"]);
                         die();
                     }
                 } else {
-                    sendMessage("Heey Hackerman dat mag niet, het is geen schrikkeljaar.", $_SERVER["PHP_SELF"]);
-                    die(); //een schrikkeljaar
+                    //een schrikkeljaar
                 }
             }
             // valideer of je niet vertrekt in het verleden

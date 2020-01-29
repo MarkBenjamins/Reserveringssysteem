@@ -3,8 +3,9 @@ $stylesheet = "kamers";
 include('include/header.php');
 
 if (!isset($_SESSION["res-home"])) {
-    //wegsturen    
-    die("session not set");
+    //wegsturen
+    sendMessage('session not set', $_SERVER["PHP_SELF"]);    
+    die();
 }
 
 $kamerKeuze = $_SESSION["res-home"]["kamerkeuze"];
@@ -15,11 +16,11 @@ $vertrek = $_SESSION["res-home"]["vertrek"];
 $conn = mysqli_connect("127.0.0.1", "root", "");
 
 if ($conn == FALSE) { // verbinden met de server
-    echo "Kan niet verbinden met de server";
+    sendMessage('kan niet met de server verbinden', $_SERVER["PHP_SELF"]);
 }
 
 if (!$conn->select_db("sollestijn")) { // database selecteren
-    echo "Kan de database niet selecteren";
+    sendMessage('Je moet een datum gelijk aan of later dan vandaag invullen', $_SERVER["PHP_SELF"]);
 }
 ?>
 <div class="container">
@@ -65,13 +66,13 @@ if (!$conn->select_db("sollestijn")) { // database selecteren
                     }
                 }
             } else {
-                echo "Bind failed";
+                sendMessage('bind failed', $_SERVER["PHP_SELF"]);
             }
         } else {
-            echo "Execute failed";
+            sendMessage('execute failed', $_SERVER["PHP_SELF"]);
         }
     } else {
-        echo "Prepare failed";
+        sendMessage('prepare failed', $_SERVER["PHP_SELF"]);
     }
     ?>
 </div>

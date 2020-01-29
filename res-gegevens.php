@@ -135,13 +135,13 @@ include('include/functions.php'); // error melding functie
 
                                 } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                                     // filter of het een e-mail is
-                                    sendMessage('Het opgegeven mailadres is niet ingevuld of niet toegestaan.');
+                                    sendMessage('Het opgegeven mailadres is niet ingevuld of niet toegestaan.', $_SERVER["PHP_SELF"]);
                                     // Als mailadres niet goed is echo foutmelding
 
                                 } else if (!preg_match('/^[0-9]{3}/', $tel)) {
                                     // filter of het een nummer tussen 0 en 9 is
                                     // {3} = minstens 3 x in voorkomen // een tel heeft minstens 3 nummers
-                                    sendMessage('Het opgegeven telefoonnummer is niet toegestaan.');
+                                    sendMessage('Het opgegeven telefoonnummer is niet toegestaan.', $_SERVER["PHP_SELF"]);
                                 } else if (!preg_match("/^[1-9]{1}[0-9]{3}[A-Z]{2}$/i", $postc)) {
                                     // filter of het een postcode is
                                     /* (!preg_match('/^[1-9]{1}[0-9]{3}[A-Z]{2}$/"
@@ -154,14 +154,14 @@ include('include/functions.php'); // error melding functie
                                  */
                                 } else if ($gdate >= date("Y-m-d") && (!preg_match("/^([0-9])*$/", $gdate))) {
                                     // filter of de gekozen geboortedatum niet in de toekomst is
-                                    sendMessage("De gekozen geboortedatum is niet mogelijk.");
+                                    sendMessage("De gekozen geboortedatum is niet mogelijk.", $_SERVER["PHP_SELF"]);
                                     // filter of het een getal is en kleiner dan 125
                                 } else if (isset($_POST['ltijd1']) && (!preg_match("/^([0-9])*$/", $_POST['ltijd1']) && ($_POST['ltijd1'] > 125))) {
-                                    sendMessage("Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.");
+                                    sendMessage("Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.", $_SERVER["PHP_SELF"]);
                                 } else if (isset($_POST['ltijd2']) && (!preg_match("/^[0-9]*$/", $_POST['ltijd2']) && ($_POST['ltijd2'] > 125))) {
-                                    sendMessage("Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.");
+                                    sendMessage("Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.", $_SERVER["PHP_SELF"]);
                                 } else if (isset($_POST['ltijd3']) && (!preg_match("/^[0-9]*$/", $_POST['ltijd3']) && ($_POST['ltijd3'] > 125))) {
-                                    sendMessage("Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.");
+                                    sendMessage("Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.", $_SERVER["PHP_SELF"]);
                                 } else {
                                     /* Wesley */
                                     //var_dump($_SESSION["res-home"]);
@@ -245,7 +245,7 @@ include('include/functions.php'); // error melding functie
                                         <input class="formulier" type="number" placeholder=" Medereiziger 3" name="ltijd3">
                                     </div>';
                             } else {
-                                echo 'fout met de kamerkeuze';
+                                sendMessage("fout met de kamerkeuze.", $_SERVER["PHP_SELF"]);
                             }
                             ?>
                             <label for="extra">Extra opties:</label>
