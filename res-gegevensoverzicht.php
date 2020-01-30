@@ -1,29 +1,42 @@
 <?php
 $stylesheet = "style";
 include 'include/header.php';
+include 'include/functions.php';
 ?>
 <div class="container-fluid">
     <div class="row">
-        <?php
-        if (!empty($_SESSION['fname']) || !empty($_SESSION['lname']) || !empty($_SESSION['email']) || !empty($_SESSION['postc']) || !empty($_SESSION['gdate']) || !empty($_SESSION['ltijd1'])){
-            echo "Dit zijn uw gegevens:<br>";
-            echo "Naam: " . $_SESSION['fname'] . " " . $_SESSION['lname'] . "<br>";
-            echo "Email: " . $_SESSION['email'] . "<br>";
-            echo "Postcode: " . $_SESSION['postc'] . "<br>";
-            echo "Geboortedatum: " . $_SESSION['gdate'] . "<br>";
-            echo "Leeftijd: " . $_SESSION['ltijd1'] . "<br>";
-            if (!empty($_SESSION['ltijd2'])){
-                echo "Leeftijd Gast 2 :" . $_SESSION['ltijd2'] . "<br>";
+        <div class="col-12">
+            <?php
+            viewMessage();
+            if (!empty($_SESSION['gegevens']['fname']) || !empty($_SESSION['gegevens']['lname']) || !empty($_SESSION['gegevens']['email']) || !empty($_SESSION['gegevens']['postc']) || !empty($_SESSION['gegevens']['gdate']) || !empty($_SESSION['gegevens']['ltijd1'])) {
+                echo '<label>';
+                echo "<h2>Dit zijn uw gegevens:</h2>";
+                echo "<p>Naam: " . $_SESSION['gegevens']['fname'] . " " . $_SESSION['gegevens']['lname'] . "</p>";
+                echo "<p>Email: " . $_SESSION['gegevens']['email'] . "</p>";
+                echo "<p>Postcode: " . $_SESSION['gegevens']['postc'] . "</p>";
+                echo "<p>Geboortedatum: " . $_SESSION['gegevens']['gdate'] . "</p>";
+                echo "<p>Leeftijd: " . $_SESSION['gegevens']['ltijd1'] . "</p>";
+                echo "<p>Kamerkeuze: " . $_SESSION['res-home']['kamerkeuze'] . "</p>";
+                echo "<p>Aankomst: " . $_SESSION['res-home']['aankomst'] . "</p>";
+                echo "<p>Vertrek: " . $_SESSION['res-home']['vertrek'] . "</p>";
+                echo "<p>lunch: " . $_SESSION['gegevens']['lunch'] . "</p>";
+                echo "<p>electrische fiets: " . $_SESSION['gegevens']['efiets'] . "</p>";
+                echo "<p>oplaadpaal: " . $_SESSION['gegevens']['epaal'] . "</p>";
+                echo "<p>opmerkingen: " . $_SESSION['gegevens']['opmerk'] . "</p>";
+                if (!empty($_SESSION['gegevens']['ltijd2'])) {
+                    echo "<p>Leeftijd Gast 2 :" . $_SESSION['gegevens']['ltijd2'] . "</p>";
+                }
+                if (!empty($_SESSION['gegevens']['ltijd3'])) {
+                    echo "<p>Leeftijd Gast 3: " . $_SESSION['gegevens']['ltijd3'] . "</p>";
+                }
+                echo '</label>';
+            } else {
+                //sendMessage('vul alle gegevens in.', $_SERVER["PHP_SELF"]);
             }
-            if (!empty($_SESSION['ltijd3'])){
-                echo "Leeftijd Gast 3: " . $_SESSION['ltijd3'] . "<br>";
-            }
-        }
-        else {
-            sendMessage('vul alle gegevens in.', $_SERVER["PHP_SELF"]);
-        }
-        ?>
+            ?>
+        </div>
     </div>
 </div>
 <?php
 include 'include/footer.php';
+?>

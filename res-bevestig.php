@@ -1,6 +1,7 @@
 <?php
 $stylesheet = "betalen";
 include "include/header.php";
+include "include/functions.php"
 //gemaakt door iedereen
 ?>
 <div class="container-fluid">
@@ -12,6 +13,7 @@ include "include/header.php";
                 <h1>Betaald</h1>
             </center>
             <?php //Controle en melding van de betaalmethode
+            viewMessage();
             if (isset($_POST["methodesubmit"])) {
                 if ($_POST["methode"] == "paypal") {
                     echo "<p class='tekstkleur'>Bedankt voor het betalen met PayPal.</p>";
@@ -27,7 +29,7 @@ include "include/header.php";
             }
             ?>
             <center>
-                <form method="POST" action="index.php">
+                <form method="POST" action="res-gegevensoverzicht.php">
                     <input type="submit" class="btn btn-outline-danger" value="Print bevestiging" name="methodesubmit">
                 </form>
             </center>

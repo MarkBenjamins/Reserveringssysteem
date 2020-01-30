@@ -105,3 +105,75 @@ form, .form{
 .sneakylink{
 	color: #212529 ;
 }
+	/*Door Mark Benjamins */
+/*Start Reserveringssysteem home-page*/
+
+#res-home 
+{
+	color: white;
+	height: 400x;
+	padding: 10px;
+}
+
+.btn-outline-danger, .btn 
+{
+	color: white;
+	border: solid 4px black;
+}
+/*End Reserveringssysteem home-page*/
+
+
+/*Door Mark Benjamins */
+/*Start contact home-page*/
+
+textarea 
+{
+	height: 200px;
+	width: 400px;
+}
+
+label
+{
+	margin-bottom: 5px;
+	color: white;
+}
+
+.formulier 
+{
+	padding-bottom: 15px;
+	border: solid 4px black;
+	border-radius: .25rem;
+	margin-bottom: 10px;	
+	text-align: center;
+}
+
+.verzendopmaak 
+{
+	margin-bottom: 15px;
+}
+
+.mark-btn:focus 
+{
+	box-shadow: 0 0 5px #dc3545;	/*Red*/
+	border: 4px solid #dc3545;		/*Red*/
+}
+
+.mark-btn:hover 
+{
+	background-color: #dc3545;		/*Red*/
+	color: white;
+}
+/*End contact home-page*/
+
+#reset-padding
+{
+padding-left: 30px;
+}
+
+#mrg0{
+	margin-bottom: 0px;
+}
+#mrg5{
+	margin-left: 15px;
+}
+

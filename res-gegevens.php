@@ -63,37 +63,37 @@ include('include/functions.php'); // error melding functie
                                 $gdate = htmlspecialchars($_POST["gdate"]);
 
                                 if (isset($_POST["ltijd1"])) {
-                                    $ltijd1 = htmlspecialchars($_POST["ltijd1"]);
+                                    $ltijd1 = TRUE;
                                 } else {
                                     $ltijd1 = null;
                                 }
 
                                 if (isset($_POST["ltijd2"])) {
-                                    $ltijd2 = htmlspecialchars($_POST["ltijd2"]);
+                                    $ltijd2 = TRUE;
                                 } else {
                                     $ltijd2 = null;
                                 }
 
                                 if (isset($_POST["ltijd3"])) {
-                                    $ltijd3 = htmlspecialchars($_POST["ltijd3"]);
+                                    $ltijd3 = TRUE;
                                 } else {
                                     $ltijd3 = null;
                                 }
 
                                 if (isset($_POST["lunch"])) {
-                                    $lunch = htmlspecialchars($_POST["lunch"]);
+                                    $lunch = TRUE;
                                 } else {
                                     $lunch = null;
                                 }
 
                                 if (isset($_POST["efiets"])) {
-                                    $efiets = htmlspecialchars($_POST["efiets"]);
+                                    $efiets = TRUE;
                                 } else {
                                     $efiets = null;
                                 }
 
                                 if (isset($_POST["epaal"])) {
-                                    $epaal = htmlspecialchars($_POST["epaal"]);
+                                    $epaal = TRUE;
                                 } else {
                                     $epaal = null;
                                 }

@@ -24,7 +24,7 @@ include 'include/header.php';
                 <input type='submit' class='btn mark-btn' value='Reserveer deze kamer'>
             </form>
 
-            <a href='res-kameroverzicht.php' class='btn mark-btn' >Terug</a>
+            <a href='res-kameroverzicht.php' class='btn mark-btn' id='mrg5' >Terug</a>
         </p><br>
     </div>
 </body>
