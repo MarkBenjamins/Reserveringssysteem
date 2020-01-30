@@ -122,7 +122,6 @@ form, .form{
 }
 /*End Reserveringssysteem home-page*/
 
-
 /*Door Mark Benjamins */
 /*Start contact home-page*/
 
@@ -135,7 +134,6 @@ textarea
 label
 {
 	margin-bottom: 5px;
-	color: white;
 }
 
 .formulier 
@@ -170,10 +168,13 @@ label
 padding-left: 30px;
 }
 
-#mrg0{
+#mrg0
+{
 	margin-bottom: 0px;
 }
-#mrg5{
+
+#mrg5
+{
 	margin-left: 15px;
 }
 
