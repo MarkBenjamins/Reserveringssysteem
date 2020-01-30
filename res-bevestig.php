@@ -30,7 +30,7 @@ include "include/functions.php"
             ?>
             <center>
                 <form method="POST" action="res-gegevensoverzicht.php">
-                    <input type="submit" class="btn btn-outline-danger" value="Print bevestiging" name="methodesubmit">
+                    <input type="submit" class="btn btn-outline-danger" value="bekijk bevestiging" name="methodesubmit">
                 </form>
             </center>
         </div>

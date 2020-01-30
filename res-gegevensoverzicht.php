@@ -18,18 +18,20 @@ include 'include/functions.php';
                 echo "<p>Kamerkeuze: " . $_SESSION['res-home']['kamerkeuze'] . "</p>";
                 echo "<p>Aankomst: " . $_SESSION['res-home']['aankomst'] . "</p>";
                 echo "<p>Vertrek: " . $_SESSION['res-home']['vertrek'] . "</p>";
+                echo "<p>Ontbijt: " . $_SESSION['gegevens']['ontbijt'] . "</p>";
                 echo "<p>Lunch: " . $_SESSION['gegevens']['lunch'] . "</p>";
+                echo "<p>Diner: " . $_SESSION['gegevens']['diner'] . "</p>";
                 echo "<p>Electrische fiets: " . $_SESSION['gegevens']['efiets'] . "</p>";
                 echo "<p>Oplaadpaal: " . $_SESSION['gegevens']['epaal'] . "</p>";
                 echo "<p>Opmerkingen: " . $_SESSION['gegevens']['opmerk'] . "</p>";
                 if (!empty($_SESSION['gegevens']['ltijd1'])) {
-                    echo "<p>Leeftijd Gast 1: " . $_SESSION['gegevens']['ltijd1'] . "</p>";
+                    echo "<p>Leeftijd Gast 1 : " . $_SESSION['gegevens']['ltijd1'] . "</p>";
                 }
                 if (!empty($_SESSION['gegevens']['ltijd2'])) {
                     echo "<p>Leeftijd Gast 2 :" . $_SESSION['gegevens']['ltijd2'] . "</p>";
                 }
                 if (!empty($_SESSION['gegevens']['ltijd3'])) {
-                    echo "<p>Leeftijd Gast 3: " . $_SESSION['gegevens']['ltijd3'] . "</p>";
+                    echo "<p>Leeftijd Gast 3 : " . $_SESSION['gegevens']['ltijd3'] . "</p>";
                 }
                 echo '</label>';
             } else {

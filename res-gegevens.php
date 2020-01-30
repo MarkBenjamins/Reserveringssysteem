@@ -38,37 +38,49 @@ var_dump($_SESSION['res-home']);
                                 if (isset($_POST["ltijd1"])) {
                                     $ltijd1 = $_POST['ltijd1'];
                                 } else {
-                                    $ltijd1 = null;
+                                    $ltijd1 = "niet aangegeven";
                                 }
 
                                 if (isset($_POST["ltijd2"])) {
                                     $ltijd2 = $_POST['ltijd2'];
                                 } else {
-                                    $ltijd2 = null;
+                                    $ltijd2 = "niet aangegeven";
                                 }
 
                                 if (isset($_POST["ltijd3"])) {
                                     $ltijd3 = $_POST['ltijd3'];
                                 } else {
-                                    $ltijd3 = null;
+                                    $ltijd3 = "niet aangegeven";
+                                }
+
+                                if (isset($_POST["ontbijt"])) {
+                                    $ontbijt= "ja";
+                                } else {
+                                    $ontbijt = "nee";
                                 }
 
                                 if (isset($_POST["lunch"])) {
-                                    $lunch = "ja";
+                                    $lunch= "ja";
                                 } else {
-                                    $lunch = null;
+                                    $lunch = "nee";
+                                }
+
+                                if (isset($_POST["diner"])) {
+                                    $diner= "ja";
+                                } else {
+                                    $diner = "nee";
                                 }
 
                                 if (isset($_POST["efiets"])) {
                                     $efiets = "ja";
                                 } else {
-                                    $efiets = null;
+                                    $efiets = "nee";
                                 }
 
                                 if (isset($_POST["epaal"])) {
                                     $epaal = "ja";
                                 } else {
-                                    $epaal = null;
+                                    $epaal = "nee";
                                 }
 
                                 $korting = htmlspecialchars($_POST["korting"]);
@@ -149,7 +161,9 @@ var_dump($_SESSION['res-home']);
                                     $_SESSION["gegevens"]["ltijd1"] = $ltijd1;
                                     $_SESSION["gegevens"]["ltijd2"] = $ltijd2;
                                     $_SESSION["gegevens"]["ltijd3"] = $ltijd3;
+                                    $_SESSION["gegevens"]["ontbijt"] = $ontbijt;
                                     $_SESSION["gegevens"]["lunch"] = $lunch;
+                                    $_SESSION["gegevens"]["diner"] = $diner;
                                     $_SESSION["gegevens"]["efiets"] = $efiets;
                                     $_SESSION["gegevens"]["epaal"] = $epaal;
                                     $_SESSION["gegevens"]["korting"] = $korting;
@@ -228,17 +242,17 @@ var_dump($_SESSION['res-home']);
                             <label for="extra">Extra opties:</label>
                             <div>
                                 <!--Ontbijt-->
-                                <input class="formulier" type="checkbox" name="eten[]" value="ontbijt" checked>
+                                <input class="formulier" type="checkbox" name="ontbijt" checked>
                                 <label>Ontbijt</label>
                             </div>
                             <div>
                                 <!--Lunch-->
-                                <input class="formulier" type="checkbox" name="eten[]" value="lunch">
+                                <input class="formulier" type="checkbox" name="lunch">
                                 <label>Lunch</label>
                             </div>
                             <div>
                                 <!--Diner-->
-                                <input class="formulier" type="checkbox" name="eten[]" value="diner">
+                                <input class="formulier" type="checkbox" name="diner">
                                 <label>Diner</label>
                                 <br><br>
                             </div>
