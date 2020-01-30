@@ -1,8 +1,37 @@
 <?php
 $stylesheet = "betalen";
 include "include/header.php";
-include "include/functions.php"
+include "include/functions.php";
 //gemaakt door iedereen
+
+
+
+$conn = mysqli_connect("localhost", "root", "", "sollestijn");
+
+if(mysqli_connect_error($conn)) {
+    die(mysqli_connect_errno($conn));
+}
+
+$sql = "INSERT INTO `klant` (`voornaam`,`achternaam`,`email`,`telefoonnummer`,`geboortedatum`) VALUES (``,``,``,``,``)";
+
+if($stmt = mysqli_prepare($conn,$sql)) {
+
+    mysqli_stmt_bind_param($stmt, "sssss", $_SESSION['gegevens']['fname'], $_SESSION['gegevens']['lname'], $_SESSION['gegevens']['email'], $_SESSION['gegevens']['tel'], $_SESSION['gdate']);
+
+    if(mysqli_stmt_execute($stmt)) {
+        
+    } else {
+        die("Could not execute #1");
+    }
+
+} else {
+    die("Could not prepare #1");
+}
+
+echo '<pre>';
+var_dump($_SESSION['gegevens']);
+var_dump($_SESSION['res-home']);
+echo '</pre>';
 ?>
 <div class="container-fluid">
     <div class="row">
