@@ -15,14 +15,16 @@ include 'include/functions.php';
                 echo "<p>Email: " . $_SESSION['gegevens']['email'] . "</p>";
                 echo "<p>Postcode: " . $_SESSION['gegevens']['postc'] . "</p>";
                 echo "<p>Geboortedatum: " . $_SESSION['gegevens']['gdate'] . "</p>";
-                echo "<p>Leeftijd: " . $_SESSION['gegevens']['ltijd1'] . "</p>";
                 echo "<p>Kamerkeuze: " . $_SESSION['res-home']['kamerkeuze'] . "</p>";
                 echo "<p>Aankomst: " . $_SESSION['res-home']['aankomst'] . "</p>";
                 echo "<p>Vertrek: " . $_SESSION['res-home']['vertrek'] . "</p>";
-                echo "<p>lunch: " . $_SESSION['gegevens']['lunch'] . "</p>";
-                echo "<p>electrische fiets: " . $_SESSION['gegevens']['efiets'] . "</p>";
-                echo "<p>oplaadpaal: " . $_SESSION['gegevens']['epaal'] . "</p>";
-                echo "<p>opmerkingen: " . $_SESSION['gegevens']['opmerk'] . "</p>";
+                echo "<p>Lunch: " . $_SESSION['gegevens']['lunch'] . "</p>";
+                echo "<p>Electrische fiets: " . $_SESSION['gegevens']['efiets'] . "</p>";
+                echo "<p>Oplaadpaal: " . $_SESSION['gegevens']['epaal'] . "</p>";
+                echo "<p>Opmerkingen: " . $_SESSION['gegevens']['opmerk'] . "</p>";
+                if (!empty($_SESSION['gegevens']['ltijd1'])) {
+                    echo "<p>Leeftijd Gast 1: " . $_SESSION['gegevens']['ltijd1'] . "</p>";
+                }
                 if (!empty($_SESSION['gegevens']['ltijd2'])) {
                     echo "<p>Leeftijd Gast 2 :" . $_SESSION['gegevens']['ltijd2'] . "</p>";
                 }

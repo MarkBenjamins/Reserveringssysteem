@@ -63,37 +63,37 @@ include('include/functions.php'); // error melding functie
                                 $gdate = htmlspecialchars($_POST["gdate"]);
 
                                 if (isset($_POST["ltijd1"])) {
-                                    $ltijd1 = TRUE;
+                                    $ltijd1 = $_POST['ltijd1'];
                                 } else {
                                     $ltijd1 = null;
                                 }
 
                                 if (isset($_POST["ltijd2"])) {
-                                    $ltijd2 = TRUE;
+                                    $ltijd2 = $_POST['ltijd2'];
                                 } else {
                                     $ltijd2 = null;
                                 }
 
                                 if (isset($_POST["ltijd3"])) {
-                                    $ltijd3 = TRUE;
+                                    $ltijd3 = $_POST['ltijd3'];
                                 } else {
                                     $ltijd3 = null;
                                 }
 
                                 if (isset($_POST["lunch"])) {
-                                    $lunch = TRUE;
+                                    $lunch = "ja";
                                 } else {
                                     $lunch = null;
                                 }
 
                                 if (isset($_POST["efiets"])) {
-                                    $efiets = TRUE;
+                                    $efiets = "ja";
                                 } else {
                                     $efiets = null;
                                 }
 
                                 if (isset($_POST["epaal"])) {
-                                    $epaal = TRUE;
+                                    $epaal = "ja";
                                 } else {
                                     $epaal = null;
                                 }
