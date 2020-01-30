@@ -8,8 +8,6 @@
 								echo'<p><a class="btn mark-btn submit" id="mrg0" href="logout.php">Log uit</a> &copy;Groep B periode 2</p>';
 							}
 						?>
-
-						
 					</div>
 				</div>
 			</div>
