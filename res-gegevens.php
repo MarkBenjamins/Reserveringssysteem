@@ -38,49 +38,49 @@ var_dump($_SESSION['res-home']);
                                 if (isset($_POST["ltijd1"])) {
                                     $ltijd1 = $_POST['ltijd1'];
                                 } else {
-                                    $ltijd1 = "niet aangegeven";
+                                    $ltijd1 = "Niet aangegeven";
                                 }
 
                                 if (isset($_POST["ltijd2"])) {
                                     $ltijd2 = $_POST['ltijd2'];
                                 } else {
-                                    $ltijd2 = "niet aangegeven";
+                                    $ltijd2 = "Niet aangegeven";
                                 }
 
                                 if (isset($_POST["ltijd3"])) {
                                     $ltijd3 = $_POST['ltijd3'];
                                 } else {
-                                    $ltijd3 = "niet aangegeven";
+                                    $ltijd3 = "Niet aangegeven";
                                 }
 
                                 if (isset($_POST["ontbijt"])) {
-                                    $ontbijt= "ja";
+                                    $ontbijt= "Ja";
                                 } else {
-                                    $ontbijt = "nee";
+                                    $ontbijt = "Nee";
                                 }
 
                                 if (isset($_POST["lunch"])) {
-                                    $lunch= "ja";
+                                    $lunch= "Ja";
                                 } else {
-                                    $lunch = "nee";
+                                    $lunch = "Nee";
                                 }
 
                                 if (isset($_POST["diner"])) {
-                                    $diner= "ja";
+                                    $diner= "Ja";
                                 } else {
-                                    $diner = "nee";
+                                    $diner = "Nee";
                                 }
 
                                 if (isset($_POST["efiets"])) {
-                                    $efiets = "ja";
+                                    $efiets = "Ja";
                                 } else {
-                                    $efiets = "nee";
+                                    $efiets = "Nee";
                                 }
 
                                 if (isset($_POST["epaal"])) {
-                                    $epaal = "ja";
+                                    $epaal = "Ja";
                                 } else {
-                                    $epaal = "nee";
+                                    $epaal = "Nee";
                                 }
 
                                 $korting = htmlspecialchars($_POST["korting"]);
