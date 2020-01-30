@@ -1,8 +1,13 @@
 <?php
+
 $stylesheet = "res-home";
 include('include/header.php');
 include('include/functions.php'); // error melding functie
-var_dump($_SESSION['res-home']);
+
+if(isset($_POST["id"])) {
+    $_SESSION['res-home']['kamerid'] = htmlspecialchars($_POST["id"]);
+    //var_dump($_POST["id"]);
+}
 
 ?>
 
@@ -22,11 +27,13 @@ var_dump($_SESSION['res-home']);
 
                         //Zelf paginas
                         if (isset($_POST['submit'])) {
+                            
                             if (empty($_POST['fname']) || empty($_POST['lname']) || empty($_POST['gdate']) || empty($_POST['email']) || empty($_POST['tel']) || empty($_POST['postc']) || empty($_POST['hnummer'])) {
                                 sendMessage("Niet alle verplichte velden zijn ingevuld.", $_SERVER["PHP_SELF"]);
                                 // Iets niet ingevuld error
                             } else {
                                 //alle inpute naar var en filter speciale karakters
+                                
                                 $fname = htmlspecialchars($_POST['fname']);
                                 $lname = htmlspecialchars($_POST["lname"]);
                                 $email = htmlspecialchars($_POST["email"]);
@@ -34,6 +41,8 @@ var_dump($_SESSION['res-home']);
                                 $postc = htmlspecialchars($_POST["postc"]);
                                 $hnummer = htmlspecialchars($_POST["hnummer"]);
                                 $gdate = htmlspecialchars($_POST["gdate"]);
+
+                                
 
                                 if (isset($_POST["ltijd1"])) {
                                     $ltijd1 = $_POST['ltijd1'];

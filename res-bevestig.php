@@ -3,6 +3,7 @@ $stylesheet = "betalen";
 include "include/header.php";
 include "include/functions.php";
 //gemaakt door iedereen
+/*
 echo '<pre>';
 var_dump($_SESSION['gegevens']);
 var_dump($_SESSION['res-home']);
@@ -14,9 +15,9 @@ $conn = mysqli_connect("localhost", "root", "", "sollestijn");
 if(mysqli_connect_error($conn)) {
     die(mysqli_connect_errno($conn));
 }
-/*
 
 $sql = "INSERT INTO `klant` (`voornaam`,`achternaam`,`email`,`telefoonnummer`,`geboortedatum`) VALUES (?,?,?,?,?)";
+
 
 if($stmt = mysqli_prepare($conn,$sql)) {
     $fname = $_SESSION['gegevens']['fname'];
@@ -24,6 +25,8 @@ if($stmt = mysqli_prepare($conn,$sql)) {
     $email = $_SESSION['gegevens']['email'];
     $gdate = $_SESSION['gegevens']['gdate'];
     $tel = $_SESSION['gegevens']['tel'];
+
+    
 
     
     mysqli_stmt_bind_param($stmt, "sssss", $fname, $lname, $email, $tel, $gdate);
@@ -40,12 +43,53 @@ if($stmt = mysqli_prepare($conn,$sql)) {
     die("Could not prepare #1");
 }
 
-$KlantId = mysqli_insert_id($conn);
 
+$kamerId = $_SESSION['res-home']['kamerid'];
+$klantId = mysqli_insert_id($conn);
+$kortingscode = $_SESSION['gegevens']['korting'];
+$ontbijt = $_SESSION['gegevens']['ontbijt'];
+$lunch = $_SESSION['gegevens']['lunch'];
+$diner = $_SESSION['gegevens']['diner'];
+$epaal = $_SESSION['gegevens']['epaal'];
+$efiets = $_SESSION['gegevens']['efiets'];
+$opmerking = $_SESSION['gegevens']['opmerk'];
+$aankomst = $_SESSION['res-home']['aankomst'];
+$vertrek = $_SESSION['res-home']['vertrek'];
+$extra = '';
+//Aantal personen calculeren
+//start bij 1, voeg toe als er meer zijn
+$aantalpersonen = 1;
+if(isset($_SESSION["ltijd1"])) {
+    $aantalpersonen ++;
+}
 
-$sql2 = "INSERT INTO `reservering` (`klant_id`, `kamer_id`, `kortingscode_id`, `ontbijt`, `aantalpersonen`, `begindatum`, `einddatum`, `extra`, `totaalprijs`) VALUES ($KlantId,?,?,?,?,?,?,?,?,?);";
+if(isset($_SESSION["ltijd2"])) {
+    $aantalpersonen ++;
+}
+
+if(isset($_SESSION["ltijd3"])) {
+    $aantalpersonen ++;
+}
+
+//End aantal personen calc
+$totaalprijs = $aantalpersonen * 25;
+//Prijs berekenen moet nog.
+
+$sql2 = "INSERT INTO `reservering` (`klant_id`, `kamer_id`, `kortingscode_id`, `ontbijt`, `aantalpersonen`, `begindatum`, `einddatum`, `extra`, `totaalprijs`) VALUES (?,?,?,?,?,?,?,?,?);";
+if($stmt = mysqli_prepare($conn, $sql2)) {
+    mysqli_stmt_bind_param($stmt, "sssssssss", $klantId, $kamerId, $kortingscode, $ontbijt, $aantalpersonen, $aantalpersonen, $vertrek, $extra, $totaalprijs);
+    
+    if(mysqli_stmt_execute($stmt)) {
+        
+    } else {
+        die("Could not execute #2");
+    }
+
+  
+} else {
+    die("Could not prepare #2");
+}
 */
-
 
 ?>
 <div class="container-fluid">
