@@ -10,8 +10,8 @@ include('include/header.php');
     //Als je verzend knop drukt echo verzonden
     if (isset($_POST['Verzend'])) {
         echo "<h2>Het bericht is verzonden</h2>";
-    } else {
-        //echo "<p>Het bericht is niet verzonden</p>";
+    // } else {
+    //     echo "<p>Het bericht is niet verzonden</p>";
     }
     ?>
     <form id="contact" action="#" method="POST">
