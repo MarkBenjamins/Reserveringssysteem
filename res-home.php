@@ -93,7 +93,7 @@ if (isset($_SESSION["gegevens"])) {
                                  * Vanaf hier word een nummer opgestuurd bijvoorbeeld $_SESSION["kamerkeuze"]
                                  * Dit kun je opvangen doormiddel van de session te gebruiken in de pagina
                                  * Vanaf hier haal je de mysql data op
-                            */
+                                */
 
                                 $_SESSION["res-home"]["kamerkeuze"] = $kamerkeuze;
                                 $_SESSION["res-home"]["aankomst"] = $aankomst;
@@ -139,7 +139,6 @@ if (isset($_SESSION["gegevens"])) {
     </form>
 </center>
 <!--End Kamer Keuze Menu-->
-
 <?php
 include('include/footer.php');
 ?>
