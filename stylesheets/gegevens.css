@@ -1,17 +1,26 @@
-*{
+*
+{
     margin: 0;
     padding: 0;
 }
-.title{
+
+.title
+{
     font-size:30px;
 }
-.form{
+
+.form
+{
     text-align: center;
     margin-bottom: 10px;
 }
-.formbox{
+
+.formbox
+{
     height:auto;
 }
-.formarea{
+
+.formarea
+{
     text-align: left;
 }
