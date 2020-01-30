@@ -1,4 +1,4 @@
-<?php
+<?php // Deze functie is voor de speciale meldingen d.m.v. bootstrap
 //gemaakt door Wesley
 
 function sendMessage($message, $location) {//stuur een bericht
