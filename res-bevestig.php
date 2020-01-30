@@ -3,7 +3,10 @@ $stylesheet = "betalen";
 include "include/header.php";
 include "include/functions.php";
 //gemaakt door iedereen
-
+echo '<pre>';
+var_dump($_SESSION['gegevens']);
+var_dump($_SESSION['res-home']);
+echo '</pre>';
 
 
 $conn = mysqli_connect("localhost", "root", "", "sollestijn");
@@ -11,27 +14,39 @@ $conn = mysqli_connect("localhost", "root", "", "sollestijn");
 if(mysqli_connect_error($conn)) {
     die(mysqli_connect_errno($conn));
 }
+/*
 
-$sql = "INSERT INTO `klant` (`voornaam`,`achternaam`,`email`,`telefoonnummer`,`geboortedatum`) VALUES (``,``,``,``,``)";
+$sql = "INSERT INTO `klant` (`voornaam`,`achternaam`,`email`,`telefoonnummer`,`geboortedatum`) VALUES (?,?,?,?,?)";
 
 if($stmt = mysqli_prepare($conn,$sql)) {
+    $fname = $_SESSION['gegevens']['fname'];
+    $lname = $_SESSION['gegevens']['lname'];
+    $email = $_SESSION['gegevens']['email'];
+    $gdate = $_SESSION['gegevens']['gdate'];
+    $tel = $_SESSION['gegevens']['tel'];
 
-    mysqli_stmt_bind_param($stmt, "sssss", $_SESSION['gegevens']['fname'], $_SESSION['gegevens']['lname'], $_SESSION['gegevens']['email'], $_SESSION['gegevens']['tel'], $_SESSION['gdate']);
-
+    
+    mysqli_stmt_bind_param($stmt, "sssss", $fname, $lname, $email, $tel, $gdate);
+    
     if(mysqli_stmt_execute($stmt)) {
         
     } else {
+        echo mysqli_connect_errno();
         die("Could not execute #1");
     }
 
 } else {
+    echo mysqli_connect_errno();
     die("Could not prepare #1");
 }
 
-echo '<pre>';
-var_dump($_SESSION['gegevens']);
-var_dump($_SESSION['res-home']);
-echo '</pre>';
+$KlantId = mysqli_insert_id($conn);
+
+
+$sql2 = "INSERT INTO `reservering` (`klant_id`, `kamer_id`, `kortingscode_id`, `ontbijt`, `aantalpersonen`, `begindatum`, `einddatum`, `extra`, `totaalprijs`) VALUES ($KlantId,?,?,?,?,?,?,?,?,?);";
+*/
+
+
 ?>
 <div class="container-fluid">
     <div class="row">
