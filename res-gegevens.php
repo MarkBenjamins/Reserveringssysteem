@@ -189,27 +189,27 @@ if(isset($_POST["id"])) {
                             <label for="fname">*Voornaam:</label>
                             <div>
                                 <!--Voornaam-->
-                                <input class="formulier" type="text" placeholder=" Uw voornaam" name="fname">
+                                <input required class="formulier" type="text" placeholder=" Uw voornaam" name="fname">
                             </div>
                             <label for="lname">*Achternaam:</label>
                             <div>
                                 <!--Achternaam-->
-                                <input class="formulier" type="text" placeholder=" Uw achternaam" name="lname">
+                                <input required class="formulier" type="text" placeholder=" Uw achternaam" name="lname">
                             </div>
                             <label for="email">*E-mailadres:</label>
                             <div>
                                 <!--Email-->
-                                <input class="formulier" type="email" placeholder=" Uw e-mailadres" name="email">
+                                <input required class="formulier" type="email" placeholder=" Uw e-mailadres" name="email">
                             </div>
                             <label for="telnmr">*Telefoonnummer:</label>
                             <div>
                                 <!--Tel-->
-                                <input class="formulier" type="tel" placeholder=" Uw telefoonnummer" name="tel">
+                                <input required class="formulier" type="tel" placeholder=" Uw telefoonnummer" name="tel">
                             </div>
                             <label for="adres">*Postcode:</label>
                             <div>
                                 <!--Postcode-->
-                                <input class="formulier" type="text" placeholder=" Uw postcode" name="postc">
+                                <input required class="formulier" type="text" placeholder=" Uw postcode" name="postc">
                             </div>
                             <label for="adres">*Huisnummer:</label>
                             <div>
@@ -219,7 +219,7 @@ if(isset($_POST["id"])) {
                             <label for="gdate">*Geboortedatum:</label>
                             <div>
                                 <!--Geboortedatum-->
-                                <input class="formulier" max="<?php echo date("Y-m-d"); //Onmogelijk om in de toekomst geboren te zijn.
+                                <input required class="formulier" max="<?php echo date("Y-m-d"); //Onmogelijk om in de toekomst geboren te zijn.
                                                                 ?>" type="date" name="gdate"><br><br>
                             </div>
                             <?php //if kamer is groter dan 1 dan komt er een extra leetijd veld bij

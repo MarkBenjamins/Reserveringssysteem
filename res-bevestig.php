@@ -3,6 +3,8 @@ $stylesheet = "betalen";
 include "include/header.php";
 include "include/functions.php";
 //gemaakt door iedereen
+
+//Uitgecomment ivm tijdgebrek, krijg het niet meer af.
 /*
 echo '<pre>';
 var_dump($_SESSION['gegevens']);

@@ -15,9 +15,26 @@ include('include/header.php');
                 <?php
                 $dir = "gallery/*.jpg";
                 $img = glob($dir);
-                $x = 1;
 
+                $dirJPG = "gallery/*.JPG";
+                $imgJPG = glob($dirJPG);
+
+                $dirPNG = "gallery/*.png";
+                $imgPNG = glob($dirPNG);
+                
+                //Accepteert JPG, jpg, en png
+                foreach($imgJPG as $JPG) {
+                    array_push($img, $JPG);
+                }
+
+                foreach($imgPNG as $PNG) {
+                    array_push($img, $PNG);
+                }
+                
+                $x = 1;
+                
                 foreach ($img as $image) {//echo alle images apart
+                    
                     if ($x == 1) {
                         echo '<div class="carousel-item active">
                         <img src="' . $image . '" alt="foto kamer">
