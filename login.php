@@ -62,11 +62,12 @@ if (isset($_POST["submit"])) {
                 header("Location: index.php");
             }
         } else {
-            sendMessage("fout tijdens het preparen.", $_SERVER["PHP_SELF"]);
-            die();
+            sendMessage("Er is iets verkeerd gegaan. #Login2", $_SERVER["PHP_SELF"]);
+            //die();
         }
     } else {
-        echo '<p>Vul alle velden in.</p><br>';
+        sendMessage("Er is iets verkeerd gegaan. #Login3", $_SERVER["PHP_SELF"]);
+        //echo '<p>Vul alle velden in.</p><br>';
     }
 }
 ?>
