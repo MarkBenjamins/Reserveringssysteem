@@ -1,18 +1,15 @@
 <?php
 $stylesheet = "inlog";
 include('include/header.php');
+include('include/functions.php');
 //gemaakt door Wesley en Storm
 ?>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-3">
         </div>
         <div class="col-6 hoog">
-            <?php //check of ingelogd
-            if (isset($_SESSION["gebruiker"])) {
-                sendMessage("u bent al ingelogd", $_SERVER["PHP_SELF"]);
-            }
-            ?>
             <p class="title">Voer hier uw inloggegevens in</p>
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <!--de form-->
@@ -21,13 +18,7 @@ include('include/header.php');
                 <label>Wachtwoord:</label>
                 <input class="form storm-btn" type="password" name="pword" placeholder="Wachtwoord"><br>
                 <input class="btn mark-btn submit" type="submit" name="submit" value="Log in"><br><br>
-                <?php
-                if(isset($_SESSION['gebruiker'])){
-                echo'<a class="btn mark-btn submit" href="logout.php">Log uit</a>';
-                }
-                ?>
             </form><br>
-            
         </div>
         <div class="col-3">
         </div>
@@ -71,11 +62,12 @@ if (isset($_POST["submit"])) {
                 header("Location: index.php");
             }
         } else {
-            sendMessage("fout tijdens het preparen.", $_SERVER["PHP_SELF"]);
-            die();
+            sendMessage("Er is iets verkeerd gegaan. #Login2", $_SERVER["PHP_SELF"]);
+            //die();
         }
     } else {
-        sendMessage("vul alle velden in.", $_SERVER["PHP_SELF"]);
+        sendMessage("Er is iets verkeerd gegaan. #Login3", $_SERVER["PHP_SELF"]);
+        //echo '<p>Vul alle velden in.</p><br>';
     }
 }
 ?>

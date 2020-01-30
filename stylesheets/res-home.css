@@ -12,7 +12,6 @@
 	{
 		color: white;
 		border: solid 4px black;
-		margin-bottom: 15px;
 	}
 /*End Reserveringssysteem home-page*/
 	
@@ -64,4 +63,7 @@
 	padding-left: 30px;
 }
 	
-	
+#paddingmb
+{
+	margin-bottom: 10px;
+}

@@ -36,37 +36,37 @@ var_dump($_SESSION['res-home']);
                                 $gdate = htmlspecialchars($_POST["gdate"]);
 
                                 if (isset($_POST["ltijd1"])) {
-                                    $ltijd1 = htmlspecialchars($_POST["ltijd1"]);
+                                    $ltijd1 = $_POST['ltijd1'];
                                 } else {
                                     $ltijd1 = null;
                                 }
 
                                 if (isset($_POST["ltijd2"])) {
-                                    $ltijd2 = htmlspecialchars($_POST["ltijd2"]);
+                                    $ltijd2 = $_POST['ltijd2'];
                                 } else {
                                     $ltijd2 = null;
                                 }
 
                                 if (isset($_POST["ltijd3"])) {
-                                    $ltijd3 = htmlspecialchars($_POST["ltijd3"]);
+                                    $ltijd3 = $_POST['ltijd3'];
                                 } else {
                                     $ltijd3 = null;
                                 }
 
                                 if (isset($_POST["lunch"])) {
-                                    $lunch = htmlspecialchars($_POST["lunch"]);
+                                    $lunch = "ja";
                                 } else {
                                     $lunch = null;
                                 }
 
                                 if (isset($_POST["efiets"])) {
-                                    $efiets = htmlspecialchars($_POST["efiets"]);
+                                    $efiets = "ja";
                                 } else {
                                     $efiets = null;
                                 }
 
                                 if (isset($_POST["epaal"])) {
-                                    $epaal = htmlspecialchars($_POST["epaal"]);
+                                    $epaal = "ja";
                                 } else {
                                     $epaal = null;
                                 }

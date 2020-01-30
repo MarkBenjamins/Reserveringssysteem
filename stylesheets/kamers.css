@@ -1,11 +1,9 @@
-#Container {
-    
-}
 .Image1pers {
-    height:75%;
-    width:75%;
-    display:block;
-    margin:auto;
+   height: 350px;
+   width: auto;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
 }
 
 #DivKamers {

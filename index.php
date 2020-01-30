@@ -1,5 +1,5 @@
 <?php
-$stylesheet = "mycustomsheet";
+$stylesheet = "res-home";
 include('include/header.php');
 // gemaakt door Twan
 ?> 
