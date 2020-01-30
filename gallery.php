@@ -32,9 +32,7 @@ include('include/header.php');
                 }
                 
                 $x = 1;
-                
                 foreach ($img as $image) {//echo alle images apart
-                    
                     if ($x == 1) {
                         echo '<div class="carousel-item active">
                         <img src="' . $image . '" alt="foto kamer">
@@ -64,8 +62,6 @@ include('include/header.php');
 </div>
 <?php
 if (isset($_SESSION["gebruiker"])) {
-    //var_dump($_SESSION["gebruiker"]);
-
     echo '<form method="post" enctype="multipart/form-data">
         File name:<input type="file" name="image">
         <input type="submit" name="submit" value="upload">
