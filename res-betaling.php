@@ -7,6 +7,7 @@ include "include/header.php";
 if (empty($_SESSION["res-home"]["kamerkeuze"])){
     echo "<a href='res-gegevens.php'>Vul alstublieft eerst de gegevens in</a>";
 }
+
 ?>
 <div class="container-fluid">
     <div class="row">
