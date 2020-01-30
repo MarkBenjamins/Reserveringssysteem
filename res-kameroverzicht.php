@@ -11,7 +11,6 @@ if (!isset($_SESSION["res-home"])) {
 $kamerKeuze = $_SESSION["res-home"]["kamerkeuze"];
 $aankomst = $_SESSION["res-home"]["aankomst"];
 $vertrek = $_SESSION["res-home"]["vertrek"];
-//var_dump($_SESSION["res-home"]);
 
 $conn = mysqli_connect("127.0.0.1", "root", "");
 
@@ -25,7 +24,6 @@ if (!$conn->select_db("sollestijn")) { // database selecteren
 ?>
 <div class="container">
     <?php
-
     function createDateRange($startDate, $endDate, $format = "Y-m-d")
     { // Functie die alle dagen binnen een periode weergeeft
         $begin = new DateTime($startDate);
@@ -77,8 +75,6 @@ if (!$conn->select_db("sollestijn")) { // database selecteren
     ?>
 </div>
 <?php
-include('include/footer.php');
-
 function showKamer($id, $type, $omschrijving, $beschikbaar)
 {
 
@@ -103,4 +99,5 @@ function showKamer($id, $type, $omschrijving, $beschikbaar)
        ";
     echo "</div>";
 }
+include('include/footer.php');
 ?>
