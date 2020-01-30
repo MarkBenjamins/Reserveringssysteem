@@ -4,13 +4,12 @@ include "include/header.php";
 include "include/functions.php";
 //gemaakt door iedereen
 
-//Uitgecomment ivm tijdgebrek, krijg het niet meer af.
+//Uitgecomment ivm tijdgebrek, krijg het niet meer af (Wesley).
 /*
 echo '<pre>';
 var_dump($_SESSION['gegevens']);
 var_dump($_SESSION['res-home']);
 echo '</pre>';
-
 
 $conn = mysqli_connect("localhost", "root", "", "sollestijn");
 
@@ -20,16 +19,12 @@ if(mysqli_connect_error($conn)) {
 
 $sql = "INSERT INTO `klant` (`voornaam`,`achternaam`,`email`,`telefoonnummer`,`geboortedatum`) VALUES (?,?,?,?,?)";
 
-
 if($stmt = mysqli_prepare($conn,$sql)) {
     $fname = $_SESSION['gegevens']['fname'];
     $lname = $_SESSION['gegevens']['lname'];
     $email = $_SESSION['gegevens']['email'];
     $gdate = $_SESSION['gegevens']['gdate'];
     $tel = $_SESSION['gegevens']['tel'];
-
-    
-
     
     mysqli_stmt_bind_param($stmt, "sssss", $fname, $lname, $email, $tel, $gdate);
     
@@ -44,7 +39,6 @@ if($stmt = mysqli_prepare($conn,$sql)) {
     echo mysqli_connect_errno();
     die("Could not prepare #1");
 }
-
 
 $kamerId = $_SESSION['res-home']['kamerid'];
 $klantId = mysqli_insert_id($conn);
@@ -86,7 +80,6 @@ if($stmt = mysqli_prepare($conn, $sql2)) {
     } else {
         die("Could not execute #2");
     }
-
   
 } else {
     die("Could not prepare #2");
@@ -128,5 +121,6 @@ if($stmt = mysqli_prepare($conn, $sql2)) {
         </div>
     </div>
 </div>
-
-<?php include "include/footer.php"; ?></div>
+<?php 
+include "include/footer.php"; 
+?>
