@@ -2,12 +2,9 @@
 $stylesheet = "betalen";
 include "include/header.php";
 
-//var_dump($_SESSION["gegevens"]);
-
 if (empty($_SESSION["res-home"]["kamerkeuze"])){
     echo "<a href='res-gegevens.php'>Vul alstublieft eerst de gegevens in</a>";
 }
-
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -29,7 +26,6 @@ if (empty($_SESSION["res-home"]["kamerkeuze"])){
         </div>
     </div>
 </div>
-
 <?php
 include "include/footer.php";
 ?>
