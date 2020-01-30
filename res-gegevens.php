@@ -1,5 +1,4 @@
 <?php
-
 $stylesheet = "res-home";
 include('include/header.php');
 include('include/functions.php'); // error melding functie
@@ -8,10 +7,7 @@ if(isset($_POST["id"])) {
     $_SESSION['res-home']['kamerid'] = htmlspecialchars($_POST["id"]);
     //var_dump($_POST["id"]);
 }
-
 ?>
-
-
 <div class="container-fluid">
     <div class="row login">
         <div class="col-12 formbox">
@@ -24,10 +20,8 @@ if(isset($_POST["id"])) {
                         <?php
                         //Door Mark Benjamins
                         viewMessage();//error melding basis 
-
                         //Zelf paginas
                         if (isset($_POST['submit'])) {
-                            
                             if (empty($_POST['fname']) || empty($_POST['lname']) || empty($_POST['gdate']) || empty($_POST['email']) || empty($_POST['tel']) || empty($_POST['postc']) || empty($_POST['hnummer'])) {
                                 sendMessage("Niet alle verplichte velden zijn ingevuld.", $_SERVER["PHP_SELF"]);
                                 // Iets niet ingevuld error
@@ -41,8 +35,6 @@ if(isset($_POST["id"])) {
                                 $postc = htmlspecialchars($_POST["postc"]);
                                 $hnummer = htmlspecialchars($_POST["hnummer"]);
                                 $gdate = htmlspecialchars($_POST["gdate"]);
-
-                                
 
                                 if (isset($_POST["ltijd1"])) {
                                     $ltijd1 = $_POST['ltijd1'];
@@ -158,8 +150,6 @@ if(isset($_POST["id"])) {
                                     sendMessage("Een leeftijd mag alleen betaan uit getallen en mag je mag niet ouder zijn dan 125.", $_SERVER["PHP_SELF"]);
                                 } else {
                                     /* Wesley */
-                                    //var_dump($_SESSION["res-home"]);
-
                                     $_SESSION["gegevens"]["fname"] = $fname;
                                     $_SESSION["gegevens"]["lname"] = $lname;
                                     $_SESSION["gegevens"]["email"] = $email;
@@ -224,7 +214,6 @@ if(isset($_POST["id"])) {
                             </div>
                             <?php //if kamer is groter dan 1 dan komt er een extra leetijd veld bij
 
-                            
                             if ($_SESSION['res-home']['kamerkeuze'] == "Eenpersoonskamer") {
                                 //niks
                             } elseif ($_SESSION['res-home']['kamerkeuze'] == "Tweepersoonskamer") {
@@ -300,7 +289,6 @@ if(isset($_POST["id"])) {
         </div>
     </div>
 </div>
-
 <?php
 include('include/footer.php');
 ?>
