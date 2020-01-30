@@ -2,8 +2,11 @@
 $stylesheet = "res-home";
 include('include/header.php');
 include('include/functions.php'); // error melding functie
-//$_SESSION['kamer'];
+var_dump($_SESSION['res-home']);
+
 ?>
+
+
 <div class="container-fluid">
     <div class="row login">
         <div class="col-12 formbox">
@@ -16,36 +19,6 @@ include('include/functions.php'); // error melding functie
                         <?php
                         //Door Mark Benjamins
                         viewMessage();//error melding basis 
-
-                        /* Wesley */
-                        //Vorige pagina ( kamer keuze)
-                        /*
-                        if(isset($_POST["id"])) {
-                            echo "ID IS SET";
-                            echo "<br/>";
-                            var_dump($_SESSION["res-home"]);
-                            $_SESSION["res-home"]["id"] = $_POST["id"];
-                        } else {
-                            echo "ID IS NOT SET";
-                        }
-
-                        if (!isset($_SESSION["res-home"])) {
-                            die("Session bestaat niet");
-                        } else {
-                            echo "Session bestaat! <br/>";
-                            var_dump($_SESSION["res-home"]);
-                            echo "<br/>";
-                        }
-
-                        if (!isset($_SESSION["gegevens"])) {
-                            echo "Session gegevens bestaat niet! <br/><br/>";
-                        } else {
-                            echo "<br/><br/><br/>";
-                            var_dump($_SESSION["gegevens"]);
-                            echo "<br/><br/><br/>";
-                        }
-                         */
-                        /* End wesley */
 
                         //Zelf paginas
                         if (isset($_POST['submit'])) {
@@ -227,13 +200,17 @@ include('include/functions.php'); // error melding functie
                                                                 ?>" type="date" name="gdate"><br><br>
                             </div>
                             <?php //if kamer is groter dan 1 dan komt er een extra leetijd veld bij
+
+                            
                             if ($_SESSION['res-home']['kamerkeuze'] == "Eenpersoonskamer") {
-                            } elseif ($_SESSION['res-home']['kamerkeuze'] = "Tweepersoonskamer") {
+                                //niks
+                            } elseif ($_SESSION['res-home']['kamerkeuze'] == "Tweepersoonskamer") {
                                 echo '<label for="leeftijd">Optioneel: leeftijd van uw medereizigers:</label>
                                     <div>
                                         <input class="formulier" type="number" placeholder=" Medereiziger 1" name="ltijd1">
                                     </div>';
-                            } elseif ($_SESSION['res-home']['kamerkeuze'] = "Vierpersoonskamer") {
+                            } elseif ($_SESSION['res-home']['kamerkeuze'] == "Vierpersoonskamer") {
+                                
                                 echo '<label for="leeftijd">Optioneel: leeftijd van uw medereizigers:</label>
                                     <div>
                                         <input class="formulier" type="number" placeholder=" Medereiziger 1" name="ltijd1">

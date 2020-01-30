@@ -83,13 +83,13 @@ function showKamer($id, $type, $omschrijving, $beschikbaar)
 {
 
     if ($type == 1) {
-        $kamer = "Eenpersoons kamer";
+        $kamer = "Eenpersoonskamer";
         $url = "res-kamer1pers.php";
     } else if ($type == 2) {
-        $kamer = "Tweepersoons kamer";
+        $kamer = "Tweepersoonskamer";
         $url = "res-kamer2pers.php";
     } else {
-        $kamer = "Vierpersoons kamer";
+        $kamer = "Vierpersoonskamer";
         $url = "res-kamer4pers.php";
     }
     echo "<div class='kamer'>";
