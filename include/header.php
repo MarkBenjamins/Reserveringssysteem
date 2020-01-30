@@ -8,7 +8,6 @@ if (isset($_SESSION["gebruiker"])) {
 ?>
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
 	<title>Landgoed Sollestijn</title>
 	<link href="stylesheets/bootstrap.css" type="text/css" rel="stylesheet">
@@ -22,7 +21,6 @@ if (isset($_SESSION["gebruiker"])) {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="author" content="Mark Benjamins, Storm Visser, Yanniek Wielage, Wesley Schoonbeek">
 </head>
-<!--gemaakt door Twan en Mark-->
 <body>
 	<div class="container-fluid">
 		<div class="row">
@@ -50,4 +48,3 @@ if (isset($_SESSION["gebruiker"])) {
 					</div>
 				</div>
 				<div id="content">
-					<!-- Dit is onze MAIN CONTENT !! -->
